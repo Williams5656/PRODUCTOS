@@ -63,10 +63,7 @@ public class Producto {
     public void setExistencia(int existencia) {
         this.existencia = existencia;
     }
-    
-    
-     
-    
+
 }
 
     

@@ -120,7 +120,13 @@ public class PRINCIPAL extends javax.swing.JFrame {
         this.ItemUsuarios = ItemUsuarios;
     }
 
-    
+    public JMenuItem getItemProductos() {
+        return ItemProductos;
+    }
+
+    public void setItemProductos(JMenuItem ItemProductos) {
+        this.ItemProductos = ItemProductos;
+    }
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

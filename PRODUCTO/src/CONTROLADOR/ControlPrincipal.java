@@ -6,6 +6,7 @@
 package CONTROLADOR;
 
 import VISTA.CRUD.VcrudCliente;
+import VISTA.CRUD.VcrudProducto;
 import VISTA.CRUD.VcrudProveedor;
 import VISTA.CRUD.VcrudUsuario;
 import VISTA.PRINCIPAL;
@@ -81,6 +82,12 @@ public class ControlPrincipal {
             AbrirCrudProveedor();
         });           
         
+        //Abre ventana crud Producto
+        contenedor.getItemProductos().addActionListener(l->{
+            contenedor.getDtp_principal().removeAll();
+            AbrirCrudProducto();
+        });           
+        
     }
     //Fin Inicia Programa
         
@@ -110,6 +117,15 @@ public class ControlPrincipal {
 //            CentrarVentanaInterna(vcp);        
     }    
     //
+    
+    //Abrir CRUD Producto
+    public void AbrirCrudProducto(){
+            VcrudProducto vcpd =new VcrudProducto();
+            contenedor.getDtp_principal().add(vcpd);
+            contenedor.getDtp_principal().updateUI(); 
+            CentrarVentanaInterna(vcpd);        
+    }    
+    //    
     
     //Centrar Ventanas Internas
     public void CentrarVentanaInterna(JInternalFrame internalFr){
