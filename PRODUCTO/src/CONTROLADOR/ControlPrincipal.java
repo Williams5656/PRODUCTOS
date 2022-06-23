@@ -7,7 +7,7 @@ package CONTROLADOR;
 
 import VISTA.CRUD.VcrudCliente;
 import VISTA.CRUD.VcrudProducto;
-import VISTA.CRUD.VcrudProveedor;
+
 import VISTA.CRUD.VcrudUsuario;
 import VISTA.PRINCIPAL;
 import VISTA.VLogin;
