@@ -373,7 +373,7 @@ public class VcrudCliente extends javax.swing.JInternalFrame {
                 .addContainerGap(14, Short.MAX_VALUE))
         );
 
-        setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 102), 2, true));
+        setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 102, 204), 5, true));
         setTitle("CRUD de Clientes");
 
         BtnAgregarCli.setText("Agregar");

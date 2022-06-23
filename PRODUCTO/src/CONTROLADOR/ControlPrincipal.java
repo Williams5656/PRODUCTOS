@@ -6,6 +6,8 @@
 package CONTROLADOR;
 
 import VISTA.CRUD.VcrudCliente;
+import VISTA.CRUD.VcrudProveedor;
+import VISTA.CRUD.VcrudUsuario;
 import VISTA.PRINCIPAL;
 import VISTA.VLogin;
 import java.awt.event.ActionEvent;
@@ -66,7 +68,19 @@ public class ControlPrincipal {
             contenedor.getDtp_principal().removeAll();
             AbrirCrudCliente();
         });
-            
+        
+        //Abre ventana crud Usuarios
+        contenedor.getItemUsuarios().addActionListener(l->{
+            contenedor.getDtp_principal().removeAll();
+            AbrirCrudUsuario();
+        });        
+        
+        //Abre ventana crud Proveedores
+        contenedor.getItemProveedores().addActionListener(l->{
+            contenedor.getDtp_principal().removeAll();
+            AbrirCrudProveedor();
+        });           
+        
     }
     //Fin Inicia Programa
         
@@ -77,6 +91,24 @@ public class ControlPrincipal {
             contenedor.getDtp_principal().updateUI(); 
             CentrarVentanaInterna(vcc);        
     }
+    //
+    
+    //Arir CRUD Usuario
+    public void AbrirCrudUsuario(){
+            VcrudUsuario vcu =new VcrudUsuario();
+            contenedor.getDtp_principal().add(vcu);
+            contenedor.getDtp_principal().updateUI(); 
+            CentrarVentanaInterna(vcu);        
+    }    
+    //
+    
+    //Abrir CRUD Proveedor
+    public void AbrirCrudProveedor(){
+//            VcrudProveedor vcp =new VcrudProveedor();
+//            contenedor.getDtp_principal().add(vcp);
+//            contenedor.getDtp_principal().updateUI(); 
+//            CentrarVentanaInterna(vcp);        
+    }    
     //
     
     //Centrar Ventanas Internas

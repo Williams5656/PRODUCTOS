@@ -33,11 +33,11 @@ public class PRINCIPAL extends javax.swing.JFrame {
         Dtp_principal = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenuItem4 = new javax.swing.JMenuItem();
+        ItemProductos = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        ItemUsuarios = new javax.swing.JMenuItem();
         ItemClientes = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
+        ItemProveedores = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -54,21 +54,21 @@ public class PRINCIPAL extends javax.swing.JFrame {
 
         jMenu1.setText("Productos");
 
-        jMenuItem4.setText("jMenuItem4");
-        jMenu1.add(jMenuItem4);
+        ItemProductos.setText("Productos");
+        jMenu1.add(ItemProductos);
 
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Personas");
 
-        jMenuItem1.setText("Usuarios");
-        jMenu2.add(jMenuItem1);
+        ItemUsuarios.setText("Usuarios");
+        jMenu2.add(ItemUsuarios);
 
         ItemClientes.setText("Clientes");
         jMenu2.add(ItemClientes);
 
-        jMenuItem3.setText("Proveedores");
-        jMenu2.add(jMenuItem3);
+        ItemProveedores.setText("Proveedores");
+        jMenu2.add(ItemProveedores);
 
         jMenuBar1.add(jMenu2);
 
@@ -103,16 +103,34 @@ public class PRINCIPAL extends javax.swing.JFrame {
     public void setItemClientes(JMenuItem ItemClientes) {
         this.ItemClientes = ItemClientes;
     }
+
+    public JMenuItem getItemProveedores() {
+        return ItemProveedores;
+    }
+
+    public void setItemProveedores(JMenuItem ItemProveedores) {
+        this.ItemProveedores = ItemProveedores;
+    }
+
+    public JMenuItem getItemUsuarios() {
+        return ItemUsuarios;
+    }
+
+    public void setItemUsuarios(JMenuItem ItemUsuarios) {
+        this.ItemUsuarios = ItemUsuarios;
+    }
+
+    
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane Dtp_principal;
     private javax.swing.JMenuItem ItemClientes;
+    private javax.swing.JMenuItem ItemProductos;
+    private javax.swing.JMenuItem ItemProveedores;
+    private javax.swing.JMenuItem ItemUsuarios;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
     // End of variables declaration//GEN-END:variables
 }
