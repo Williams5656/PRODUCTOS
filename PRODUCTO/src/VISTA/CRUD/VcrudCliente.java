@@ -376,6 +376,7 @@ public class VcrudCliente extends javax.swing.JInternalFrame {
         setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 102, 204), 5, true));
         setTitle("CRUD de Clientes");
 
+        BtnAgregarCli.setIcon(new javax.swing.ImageIcon(getClass().getResource("/VISTA/ICONOS/business_application_addmale_useradd_insert_add_user_client_2312.png"))); // NOI18N
         BtnAgregarCli.setText("Agregar");
         BtnAgregarCli.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         BtnAgregarCli.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -385,10 +386,12 @@ public class VcrudCliente extends javax.swing.JInternalFrame {
             }
         });
 
+        BtnEditarCli.setIcon(new javax.swing.ImageIcon(getClass().getResource("/VISTA/ICONOS/modifica.png"))); // NOI18N
         BtnEditarCli.setText("Editar");
         BtnEditarCli.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         BtnEditarCli.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
+        BtnEliminarCli.setIcon(new javax.swing.ImageIcon(getClass().getResource("/VISTA/ICONOS/user_eliminate_12817.png"))); // NOI18N
         BtnEliminarCli.setText("Eliminar");
         BtnEliminarCli.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         BtnEliminarCli.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);

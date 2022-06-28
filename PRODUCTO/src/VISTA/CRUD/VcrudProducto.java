@@ -251,14 +251,17 @@ public class VcrudProducto extends javax.swing.JInternalFrame {
 
         BtnAgregarFotoAA.setText("Agregar Foto");
 
+        BtnAgregarArt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/VISTA/ICONOS/agrega.png"))); // NOI18N
         BtnAgregarArt.setText("Agregar");
         BtnAgregarArt.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         BtnAgregarArt.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
+        BtnEditarArt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/VISTA/ICONOS/edita.png"))); // NOI18N
         BtnEditarArt.setText("Editar");
         BtnEditarArt.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         BtnEditarArt.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
+        BtnEliminarArt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/VISTA/ICONOS/delete_remove_close_icon_181533.png"))); // NOI18N
         BtnEliminarArt.setText("Eliminar");
         BtnEliminarArt.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         BtnEliminarArt.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);

@@ -307,6 +307,9 @@
   <SubComponents>
     <Component class="javax.swing.JButton" name="BtnAgregarCli">
       <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/VISTA/ICONOS/business_application_addmale_useradd_insert_add_user_client_2312.png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Agregar"/>
         <Property name="horizontalTextPosition" type="int" value="0"/>
         <Property name="verticalTextPosition" type="int" value="3"/>
@@ -317,6 +320,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="BtnEditarCli">
       <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/VISTA/ICONOS/modifica.png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Editar"/>
         <Property name="horizontalTextPosition" type="int" value="0"/>
         <Property name="verticalTextPosition" type="int" value="3"/>
@@ -324,6 +330,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="BtnEliminarCli">
       <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/VISTA/ICONOS/user_eliminate_12817.png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Eliminar"/>
         <Property name="horizontalTextPosition" type="int" value="0"/>
         <Property name="verticalTextPosition" type="int" value="3"/>
