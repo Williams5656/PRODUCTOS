@@ -167,6 +167,14 @@ public class VcrudCliente extends javax.swing.JInternalFrame {
         return jtb_cliente;
     }
 
+    public JTextField getTxtCorreo() {
+        return TxtCorreo;
+    }
+
+    public void setTxtCorreo(JTextField TxtCorreo) {
+        this.TxtCorreo = TxtCorreo;
+    }
+    
     public void setJtb_cliente(JTable jtb_cliente) {
         this.jtb_cliente = jtb_cliente;
     }
@@ -210,6 +218,8 @@ public class VcrudCliente extends javax.swing.JInternalFrame {
         TxtTelefono = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         TxtCelular = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
+        TxtCorreo = new javax.swing.JTextField();
         BtnAgregarCli = new javax.swing.JButton();
         BtnEditarCli = new javax.swing.JButton();
         BtnEliminarCli = new javax.swing.JButton();
@@ -251,6 +261,8 @@ public class VcrudCliente extends javax.swing.JInternalFrame {
 
         jLabel10.setText("Celular:");
 
+        jLabel11.setText("Correo:");
+
         javax.swing.GroupLayout JdClienteLayout = new javax.swing.GroupLayout(JdCliente.getContentPane());
         JdCliente.getContentPane().setLayout(JdClienteLayout);
         JdClienteLayout.setHorizontalGroup(
@@ -259,7 +271,7 @@ public class VcrudCliente extends javax.swing.JInternalFrame {
             .addGroup(JdClienteLayout.createSequentialGroup()
                 .addGap(99, 99, 99)
                 .addComponent(jLabelTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 373, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(110, 110, 110))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(JdClienteLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(JdClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -270,7 +282,8 @@ public class VcrudCliente extends javax.swing.JInternalFrame {
                     .addComponent(jLabel7)
                     .addComponent(jLabel8)
                     .addComponent(jLabel2)
-                    .addComponent(jLabel10))
+                    .addComponent(jLabel10)
+                    .addComponent(jLabel11))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(JdClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(JdClienteLayout.createSequentialGroup()
@@ -291,9 +304,11 @@ public class VcrudCliente extends javax.swing.JInternalFrame {
                                 .addGap(34, 34, 34)))
                         .addGap(45, 45, 45))
                     .addGroup(JdClienteLayout.createSequentialGroup()
-                        .addGroup(JdClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(TxtCelular, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(TxtTelefono, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 154, Short.MAX_VALUE))
+                        .addGroup(JdClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(JdClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(TxtCelular, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(TxtTelefono, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 154, Short.MAX_VALUE))
+                            .addComponent(TxtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         JdClienteLayout.setVerticalGroup(
@@ -344,7 +359,11 @@ public class VcrudCliente extends javax.swing.JInternalFrame {
                 .addGroup(JdClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(TxtCelular, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel10))
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(JdClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(TxtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel11))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 102, 204), 5, true));
@@ -462,6 +481,7 @@ public class VcrudCliente extends javax.swing.JInternalFrame {
     private javax.swing.JTextField TxtCedulaCli;
     private javax.swing.JTextField TxtCelular;
     private javax.swing.JTextField TxtCiudad;
+    private javax.swing.JTextField TxtCorreo;
     private javax.swing.JTextField TxtDireccion;
     private javax.swing.JTextField TxtDireccionDom;
     private javax.swing.JTextField TxtNombre;
@@ -469,6 +489,7 @@ public class VcrudCliente extends javax.swing.JInternalFrame {
     private javax.swing.JComboBox<String> jComboBuscar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
