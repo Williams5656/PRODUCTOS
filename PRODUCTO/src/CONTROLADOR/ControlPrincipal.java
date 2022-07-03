@@ -7,7 +7,7 @@ package CONTROLADOR;
 
 import VISTA.CRUD.VcrudCliente;
 import VISTA.CRUD.VcrudProducto;
-
+import VISTA.CRUD.VcrudProveedor;
 import VISTA.CRUD.VcrudUsuario;
 import VISTA.PRINCIPAL;
 import VISTA.VLogin;
@@ -93,10 +93,12 @@ public class ControlPrincipal {
         
     //Abrir CRUD CLIENTE
     public void AbrirCrudCliente(){
+            ControlCRUDCliente ccc=new ControlCRUDCliente();
             VcrudCliente vcc =new VcrudCliente();
             contenedor.getDtp_principal().add(vcc);
             contenedor.getDtp_principal().updateUI(); 
-            CentrarVentanaInterna(vcc);        
+            CentrarVentanaInterna(vcc);    
+            ccc.IniciarControl(vcc);
     }
     //
     
@@ -111,10 +113,10 @@ public class ControlPrincipal {
     
     //Abrir CRUD Proveedor
     public void AbrirCrudProveedor(){
-//            VcrudProveedor vcp =new VcrudProveedor();
-//            contenedor.getDtp_principal().add(vcp);
-//            contenedor.getDtp_principal().updateUI(); 
-//            CentrarVentanaInterna(vcp);        
+            VcrudProveedor vcp =new VcrudProveedor();
+            contenedor.getDtp_principal().add(vcp);
+            contenedor.getDtp_principal().updateUI(); 
+            CentrarVentanaInterna(vcp);        
     }    
     //
     

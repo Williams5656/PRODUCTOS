@@ -8,44 +8,19 @@ package MODELO;
  *
  * @author prisc
  */
-public class Usuario {
-     private String cedula;
-    private int codigo_cliente;
-    private String usuario;
+public class Usuario extends Persona{
+    
     private String contrasenia;
     private int codigo_usuario;
-    private String nombre;
+    private String usuario;
 
-    public Usuario(String cedula, int codigo_cliente, String usuario, String contrasenia, int codigo_usuario, String nombre) {
-        this.cedula = cedula;
-        this.codigo_cliente = codigo_cliente;
-        this.usuario = usuario;
+    public Usuario() {
+    }
+
+    public Usuario(String contrasenia, int codigo_usuario, String cedula, String nombre, String apellido, String correo, String direccion, String telefono, String fecha_nac, String ciudad, String celular, String usuario) {
+        super(cedula, nombre, apellido, correo, direccion, telefono, fecha_nac, ciudad, celular);
         this.contrasenia = contrasenia;
         this.codigo_usuario = codigo_usuario;
-        this.nombre = nombre;
-    }
-
-    public String getCedula() {
-        return cedula;
-    }
-
-    public void setCedula(String cedula) {
-        this.cedula = cedula;
-    }
-
-    public int getCodigo_cliente() {
-        return codigo_cliente;
-    }
-
-    public void setCodigo_cliente(int codigo_cliente) {
-        this.codigo_cliente = codigo_cliente;
-    }
-
-    public String getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(String usuario) {
         this.usuario = usuario;
     }
 
@@ -63,16 +38,14 @@ public class Usuario {
 
     public void setCodigo_usuario(int codigo_usuario) {
         this.codigo_usuario = codigo_usuario;
+    }   
+
+    public String getUsuario() {
+        return usuario;
     }
 
-    public String getNombre() {
-        return nombre;
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-    
-    
-    
 }

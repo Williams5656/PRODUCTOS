@@ -8,40 +8,25 @@ package MODELO;
  *
  * @author prisc
  */
-public class Proveedores {
-    private String nombre;
-    private String nombre_producto;
+public class Proveedores extends Persona{
+    
     private int codigo_proveedor;
-    private String correo;
-    private String telefono;
-    private String direccion;
+    private String razon_social;
+    private String provincia;
   
     //metodo constructor
 
-    public Proveedores(String nombre, String nombre_producto, int codigo_proveedor, String correo, String telefono, String direccion) {
-        this.nombre = nombre;
-        this.nombre_producto = nombre_producto;
+    public Proveedores() {
+    } 
+    
+    public Proveedores(int codigo_proveedor, String razon_social, String provincia, String cedula, String nombre, String apellido, String correo, String direccion, String telefono, String fecha_nac, String ciudad, String celular) {
+        super(cedula, nombre, apellido, correo, direccion, telefono, fecha_nac, ciudad, celular);
         this.codigo_proveedor = codigo_proveedor;
-        this.correo = correo;
-        this.telefono = telefono;
-        this.direccion = direccion;
+        this.razon_social = razon_social;
+        this.provincia = provincia;
     }
 
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getNombre_producto() {
-        return nombre_producto;
-    }
-
-    public void setNombre_producto(String nombre_producto) {
-        this.nombre_producto = nombre_producto;
-    }
+    //Getters y setters
 
     public int getCodigo_proveedor() {
         return codigo_proveedor;
@@ -51,29 +36,20 @@ public class Proveedores {
         this.codigo_proveedor = codigo_proveedor;
     }
 
-    public String getCorreo() {
-        return correo;
+    public String getRazon_social() {
+        return razon_social;
     }
 
-    public void setCorreo(String correo) {
-        this.correo = correo;
+    public void setRazon_social(String razon_social) {
+        this.razon_social = razon_social;
     }
 
-    public String getTelefono() {
-        return telefono;
+    public String getProvincia() {
+        return provincia;
     }
 
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
+    public void setProvincia(String provincia) {
+        this.provincia = provincia;
     }
-
-    public String getDireccion() {
-        return direccion;
-    }
-
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
-    }
-    
     
 }

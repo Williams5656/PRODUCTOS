@@ -178,19 +178,6 @@ public class VcrudCliente extends javax.swing.JInternalFrame {
     public void setTxtDireccionDom(JTextField TxtDireccionDom) {
         this.TxtDireccionDom = TxtDireccionDom;
     }
-
-    public JTextField getTxtRazonSocial() {
-        return TxtRazonSocial;
-    }
-
-    public void setTxtRazonSocial(JTextField TxtRazonSocial) {
-        this.TxtRazonSocial = TxtRazonSocial;
-    }
-    
-    
-
-    //Getters y Setter del JD
-
         
     /**
      * This method is called from within the constructor to initialize the form.
@@ -216,8 +203,6 @@ public class VcrudCliente extends javax.swing.JInternalFrame {
         TxtDireccionDom = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         TxtCiudad = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
-        TxtRazonSocial = new javax.swing.JTextField();
         jLabelIcono = new javax.swing.JLabel();
         BtnGuardarCli = new javax.swing.JButton();
         BtnCancelarCli = new javax.swing.JButton();
@@ -249,8 +234,6 @@ public class VcrudCliente extends javax.swing.JInternalFrame {
         jLabel7.setText("Domicilio:");
 
         jLabel8.setText("Ciudad:");
-
-        jLabel9.setText("Razon social:");
 
         jLabelIcono.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelIcono.setIcon(new javax.swing.ImageIcon(getClass().getResource("/VISTA/ICONOS/ClienteG.png"))); // NOI18N
@@ -286,37 +269,32 @@ public class VcrudCliente extends javax.swing.JInternalFrame {
                     .addComponent(jLabel6)
                     .addComponent(jLabel7)
                     .addComponent(jLabel8)
-                    .addComponent(jLabel9)
                     .addComponent(jLabel2)
                     .addComponent(jLabel10))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(JdClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(JdClienteLayout.createSequentialGroup()
+                        .addGroup(JdClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(TxtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TxtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TxtCedulaCli, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TxtCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TxtDireccion, javax.swing.GroupLayout.DEFAULT_SIZE, 242, Short.MAX_VALUE)
+                            .addComponent(TxtDireccionDom))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(JdClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(TxtRazonSocial, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(JdClienteLayout.createSequentialGroup()
-                                .addGroup(JdClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(TxtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(TxtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(TxtCedulaCli, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(TxtCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(TxtDireccion, javax.swing.GroupLayout.DEFAULT_SIZE, 242, Short.MAX_VALUE)
-                                    .addComponent(TxtDireccionDom))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(JdClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabelIcono, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JdClienteLayout.createSequentialGroup()
-                                        .addGroup(JdClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addComponent(BtnCancelarCli, javax.swing.GroupLayout.DEFAULT_SIZE, 91, Short.MAX_VALUE)
-                                            .addComponent(BtnGuardarCli, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                        .addGap(34, 34, 34)))))
+                            .addComponent(jLabelIcono, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JdClienteLayout.createSequentialGroup()
+                                .addGroup(JdClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(BtnCancelarCli, javax.swing.GroupLayout.DEFAULT_SIZE, 91, Short.MAX_VALUE)
+                                    .addComponent(BtnGuardarCli, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(34, 34, 34)))
                         .addGap(45, 45, 45))
                     .addGroup(JdClienteLayout.createSequentialGroup()
                         .addGroup(JdClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(TxtCelular, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(TxtTelefono, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 154, Short.MAX_VALUE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         JdClienteLayout.setVerticalGroup(
             JdClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -350,11 +328,7 @@ public class VcrudCliente extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(JdClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel8)
-                            .addComponent(TxtCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(JdClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel9)
-                            .addComponent(TxtRazonSocial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(TxtCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(JdClienteLayout.createSequentialGroup()
                         .addGap(72, 72, 72)
                         .addComponent(jLabelIcono, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -362,7 +336,7 @@ public class VcrudCliente extends javax.swing.JInternalFrame {
                         .addComponent(BtnGuardarCli)
                         .addGap(4, 4, 4)
                         .addComponent(BtnCancelarCli)))
-                .addGap(10, 10, 10)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(JdClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(TxtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
@@ -370,7 +344,7 @@ public class VcrudCliente extends javax.swing.JInternalFrame {
                 .addGroup(JdClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(TxtCelular, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel10))
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
         setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 102, 204), 5, true));
@@ -401,7 +375,7 @@ public class VcrudCliente extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "Cedula/Ruc", "Apellido", "Nombre", "Contacto", "Ciudad"
+                "Cedula/Ruc", "Apellido", "Nombre", "Contacto", "Direccion"
             }
         ) {
             Class[] types = new Class [] {
@@ -491,7 +465,6 @@ public class VcrudCliente extends javax.swing.JInternalFrame {
     private javax.swing.JTextField TxtDireccion;
     private javax.swing.JTextField TxtDireccionDom;
     private javax.swing.JTextField TxtNombre;
-    private javax.swing.JTextField TxtRazonSocial;
     private javax.swing.JTextField TxtTelefono;
     private javax.swing.JComboBox<String> jComboBuscar;
     private javax.swing.JLabel jLabel1;
@@ -503,7 +476,6 @@ public class VcrudCliente extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabelIcono;
     private javax.swing.JLabel jLabelTitulo;
     private javax.swing.JScrollPane jScrollPane1;
