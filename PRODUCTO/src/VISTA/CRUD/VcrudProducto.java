@@ -5,6 +5,21 @@
  */
 package VISTA.CRUD;
 
+import javax.accessibility.AccessibleContext;
+import javax.swing.Icon;
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JRootPane;
+import javax.swing.JScrollPane;
+import javax.swing.JSeparator;
+import javax.swing.JSpinner;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.event.EventListenerList;
+import javax.swing.plaf.ComponentUI;
+
 /**
  *
  * @author james
@@ -17,6 +32,95 @@ public class VcrudProducto extends javax.swing.JInternalFrame {
     public VcrudProducto() {
         initComponents();
     }
+
+    public JButton getBtnAgregarArt() {
+        return BtnAgregarArt;
+    }
+
+    public void setBtnAgregarArt(JButton BtnAgregarArt) {
+        this.BtnAgregarArt = BtnAgregarArt;
+    }
+
+    public JButton getBtnAgregarFotoAA() {
+        return BtnAgregarFotoAA;
+    }
+
+    public void setBtnAgregarFotoAA(JButton BtnAgregarFotoAA) {
+        this.BtnAgregarFotoAA = BtnAgregarFotoAA;
+    }
+
+    public JButton getBtnCancelarArt() {
+        return BtnCancelarArt;
+    }
+
+    public void setBtnCancelarArt(JButton BtnCancelarArt) {
+        this.BtnCancelarArt = BtnCancelarArt;
+    }
+
+    public JButton getBtnEditarArt() {
+        return BtnEditarArt;
+    }
+
+    public void setBtnEditarArt(JButton BtnEditarArt) {
+        this.BtnEditarArt = BtnEditarArt;
+    }
+
+    public JButton getBtnEliminarArt() {
+        return BtnEliminarArt;
+    }
+
+    public void setBtnEliminarArt(JButton BtnEliminarArt) {
+        this.BtnEliminarArt = BtnEliminarArt;
+    }
+
+    public JButton getBtnGuardaArt() {
+        return BtnGuardaArt;
+    }
+
+    public void setBtnGuardaArt(JButton BtnGuardaArt) {
+        this.BtnGuardaArt = BtnGuardaArt;
+    }
+
+    public JTextField getTxtBuscarEmp() {
+        return TxtBuscarEmp;
+    }
+
+    public void setTxtBuscarEmp(JTextField TxtBuscarEmp) {
+        this.TxtBuscarEmp = TxtBuscarEmp;
+    }
+
+    public JTextField getTxtCodArticulo() {
+        return TxtCodArticulo;
+    }
+
+    public void setTxtCodArticulo(JTextField TxtCodArticulo) {
+        this.TxtCodArticulo = TxtCodArticulo;
+    }
+
+    public JTextField getTxtDescripcion() {
+        return TxtDescripcion;
+    }
+
+    public void setTxtDescripcion(JTextField TxtDescripcion) {
+        this.TxtDescripcion = TxtDescripcion;
+    }
+
+    public JTextField getTxtNombre() {
+        return TxtNombre;
+    }
+
+    public void setTxtNombre(JTextField TxtNombre) {
+        this.TxtNombre = TxtNombre;
+    }
+
+    public JTextField getJtxtPrecioCompraBase() {
+        return jtxtPrecioCompraBase;
+    }
+
+    public void setJtxtPrecioCompraBase(JTextField jtxtPrecioCompraBase) {
+        this.jtxtPrecioCompraBase = jtxtPrecioCompraBase;
+    }
+  
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -48,8 +152,6 @@ public class VcrudProducto extends javax.swing.JInternalFrame {
         jLabelTitulo = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel3 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jtb_articulos = new javax.swing.JTable();
         TxtBuscarEmp = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
@@ -58,6 +160,8 @@ public class VcrudProducto extends javax.swing.JInternalFrame {
         BtnAgregarArt = new javax.swing.JButton();
         BtnEditarArt = new javax.swing.JButton();
         BtnEliminarArt = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jtb_productos = new javax.swing.JTable();
 
         jLabel19.setText("Codigo del producto:");
 
@@ -218,30 +322,11 @@ public class VcrudProducto extends javax.swing.JInternalFrame {
 
         setTitle("Productos");
 
-        jtb_articulos.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Codigo", "Nombre", "Descripcion", "Precio", "Existencia"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
+        TxtBuscarEmp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxtBuscarEmpActionPerformed(evt);
             }
         });
-        jScrollPane1.setViewportView(jtb_articulos);
 
         jLabel1.setText("Articulos");
 
@@ -264,16 +349,29 @@ public class VcrudProducto extends javax.swing.JInternalFrame {
         BtnEliminarArt.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         BtnEliminarArt.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
+        jtb_productos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "Codigo", "Nombre", "Descripcion", "Precio", "Existencia"
+            }
+        ));
+        jScrollPane2.setViewportView(jtb_productos);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(636, 636, 636)
                         .addComponent(BtnAgregarFotoAA, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel17)
@@ -287,7 +385,7 @@ public class VcrudProducto extends javax.swing.JInternalFrame {
                         .addComponent(BtnEditarArt, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(BtnEliminarArt, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 968, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 905, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -303,9 +401,9 @@ public class VcrudProducto extends javax.swing.JInternalFrame {
                         .addComponent(TxtBuscarEmp, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel18)
                     .addComponent(jLabel17))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 479, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(48, 48, 48)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(47, 47, 47)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(BtnAgregarFotoAA))
@@ -314,6 +412,10 @@ public class VcrudProducto extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void TxtBuscarEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtBuscarEmpActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TxtBuscarEmpActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -343,10 +445,10 @@ public class VcrudProducto extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabelTitulo;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JTable jtb_articulos;
+    private javax.swing.JTable jtb_productos;
     private javax.swing.JTextField jtxtPrecioCompraBase;
     // End of variables declaration//GEN-END:variables
 }

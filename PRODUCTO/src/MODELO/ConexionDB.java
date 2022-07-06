@@ -55,6 +55,20 @@ public class ConexionDB {
         }
     }
 
+    //PRODUCTOS
+     public boolean accion(String sqla){
+        try {
+            stm = conexion.createStatement();
+            boolean rb=stm.execute(sqla);
+            stm.close();
+            return true; //rb;
+        } catch (SQLException ex) {
+            Logger.getLogger(ConexionDB.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+    }
+     
+    
     public SQLException noQuery(String nqry) {
 
         try {
