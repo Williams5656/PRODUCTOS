@@ -23,6 +23,8 @@ public class ConexionDB {
     
     private final String user = "znfnqjrnxvbgqe";
     private final String clave = "f48f4656ce162f56bdc4ed25c0384bcff30056bece5403fd038aa4b60f84c75e";
+    
+    //BASE AQUI
     private final String url = "jdbc:postgresql://ec2-44-199-52-133.compute-1.amazonaws.com/dc3k5f62r653lp";
 
     
@@ -43,6 +45,9 @@ public class ConexionDB {
             System.out.println("Error de conexion");
         }
     }
+    
+
+    
     
     public ResultSet query(String sql) {
         try {
