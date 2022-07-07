@@ -5,6 +5,9 @@
  */
 package VISTA;
 
+import VISTA.CRUD.VcrudCliente;
+import VISTA.CRUD.VcrudProducto;
+import VISTA.CRUD.VcrudProveedor;
 import javax.swing.JDesktopPane;
 import javax.swing.JMenuItem;
 
@@ -53,8 +56,18 @@ public class PRINCIPAL extends javax.swing.JFrame {
         );
 
         jMenu1.setText("Productos");
+        jMenu1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu1ActionPerformed(evt);
+            }
+        });
 
         ItemProductos.setText("Productos");
+        ItemProductos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ItemProductosActionPerformed(evt);
+            }
+        });
         jMenu1.add(ItemProductos);
 
         jMenuBar1.add(jMenu1);
@@ -87,6 +100,21 @@ public class PRINCIPAL extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
+        // TODO add your handling code here:
+        //VcrudProducto prod= new VcrudProducto();
+       
+    }//GEN-LAST:event_jMenu1ActionPerformed
+
+    private void ItemProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemProductosActionPerformed
+        // TODO add your handling code here:
+   VcrudProducto prod= new VcrudProducto();
+    //VcrudCliente prod= new VcrudCliente();
+        Dtp_principal.add(prod);
+         Dtp_principal.show();
+        prod.setVisible(true);
+    }//GEN-LAST:event_ItemProductosActionPerformed
 
     public JDesktopPane getDtp_principal() {
         return Dtp_principal;

@@ -6,56 +6,56 @@ package CONTROLADOR;
 
 import MODELO.Producto;
 
-
 import VISTA.CRUD.VcrudProducto;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.List;
 import javax.swing.JOptionPane;
+
 /**
  *
  * @author prisc
  */
 public class ControlCRUDProducto {
-
-      private Producto producto;
+    
+private Producto producto;
     private VcrudProducto pro;
-      int fila, n;
+    int fila, n;
     char digito = 1;
-   
-    
-    
 
-    /*
-    public ControlCRUDProductorudProducto pro) {
-        this.modelo = modelo;
-        this.vista = vista;
-        vista.setTitle("Datos y registro del Socio");
-        vista.setVisible(true);
+    
+       
+      
+        /*
         cargarDatos();
         desactivarBotones();
         vista.getTxtFechaIngreso().setText(FechaActual());
         vista.getTxtFechaIngreso().setEditable(false);
         vista.getTxtNumCuenta().setEditable(false);
         vista.getTxtCodigo().setEditable(false);
+         */
 
-    }
-     */
-    public void ControlProducto(VcrudProducto pro) {
-        this.producto = producto;
+    public ControlCRUDProducto(VcrudProducto pro) {
+        System.out.println(pro);
+         
         this.pro = pro;
         pro.setTitle("Productos");
         pro.setVisible(true);
         //cargarDatos();
         //desactivarBotones();
-       
+
         pro.getTxtCodArticulo().setEditable(false);
+        //ControlProducto(pro);
+        
+        
     }
+    
+    
+   
 
     
-       public void IniciarControl() {
 
-      
+    public void IniciarControl() {
 
         KeyListener buscador;
         buscador = new KeyListener() {
@@ -83,13 +83,10 @@ public class ControlCRUDProducto {
         pro.getTxtBuscarEmp().addKeyListener(buscador);
         pro.getBtnAgregarArt().addActionListener(l -> mostrarDialogo(1));
         pro.getBtnEditarArt().addActionListener(l -> mostrarDialogo(2));
-        
 
-       
     }
-    
-       
-       public void mostrarDialogo(int origen) {
+
+    public void mostrarDialogo(int origen) {
         pro.getjDialog().setSize(711, 443);
         pro.getjDialog().setLocationRelativeTo(pro);
         fila = pro.getJtb_productos().getSelectedRow();
@@ -97,7 +94,7 @@ public class ControlCRUDProducto {
             n = 1;
             //limpiar();
             pro.getjDialog().setTitle("Crear Productos");
-           
+
             pro.getTxtCodArticulo().setVisible(false);
             pro.getTxtDescripcion().setEditable(true);
         } else {
@@ -106,14 +103,13 @@ public class ControlCRUDProducto {
             pro.getjDialog().setTitle("Editar Producto");
             pro.getTxtCodArticulo().setEditable(false);
             //pro.getBtnNuevaCuenta().setVisible(false);
-           // pro.getLblCodigo().setVisible(true);
+            // pro.getLblCodigo().setVisible(true);
             //pro.getTxtCodigo().setVisible(true);
         }
         pro.getjDialog().setVisible(true);
     }
-       
-       
-       public void mostrarDatos() {
+
+    public void mostrarDatos() {
 
         List<Producto> produ = producto.prolist();
 
@@ -123,9 +119,10 @@ public class ControlCRUDProducto {
         pro.getTxtNombre().setText(String.valueOf(produ.get(fila).getNombre_producto()));
         pro.getTxtDescripcion().setText(String.valueOf(produ.get(fila).getDescripcion()));
         pro.getJtxtPrecioCompraBase().setText(String.valueOf(produ.get(fila).getPrecio()));
-      //  pro.get().setText(String.valueOf(socios.get(fila).getCorreo_socio()));
+        //  pro.get().setText(String.valueOf(socios.get(fila).getCorreo_socio()));
     }
-       /*
+
+    /*
        private void cargarDatos() {
         DefaultTableModel dtm;
         dtm = (DefaultTableModel) pro.getJtb_productos().getModel();
@@ -137,7 +134,7 @@ public class ControlCRUDProducto {
             dtm.addRow(producto);
         });
     }
-*/
+     */
     private void crearProducto() {
         int fila = 0;
         int ced;
@@ -169,9 +166,7 @@ public class ControlCRUDProducto {
 
         }
     }
-    
-    
-    
+
     //Metodo para habilitar los botones cuando le de clic a un dato de la tabla
     private void habilitarBoton(java.awt.event.MouseEvent evt) {
         int column = pro.getJtb_productos().getColumnModel().getColumnIndexAtX(evt.getX());
@@ -184,7 +179,7 @@ public class ControlCRUDProducto {
         }
 
     }
-/*
+    /*
      //Carga datos de cliente a la tabla
     private void CargarProducto(VcrudProducto pr, String cedula, String campo){
         List<Producto> Listap = p(cedula, campo);
@@ -198,9 +193,9 @@ public class ControlCRUDProducto {
         });
         vc.getJtb_cliente().setModel(mtdTable);
     }    
-    */
-    
-    /*
+     */
+
+ /*
      public void Eliminar(VcrudProducto pro){
         int filaseleccionada = pro.getJtb_productos().getSelectedRow();
         if(filaseleccionada<0){
@@ -216,13 +211,5 @@ public class ControlCRUDProducto {
                 }
         }        
     }   
-*/
+     */
 }
-
- 
-
-          
-       
-
-    
-

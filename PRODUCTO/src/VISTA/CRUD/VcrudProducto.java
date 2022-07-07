@@ -30,7 +30,9 @@ public class VcrudProducto extends javax.swing.JInternalFrame {
      * Creates new form VcrudProducto
      */
     public VcrudProducto() {
+        this.setVisible(true);
         initComponents();
+       
     }
 
     public JDialog getjDialog() {
@@ -211,6 +213,7 @@ public class VcrudProducto extends javax.swing.JInternalFrame {
         return rootPaneCheckingEnabled;
     }
 
+    @Override
     public void setRootPaneCheckingEnabled(boolean rootPaneCheckingEnabled) {
         this.rootPaneCheckingEnabled = rootPaneCheckingEnabled;
     }
@@ -682,7 +685,7 @@ public class VcrudProducto extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(BtnEliminarArt, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 905, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

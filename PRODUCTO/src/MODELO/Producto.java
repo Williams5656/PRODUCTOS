@@ -80,11 +80,11 @@ public class Producto {
     //IMPLEMENTACION DE MÉTODOS
 //CREAR PRODUCTO
     public boolean CrearProducto() {
-        String sql = new String();
-//        String sentencia;
+        String sql;
+//        
 
         sql = "INSERT INTO producto (cod_producto,nombre, descripcion, existencia,precio)";
-        sql = sql + "VALUES('" +getCodigo_producto () + "','" + getNombre_producto() + "','" + getDescripcion() + "','"
+        sql = sql + "VALUES('" + getCodigo_producto() + "','" + getNombre_producto() + "','" + getDescripcion() + "','"
                 + getExistencia() + "','" + getPrecio() + "','TRUE')";
         return conec.accion(sql);
 
@@ -153,13 +153,10 @@ public class Producto {
         }
     }
 
-    
-      public List<Producto> prolist() {
+    public List<Producto> prolist() {
 
         try {
-            
-             //String sql = "SELECT * FROM producto WHERE estado_socio='true' AND nombre_socio<>'Cuenta' "
-               //     + "ORDER BY nombre DESC";
+
             String sql = "SELECT * FROM producto ORDER BY nombre DESC";
             ResultSet rs = conec.query(sql);
             List<Producto> ls = new ArrayList<Producto>();
@@ -183,7 +180,6 @@ public class Producto {
 
     }
 
-    
 //mostrar los clientes de la base 
     public List<Producto> productos(String aguja) {
 
