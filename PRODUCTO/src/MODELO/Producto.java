@@ -75,10 +75,19 @@ public class Producto {
         this.existencia = existencia;
     }
 
+    public ConexionDB getConec() {
+        return conec;
+    }
+
+    public void setConec(ConexionDB conec) {
+        this.conec = conec;
+    }
+
     ConexionDB conec = new ConexionDB();
 
     //IMPLEMENTACION DE MÉTODOS
 //CREAR PRODUCTO
+    /*
     public boolean CrearProducto() {
         String sql;
 //        
@@ -89,9 +98,8 @@ public class Producto {
         return conec.accion(sql);
 
     }
-
-    /*
-    public boolean CrearProducto(String nombre_producto, String codigo_producto, String descripcion, double precio, int existencia) {
+     */
+    public boolean CrearProducto(String nombre_producto, String codigo_producto, String descripcion, String precio, String existencia) {
 
         try {
             String sql;
@@ -116,100 +124,5 @@ public class Producto {
             }
         }
     }
-     */
-//EDITAR PRODUCTO
-    public boolean EditarProducto(int codigo_producto) {
-//cod_producto,nombre, descripcion, existencia,precio)
-        String sql = "UPDATE producto SET nombre='" + getNombre_producto() + "',descripcion='"
-                + getDescripcion() + "',precio='" + getPrecio() + "',existencia='"
-                + getExistencia() + "'WHERE cod_producto=" + codigo_producto + ";";
-        return conec.accion(sql);
-    }
-//ELIMINAR    
 
-    public boolean EliminarProducto(int codigo_producto) {
-
-        try {
-
-            String sql;
-            sql = "delete from producto where cod_producto ='" + codigo_producto + "'";
-            if (conec.noQuery(sql) == null) {
-                try {
-                    conec.CerrarConexion();
-                } catch (SQLException e) {
-                    System.err.println(e);
-                }
-                return true;
-            } else {
-                try {
-                    conec.CerrarConexion();
-                } catch (SQLException e) {
-                    System.err.println(e);
-                }
-                return false;
-            }
-        } catch (Exception ex) {
-            return false;
-        }
-    }
-
-    public List<Producto> prolist() {
-
-        try {
-
-            String sql = "SELECT * FROM producto ORDER BY nombre DESC";
-            ResultSet rs = conec.query(sql);
-            List<Producto> ls = new ArrayList<Producto>();
-
-            while (rs.next()) {
-                Producto pro = new Producto();
-                pro.setCodigo_producto(rs.getInt("cod_producto"));
-                pro.setNombre_producto(rs.getString("nombre"));
-                pro.setDescripcion(rs.getString("descripcion"));
-                pro.setExistencia(rs.getInt("existencia"));
-                pro.setPrecio(rs.getDouble("precio"));
-
-                ls.add(pro);
-            }
-            rs.close();
-            return ls;
-        } catch (SQLException ex) {
-            Logger.getLogger(Producto.class.getName()).log(Level.SEVERE, null, ex);
-            return null;
-        }
-
-    }
-
-//mostrar los clientes de la base 
-    public List<Producto> productos(String aguja) {
-
-        try {
-            String sql = "SELECT * FROM producto WHERE";
-            sql += " UPPER(cod_producto) like UPPER('%" + aguja + "%') OR";
-            sql += " UPPER(nombre) like UPPER('%" + aguja + "%') OR";
-            sql += " UPPER(descripcion) like UPPER('%" + aguja + "%') ";
-
-            ResultSet rs = conec.query(sql);
-            List<Producto> lista_pro = new ArrayList<Producto>();
-
-            while (rs.next()) {
-                Producto prod = new Producto();
-
-                prod.setNombre_producto(rs.getString(nombre_producto));
-                prod.setCodigo_producto(rs.getInt(codigo_producto));
-                prod.setDescripcion(rs.getString(descripcion));
-
-                prod.setPrecio(rs.getDouble("precio"));
-                prod.setExistencia(rs.getInt(existencia));
-
-                lista_pro.add(prod);
-            }
-            rs.close();
-            return lista_pro;
-        } catch (SQLException ex) {
-            Logger.getLogger(Producto.class.getName()).log(Level.SEVERE, null, ex);
-            return null;
-        }
-
-    }
 }

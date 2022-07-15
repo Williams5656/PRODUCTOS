@@ -38,7 +38,7 @@ public class ConexionDB {
         }
 
         try {
-            // conexion
+           
             conexion = DriverManager.getConnection(url, user, clave);
         } catch (SQLException e) {
             Logger.getLogger(ConexionDB.class.getName()).log(Level.SEVERE, null, e);
@@ -47,7 +47,17 @@ public class ConexionDB {
     }
     
 
+     public ResultSet consulta(String sqlc){
     
+        try {
+            stm= conexion.createStatement();
+            ResultSet rs=stm.executeQuery(sqlc);
+            return rs;
+        } catch (SQLException ex) {
+            Logger.getLogger(ConexionDB.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+    }
     
     public ResultSet query(String sql) {
         try {

@@ -5,6 +5,7 @@
  */
 package CONTROLADOR;
 
+import MODELO.ModeloProducto;
 import VISTA.CRUD.VcrudCliente;
 import VISTA.CRUD.VcrudProducto;
 import VISTA.CRUD.VcrudProveedor;
@@ -16,7 +17,6 @@ import javax.swing.AbstractAction;
 import javax.swing.Action;
 import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -82,13 +82,13 @@ public class ControlPrincipal {
             contenedor.getDtp_principal().removeAll();
             AbrirCrudProveedor();
         });
-/*
+
         //Abre ventana crud Producto
         contenedor.getItemProductos().addActionListener(l -> {
             contenedor.getDtp_principal().removeAll();
             AbrirCrudProducto();
         });
-*/
+
     }
     //Fin Inicia Programa
 
@@ -123,20 +123,21 @@ public class ControlPrincipal {
 
     //Abrir CRUD Producto
     public void AbrirCrudProducto() {
-
+        //ControlCRUDProducto pr = new ControlCRUDProducto();
+        ModeloProducto mode= new ModeloProducto();
         VcrudProducto vcpd = new VcrudProducto();
         contenedor.getDtp_principal().add(vcpd);
         contenedor.getDtp_principal().updateUI();
-       
-
         CentrarVentanaInterna(vcpd);
-    
+         ControlProductos cp= new ControlProductos(mode, vcpd);
+        cp.inicarControl();
+         //vcpd(vcpd);
 
-}
+    }
 //    
 
 //Centrar Ventanas Internas
-public void CentrarVentanaInterna(JInternalFrame internalFr) {
+    public void CentrarVentanaInterna(JInternalFrame internalFr) {
         int x = (contenedor.getDtp_principal().getWidth() / 2) - internalFr.getWidth() / 2;
         int y = (contenedor.getDtp_principal().getHeight() / 2) - internalFr.getHeight() / 2;
         if (internalFr.isShowing()) {
@@ -146,7 +147,7 @@ public void CentrarVentanaInterna(JInternalFrame internalFr) {
             internalFr.setLocation(x, y);
         }
     }
-
+    /*
     public void Centrar(JInternalFrame frame) {
         int x = (contenedor.getDtp_principal().getWidth() / 2 - frame.getWidth() / 2);
         int y = (contenedor.getDtp_principal().getHeight() / 2 - frame.getHeight() / 2);
@@ -157,6 +158,6 @@ public void CentrarVentanaInterna(JInternalFrame internalFr) {
             frame.setLocation(x, y);
         }
     }
-
+     */
     //Fin Centrar Ventanas Internas
 }

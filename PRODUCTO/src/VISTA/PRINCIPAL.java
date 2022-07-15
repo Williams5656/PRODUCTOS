@@ -109,11 +109,11 @@ public class PRINCIPAL extends javax.swing.JFrame {
 
     private void ItemProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemProductosActionPerformed
         // TODO add your handling code here:
-   VcrudProducto prod= new VcrudProducto();
-    //VcrudCliente prod= new VcrudCliente();
-        Dtp_principal.add(prod);
-         Dtp_principal.show();
-        prod.setVisible(true);
+//   VcrudProducto prod= new VcrudProducto();
+//    //VcrudCliente prod= new VcrudCliente();
+//        Dtp_principal.add(prod);
+//         Dtp_principal.show();
+//        prod.setVisible(true);
     }//GEN-LAST:event_ItemProductosActionPerformed
 
     public JDesktopPane getDtp_principal() {

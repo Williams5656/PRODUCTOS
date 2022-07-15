@@ -5,20 +5,11 @@
  */
 package VISTA.CRUD;
 
-import javax.accessibility.AccessibleContext;
-import javax.swing.Icon;
+
 import javax.swing.JButton;
 import javax.swing.JDialog;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JRootPane;
-import javax.swing.JScrollPane;
-import javax.swing.JSeparator;
-import javax.swing.JSpinner;
 import javax.swing.JTable;
 import javax.swing.JTextField;
-import javax.swing.event.EventListenerList;
-import javax.swing.plaf.ComponentUI;
 
 /**
  *
@@ -30,304 +21,9 @@ public class VcrudProducto extends javax.swing.JInternalFrame {
      * Creates new form VcrudProducto
      */
     public VcrudProducto() {
-        this.setVisible(true);
+        
         initComponents();
        
-    }
-
-    public JDialog getjDialog() {
-        return jDialog;
-    }
-
-    public void setjDialog(JDialog jDialog) {
-        this.jDialog = jDialog;
-    }
-
-    public void setTxtExistencia(JTextField txtExistencia) {
-        this.txtExistencia = txtExistencia;
-    }
-
-    
-
-    public JDialog getjDialog1() {
-        return jDialog;
-    }
-
-    public void setjDialog1(JDialog jDialog1) {
-        this.jDialog = jDialog1;
-    }
-
-    public JLabel getjLabel1() {
-        return jLabel1;
-    }
-
-    public void setjLabel1(JLabel jLabel1) {
-        this.jLabel1 = jLabel1;
-    }
-
-    public JLabel getjLabel10() {
-        return jLabel10;
-    }
-
-    public void setjLabel10(JLabel jLabel10) {
-        this.jLabel10 = jLabel10;
-    }
-
-    public JLabel getjLabel17() {
-        return jLabel17;
-    }
-
-    public void setjLabel17(JLabel jLabel17) {
-        this.jLabel17 = jLabel17;
-    }
-
-    public JLabel getjLabel18() {
-        return jLabel18;
-    }
-
-    public void setjLabel18(JLabel jLabel18) {
-        this.jLabel18 = jLabel18;
-    }
-
-    public JLabel getjLabel19() {
-        return jLabel19;
-    }
-
-    public void setjLabel19(JLabel jLabel19) {
-        this.jLabel19 = jLabel19;
-    }
-
-    public JLabel getjLabel2() {
-        return jLabel2;
-    }
-
-    public void setjLabel2(JLabel jLabel2) {
-        this.jLabel2 = jLabel2;
-    }
-
-    public JLabel getjLabel3() {
-        return jLabel3;
-    }
-
-    public void setjLabel3(JLabel jLabel3) {
-        this.jLabel3 = jLabel3;
-    }
-
-    public JLabel getjLabel4() {
-        return jLabel4;
-    }
-
-    public void setjLabel4(JLabel jLabel4) {
-        this.jLabel4 = jLabel4;
-    }
-
-    public JLabel getjLabel8() {
-        return jLabel8;
-    }
-
-    public void setjLabel8(JLabel jLabel8) {
-        this.jLabel8 = jLabel8;
-    }
-
-    public JLabel getjLabel9() {
-        return jLabel9;
-    }
-
-    public void setjLabel9(JLabel jLabel9) {
-        this.jLabel9 = jLabel9;
-    }
-
-    public JLabel getjLabelIcono() {
-        return jLabelIcono;
-    }
-
-    public void setjLabelIcono(JLabel jLabelIcono) {
-        this.jLabelIcono = jLabelIcono;
-    }
-
-    public JLabel getjLabelTitulo() {
-        return jLabelTitulo;
-    }
-
-    public void setjLabelTitulo(JLabel jLabelTitulo) {
-        this.jLabelTitulo = jLabelTitulo;
-    }
-
-    public JPanel getjPanel1() {
-        return jPanel1;
-    }
-
-    public void setjPanel1(JPanel jPanel1) {
-        this.jPanel1 = jPanel1;
-    }
-
-    public JPanel getjPanel2() {
-        return jPanel2;
-    }
-
-    public void setjPanel2(JPanel jPanel2) {
-        this.jPanel2 = jPanel2;
-    }
-
-    public JScrollPane getjScrollPane2() {
-        return jScrollPane2;
-    }
-
-    public void setjScrollPane2(JScrollPane jScrollPane2) {
-        this.jScrollPane2 = jScrollPane2;
-    }
-
-    public JSeparator getjSeparator1() {
-        return jSeparator1;
-    }
-
-    public void setjSeparator1(JSeparator jSeparator1) {
-        this.jSeparator1 = jSeparator1;
-    }
-
-    public JSeparator getjSeparator2() {
-        return jSeparator2;
-    }
-
-    public void setjSeparator2(JSeparator jSeparator2) {
-        this.jSeparator2 = jSeparator2;
-    }
-
-    public JTable getJtb_productos() {
-        return jtb_productos;
-    }
-
-    public void setJtb_productos(JTable jtb_productos) {
-        this.jtb_productos = jtb_productos;
-    }
-
-    public JRootPane getRootPane() {
-        return rootPane;
-    }
-
-    public void setRootPane(JRootPane rootPane) {
-        this.rootPane = rootPane;
-    }
-
-    public boolean isRootPaneCheckingEnabled() {
-        return rootPaneCheckingEnabled;
-    }
-
-    @Override
-    public void setRootPaneCheckingEnabled(boolean rootPaneCheckingEnabled) {
-        this.rootPaneCheckingEnabled = rootPaneCheckingEnabled;
-    }
-
-    public boolean isClosable() {
-        return closable;
-    }
-
-    public void setClosable(boolean closable) {
-        this.closable = closable;
-    }
-
-    public boolean isIsClosed() {
-        return isClosed;
-    }
-
-    public void setIsClosed(boolean isClosed) {
-        this.isClosed = isClosed;
-    }
-
-    public boolean isMaximizable() {
-        return maximizable;
-    }
-
-    public void setMaximizable(boolean maximizable) {
-        this.maximizable = maximizable;
-    }
-
-    public boolean isIsMaximum() {
-        return isMaximum;
-    }
-
-    public void setIsMaximum(boolean isMaximum) {
-        this.isMaximum = isMaximum;
-    }
-
-    public boolean isIconable() {
-        return iconable;
-    }
-
-    public void setIconable(boolean iconable) {
-        this.iconable = iconable;
-    }
-
-    public boolean isIsIcon() {
-        return isIcon;
-    }
-
-    public void setIsIcon(boolean isIcon) {
-        this.isIcon = isIcon;
-    }
-
-    public boolean isResizable() {
-        return resizable;
-    }
-
-    public void setResizable(boolean resizable) {
-        this.resizable = resizable;
-    }
-
-    public boolean isIsSelected() {
-        return isSelected;
-    }
-
-    public void setIsSelected(boolean isSelected) {
-        this.isSelected = isSelected;
-    }
-
-    public Icon getFrameIcon() {
-        return frameIcon;
-    }
-
-    public void setFrameIcon(Icon frameIcon) {
-        this.frameIcon = frameIcon;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public JDesktopIcon getDesktopIcon() {
-        return desktopIcon;
-    }
-
-    public void setDesktopIcon(JDesktopIcon desktopIcon) {
-        this.desktopIcon = desktopIcon;
-    }
-
-    public ComponentUI getUi() {
-        return ui;
-    }
-
-    public void setUi(ComponentUI ui) {
-        this.ui = ui;
-    }
-
-    public EventListenerList getListenerList() {
-        return listenerList;
-    }
-
-    public void setListenerList(EventListenerList listenerList) {
-        this.listenerList = listenerList;
-    }
-
-    public AccessibleContext getAccessibleContext() {
-        return accessibleContext;
-    }
-
-    public void setAccessibleContext(AccessibleContext accessibleContext) {
-        this.accessibleContext = accessibleContext;
     }
 
     public JButton getBtnAgregarArt() {
@@ -338,6 +34,7 @@ public class VcrudProducto extends javax.swing.JInternalFrame {
         this.BtnAgregarArt = BtnAgregarArt;
     }
 
+   
     public JButton getBtnAgregarFotoAA() {
         return BtnAgregarFotoAA;
     }
@@ -354,6 +51,32 @@ public class VcrudProducto extends javax.swing.JInternalFrame {
         this.BtnCancelarArt = BtnCancelarArt;
     }
 
+    public JDialog getjDialog() {
+        return jDialog;
+    }
+
+    public void setjDialog(JDialog jDialog) {
+        this.jDialog = jDialog;
+    }
+
+    public JTable getJtb_productos() {
+        return jtb_productos;
+    }
+
+    public void setJtb_productos(JTable jtb_productos) {
+        this.jtb_productos = jtb_productos;
+    }
+
+    public JTextField getTxtExistencia() {
+        return txtExistencia;
+    }
+
+    public void setTxtExistencia(JTextField txtExistencia) {
+        this.txtExistencia = txtExistencia;
+    }
+
+    
+    
     public JButton getBtnEditarArt() {
         return BtnEditarArt;
     }
@@ -443,14 +166,11 @@ public class VcrudProducto extends javax.swing.JInternalFrame {
         jLabel9 = new javax.swing.JLabel();
         jtxtPrecioCompraBase = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         txtExistencia = new javax.swing.JTextField();
-        jLabelTitulo = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel3 = new javax.swing.JLabel();
         TxtBuscarEmp = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         BtnAgregarFotoAA = new javax.swing.JButton();
@@ -496,8 +216,6 @@ public class VcrudProducto extends javax.swing.JInternalFrame {
                 .addContainerGap(14, Short.MAX_VALUE))
         );
 
-        jLabel2.setText("Stock");
-
         jLabel8.setText("Existencia:");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -506,31 +224,20 @@ public class VcrudProducto extends javax.swing.JInternalFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addComponent(jLabel8)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
-                        .addComponent(txtExistencia, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel2))
+                .addComponent(jLabel8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
+                .addComponent(txtExistencia, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel8)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(txtExistencia, javax.swing.GroupLayout.PREFERRED_SIZE, 16, Short.MAX_VALUE)
-                        .addContainerGap())))
+                .addGap(40, 40, 40)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtExistencia, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jLabel8))
+                .addContainerGap())
         );
-
-        jLabelTitulo.setFont(new java.awt.Font("Dialog", 1, 30)); // NOI18N
-        jLabelTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelTitulo.setText("Registrar Productos");
 
         jLabel3.setText("Nombre:");
 
@@ -563,13 +270,9 @@ public class VcrudProducto extends javax.swing.JInternalFrame {
                     .addComponent(jLabelIcono, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(36, 36, 36))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDialogLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(14, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(307, 307, 307))
-            .addGroup(jDialogLayout.createSequentialGroup()
-                .addGap(99, 99, 99)
-                .addComponent(jLabelTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 373, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(116, 116, 116))
             .addGroup(jDialogLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -584,7 +287,7 @@ public class VcrudProducto extends javax.swing.JInternalFrame {
         jDialogLayout.setVerticalGroup(
             jDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jDialogLayout.createSequentialGroup()
-                .addContainerGap(20, Short.MAX_VALUE)
+                .addContainerGap(48, Short.MAX_VALUE)
                 .addGroup(jDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jDialogLayout.createSequentialGroup()
                         .addComponent(jLabelIcono, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -594,8 +297,6 @@ public class VcrudProducto extends javax.swing.JInternalFrame {
                         .addComponent(BtnCancelarArt)
                         .addGap(38, 38, 38))
                     .addGroup(jDialogLayout.createSequentialGroup()
-                        .addComponent(jLabelTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -620,33 +321,40 @@ public class VcrudProducto extends javax.swing.JInternalFrame {
         );
 
         setTitle("Productos");
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         TxtBuscarEmp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TxtBuscarEmpActionPerformed(evt);
             }
         });
+        getContentPane().add(TxtBuscarEmp, new org.netbeans.lib.awtextra.AbsoluteConstraints(59, 42, 200, -1));
 
-        jLabel1.setText("Articulos");
-
-        jLabel17.setText("Descripcion");
+        jLabel17.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel17.setText("Buscar:");
+        getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 48, -1, -1));
+        getContentPane().add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(53, 64, -1, -1));
 
         BtnAgregarFotoAA.setText("Agregar Foto");
+        getContentPane().add(BtnAgregarFotoAA, new org.netbeans.lib.awtextra.AbsoluteConstraints(789, 586, 185, -1));
 
         BtnAgregarArt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/VISTA/ICONOS/agrega.png"))); // NOI18N
         BtnAgregarArt.setText("Agregar");
         BtnAgregarArt.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         BtnAgregarArt.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        getContentPane().add(BtnAgregarArt, new org.netbeans.lib.awtextra.AbsoluteConstraints(287, 6, 195, -1));
 
         BtnEditarArt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/VISTA/ICONOS/edita.png"))); // NOI18N
         BtnEditarArt.setText("Editar");
         BtnEditarArt.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         BtnEditarArt.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        getContentPane().add(BtnEditarArt, new org.netbeans.lib.awtextra.AbsoluteConstraints(488, 6, 195, -1));
 
         BtnEliminarArt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/VISTA/ICONOS/delete_remove_close_icon_181533.png"))); // NOI18N
         BtnEliminarArt.setText("Eliminar");
         BtnEliminarArt.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         BtnEliminarArt.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        getContentPane().add(BtnEliminarArt, new org.netbeans.lib.awtextra.AbsoluteConstraints(689, 6, 222, -1));
 
         jtb_productos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -661,53 +369,7 @@ public class VcrudProducto extends javax.swing.JInternalFrame {
         ));
         jScrollPane2.setViewportView(jtb_productos);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(636, 636, 636)
-                        .addComponent(BtnAgregarFotoAA, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel17)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel18)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(TxtBuscarEmp, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(28, 28, 28)
-                        .addComponent(BtnAgregarArt, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(BtnEditarArt, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(BtnEliminarArt, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 905, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(18, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(BtnEditarArt)
-                            .addComponent(BtnEliminarArt)
-                            .addComponent(BtnAgregarArt, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addComponent(TxtBuscarEmp, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel18)
-                    .addComponent(jLabel17))
-                .addGap(48, 48, 48)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(47, 47, 47)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(BtnAgregarFotoAA))
-                .addContainerGap())
-        );
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 112, 905, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -729,18 +391,15 @@ public class VcrudProducto extends javax.swing.JInternalFrame {
     private javax.swing.JTextField TxtDescripcion;
     private javax.swing.JTextField TxtNombre;
     private javax.swing.JDialog jDialog;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabelIcono;
-    private javax.swing.JLabel jLabelTitulo;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane2;
