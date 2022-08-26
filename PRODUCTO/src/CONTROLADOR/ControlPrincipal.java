@@ -5,7 +5,6 @@
  */
 package CONTROLADOR;
 
-import MODELO.ModeloProducto;
 import VISTA.CRUD.VcrudCliente;
 import VISTA.CRUD.VcrudProducto;
 import VISTA.CRUD.VcrudProveedor;
@@ -124,15 +123,12 @@ public class ControlPrincipal {
     //Abrir CRUD Producto
     public void AbrirCrudProducto() {
         //ControlCRUDProducto pr = new ControlCRUDProducto();
-        ModeloProducto mode= new ModeloProducto();
+        ControlCRUDProducto ccp=new ControlCRUDProducto();
         VcrudProducto vcpd = new VcrudProducto();
         contenedor.getDtp_principal().add(vcpd);
         contenedor.getDtp_principal().updateUI();
         CentrarVentanaInterna(vcpd);
-         ControlProductos cp= new ControlProductos(mode, vcpd);
-        cp.inicarControl();
-         //vcpd(vcpd);
-
+        ccp.inicarControl(vcpd);
     }
 //    
 

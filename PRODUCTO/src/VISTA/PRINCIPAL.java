@@ -55,6 +55,9 @@ public class PRINCIPAL extends javax.swing.JFrame {
             .addGap(0, 380, Short.MAX_VALUE)
         );
 
+        jMenuBar1.setBackground(new java.awt.Color(33, 49, 91));
+
+        jMenu1.setForeground(new java.awt.Color(255, 255, 255));
         jMenu1.setText("Productos");
         jMenu1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -72,6 +75,8 @@ public class PRINCIPAL extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu1);
 
+        jMenu2.setBackground(new java.awt.Color(33, 49, 91));
+        jMenu2.setForeground(new java.awt.Color(255, 255, 255));
         jMenu2.setText("Personas");
 
         ItemUsuarios.setText("Usuarios");
