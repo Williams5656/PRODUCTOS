@@ -271,7 +271,7 @@ public class VcrudCliente extends javax.swing.JInternalFrame {
             .addGroup(JdClienteLayout.createSequentialGroup()
                 .addGap(99, 99, 99)
                 .addComponent(jLabelTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 373, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(110, 248, Short.MAX_VALUE))
             .addGroup(JdClienteLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(JdClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -362,8 +362,7 @@ public class VcrudCliente extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(JdClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(TxtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel11))
-                .addContainerGap(14, Short.MAX_VALUE))
+                    .addComponent(jLabel11)))
         );
 
         setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 102, 204), 5, true));

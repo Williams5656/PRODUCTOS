@@ -7,12 +7,16 @@ package VISTA.CRUD;
 
 
 import com.toedter.calendar.JDateChooser;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 
 /**
  *
@@ -236,9 +240,14 @@ public class VcrudProducto extends javax.swing.JInternalFrame {
     public void setCbBuscarProd(JComboBox<String> CbBuscarProd) {
         this.CbBuscarProd = CbBuscarProd;
     }
-    
-    
-    
+
+    public JLabel getLbFotoM() {
+        return LbFotoM;
+    }
+
+    public void setLbFotoM(JLabel LbFotoM) {
+        this.LbFotoM = LbFotoM;
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -294,7 +303,7 @@ public class VcrudProducto extends javax.swing.JInternalFrame {
         BtnEliminarArt = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jtb_productos = new javax.swing.JTable();
-        jLabel1 = new javax.swing.JLabel();
+        LbFotoM = new javax.swing.JLabel();
         LbNombreArtF = new javax.swing.JLabel();
         TxtBuscarArt = new javax.swing.JTextField();
         CbBuscarProd = new javax.swing.JComboBox<>();
@@ -379,6 +388,11 @@ public class VcrudProducto extends javax.swing.JInternalFrame {
         BtnGuardarProd.setText("Guardar");
 
         BtnImportarFoto.setText("Importar Foto");
+        BtnImportarFoto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnImportarFotoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -575,17 +589,17 @@ public class VcrudProducto extends javax.swing.JInternalFrame {
 
         jtb_productos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Codigo", "Nombre", "Precio", "Precio 2", "Precio 3", "IVA", "ICE", "Stock", "Stock"
+                "Id", "Codigo", "Nombre", "Precio", "Precio 2", "Precio 3", "IVA", "ICE", "Stock", "Stock"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -596,11 +610,10 @@ public class VcrudProducto extends javax.swing.JInternalFrame {
 
         getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 740, -1));
 
-        jLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 80, 210, 220));
-
-        LbNombreArtF.setText("Nombre Producto");
-        getContentPane().add(LbNombreArtF, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 310, -1, -1));
+        LbFotoM.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        LbFotoM.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        getContentPane().add(LbFotoM, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 80, 210, 220));
+        getContentPane().add(LbNombreArtF, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 310, 210, 30));
         getContentPane().add(TxtBuscarArt, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 150, -1));
 
         CbBuscarProd.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nombre", "Descripcion" }));
@@ -611,6 +624,10 @@ public class VcrudProducto extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void BtnImportarFotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnImportarFotoActionPerformed
+
+    }//GEN-LAST:event_BtnImportarFotoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -630,6 +647,7 @@ public class VcrudProducto extends javax.swing.JInternalFrame {
     private com.toedter.calendar.JDateChooser JcFVenciProd;
     private javax.swing.JDialog JdProducto;
     private javax.swing.JLabel LbFotoAGProd;
+    private javax.swing.JLabel LbFotoM;
     private javax.swing.JLabel LbNombreArtF;
     private javax.swing.JTextField TxtBuscarArt;
     private javax.swing.JTextField TxtCodAuxProd;
@@ -640,7 +658,6 @@ public class VcrudProducto extends javax.swing.JInternalFrame {
     private javax.swing.JTextField TxtPrecio2Prod;
     private javax.swing.JTextField TxtPrecio3Prod;
     private javax.swing.JTextField TxtSubsiProd;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;

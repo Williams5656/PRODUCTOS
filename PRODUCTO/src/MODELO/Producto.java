@@ -4,13 +4,26 @@
  */
 package MODELO;
 
+import java.awt.Graphics2D;
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import javax.imageio.ImageReader;
+import javax.imageio.stream.ImageInputStream;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import org.postgresql.util.Base64;
 
 /**
  *
@@ -23,12 +36,13 @@ public class Producto{
     private double precio1, precio2, precio3, SubsiP;
     private String NombreP, DescripcionP, FechaVP, TipoP, TipoIVAP, IceP, MStockP, CategoriaP, UnidP, CodAuxP;
     private int Stock;
+    private Image foto;
     //constructores
     
     public Producto() {
     }
 
-    public Producto(String CodigoP, double precio1, double precio2, double precio3, String NombreP, String DescripcionP, String FechaVP, String TipoP, String TipoIVAP, String IceP, String MStockP, String CategoriaP, double SubsiP, String UnidP, String CodAuxP, String idP, int Stock) {
+    public Producto(String CodigoP, double precio1, double precio2, double precio3, String NombreP, String DescripcionP, String FechaVP, String TipoP, String TipoIVAP, String IceP, String MStockP, String CategoriaP, double SubsiP, String UnidP, String CodAuxP, String idP, int Stock, Image foto) {
         this.idP = idP;
         this.CodigoP = CodigoP;
         this.precio1 = precio1;
@@ -46,6 +60,7 @@ public class Producto{
         this.UnidP = UnidP;
         this.Stock = Stock;
         this.CodAuxP = CodAuxP;
+        this.foto = foto;
     }
 
     //getters y setters
@@ -185,17 +200,39 @@ public class Producto{
     public void setCodAuxP(String CodAuxP) {
         this.CodAuxP = CodAuxP;
     }
-    
+
+    public Image getFoto() {
+        return foto;
+    }
+
+    public void setFoto(Image foto) {
+        this.foto = foto;
+    }
+
 //metodos DB
 
 //Inserta Producto
-    public boolean InsertarProducto(String cod, String nomb, String desc, String stck, String pre, String pre2, String pre3, String tipp, String tipi, String ic, String mst, String cate, String fec, String subs, String und, String codaux   ) {
+    public boolean InsertarProducto(String cod, String nomb, String desc, String stck, String pre, String pre2, String pre3, String tipp, String tipi, String ic, String mst, String cate, String fec, String subs, String und, String codaux, Image fot) {
         ConexionDB conec=new ConexionDB();  
+        //Proceso Foto
+        String binFoto = null;
+        
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        try{
+            BufferedImage img = deImangen(fot);
+            ImageIO.write(img, "jpg", baos);
+            byte[] imgBytea = baos.toByteArray();
+            binFoto = Base64.encodeBytes(imgBytea);
+        }catch(IOException e){
+            e.printStackTrace();
+        }             
+        //Fin Proceso Foto
+        
         try {
             String sql;
                 sql = "Insert into producto ";
-                sql += "( codigo_prod, nombre, descripcion, stock, precio, precio2, precio3, tipo_producto, tipo_iva, ice, maneja_stock, categoria_prod, fecha_venci, subsidio_unit, unidad, codigo_auxiliar, eliminado)";
-                sql += "VALUES ('"+cod+"', '"+nomb+"', '"+desc+"', "+stck+", "+pre+","+pre2+","+pre3+", '"+tipp+"', '"+tipi+"', '"+ic+"', '"+mst+"', '"+cate+"', '"+fec+"', "+subs+", '"+und+"', '"+codaux+"', '1')";
+                sql += "( codigo_prod, nombre, descripcion, stock, precio, precio2, precio3, tipo_producto, tipo_iva, ice, maneja_stock, categoria_prod, fecha_venci, subsidio_unit, unidad, codigo_auxiliar, eliminado, foto)";
+                sql += "VALUES ('"+cod+"', '"+nomb+"', '"+desc+"', "+stck+", "+pre+","+pre2+","+pre3+", '"+tipp+"', '"+tipi+"', '"+ic+"', '"+mst+"', '"+cate+"', '"+fec+"', "+subs+", '"+und+"', '"+codaux+"', '1', '"+binFoto+"')";
                 if (conec.noQuery(sql) == null) {
                     return true;
                 } else {
@@ -213,54 +250,54 @@ public class Producto{
     }       
     
 //Editar Persona
-//    public boolean ActualizarPersona(String Ced, String nomb, String Ape, String correo, String dir, String telf, String cel, String ciudad, String direcciondom){
-//        ConexionDB conec=new ConexionDB();  
-//        String sql;
-//        sql = "UPDATE persona ";
-//        sql += "SET nombre = '"+nomb+"', apellido = '"+Ape+"', correo = '"+correo+"', direccion = '"+dir+"', telefono = '"+telf+"', celular = '"+cel+"', ciudad = '"+ciudad+"'";
-//        sql += "WHERE cedula = '"+Ced+"'";        
-//        if (conec.noQuery(sql) == null) {
-//            ActualizarCliente(direcciondom,Ced);
-//            return true;
-//        } else {
-//            return false;
-//        }
-//    }   
+    public boolean ActualizarProducto(String cod, String nomb, String desc, String stck, String pre, String pre2, String pre3, String tipp, String tipi, String ic, String mst, String cate, String fec, String subs, String und, String codaux, Image fot ){
+        ConexionDB conec=new ConexionDB();  
+        
+        String binFoto = null;
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        try{
+            BufferedImage img = deImangen(fot);
+            ImageIO.write(img, "jpg", baos);
+            byte[] imgBytea = baos.toByteArray();
+            binFoto = Base64.encodeBytes(imgBytea);
+        }catch(IOException e){
+            e.printStackTrace();
+        }            
+        String sql;
+        sql = "UPDATE producto ";
+        sql += "SET nombre = '"+nomb+"', descripcion = '"+desc+"', stock = '"+stck+"', precio = '"+pre+"', precio2 = '"+pre2+"', precio3 = '"+pre3+"', tipo_producto = '"+tipp+"', tipo_iva = '"+tipi+"', ice = '"+ic+"', maneja_stock = '"+mst+"', categoria_prod = '"+cate+"', fecha_venci = '"+fec+"', subsidio_unit = '"+subs+"', unidad = '"+und+"', codigo_auxiliar = '"+codaux+"', foto = '"+binFoto+"'";
+        sql += "WHERE codigo_prod = '"+cod+"'";        
+        if (conec.noQuery(sql) == null) {
+            return true;
+        } else {
+            return false;
+        }
+    }   
     
-//Eliminar Clientes   
-//    public boolean EliminarCliente(String cedula){
-//        ConexionDB conec=new ConexionDB();
-//        try {
-//
-//        String sql;
-//        sql = "delete from cliente where cedula_persona ='"+cedula+"'";
-//        if (conec.noQuery(sql) == null) {
-//                        try {
-//                conec.CerrarConexion();
-//            } catch (SQLException e) {
-//                System.err.println(e);
-//            } 
-//            return true;
-//        } else {
-//                        try {
-//                conec.CerrarConexion();
-//            } catch (SQLException e) {
-//                System.err.println(e);
-//            } 
-//            return false;
-//        }            
-//        } catch (Exception ex) {
-//           return false;
-//        }
-//    }     
+//Eliminar Productos
+    public boolean EliminarProducto(String cod){
+        ConexionDB conec=new ConexionDB();  
+        String sql;
+        sql = "UPDATE producto ";
+        sql += "SET eliminado = '0'";
+        sql += "WHERE codigo_prod = '"+cod+"'";        
+        if (conec.noQuery(sql) == null) {
+            return true;
+        } else {
+            return false;
+        }
+    }    
     
 //mostrar los productos de la base 
     public List<Producto> mostrarProductos(String nomb, String campo){
-        ConexionDB conec=new ConexionDB();  
+        ConexionDB conec=new ConexionDB(); 
+        ImageIcon fotico;
+        InputStream is;
         try {
-        String sql = "SELECT * FROM producto where UPPER("+campo+") like UPPER('"+nomb+"%')";
+        String sql = "SELECT * FROM producto where UPPER("+campo+") like UPPER('"+nomb+"%') and eliminado = 1";
         ResultSet rs = conec.query(sql);
         List<Producto> listaP = new ArrayList<Producto>();
+            byte[] bytea;
             while (rs.next()) {
                 Producto p = new Producto();
                 p.setIdP(rs.getString("id_producto"));
@@ -279,7 +316,15 @@ public class Producto{
                 p.setSubsiP(rs.getDouble("subsidio_unit"));
                 p.setUnidP(rs.getString("unidad"));
                 p.setCodAuxP(rs.getString("codigo_auxiliar"));
-                p.setStock(rs.getInt("stock"));
+                p.setStock(rs.getInt("stock")); 
+                bytea = rs.getBytes("foto");
+                if (bytea != null) {
+                        try {
+                            bytea = Base64.decode(bytea, 0, rs.getBytes("foto").length);
+                            p.setFoto(getImage(bytea));
+                        } catch (IOException ex) {
+                        ex.printStackTrace();
+                }}
                 listaP.add(p);
             }
             rs.close();
@@ -294,5 +339,42 @@ public class Producto{
                 System.err.println(e);
             }            
         }        
-    }    
+    }  
+    
+    //Foto
+        public BufferedImage deImangen(Image img){
+        BufferedImage cambio = new BufferedImage(img.getWidth(null), img.getHeight(null), BufferedImage.TYPE_INT_ARGB);
+        Graphics2D g2d = cambio.createGraphics();
+        g2d.drawImage(img, 0, 0, null);
+        g2d.dispose();
+        
+        return cambio;
+    }
+        
+    public Image getImage(byte[] bytes) throws IOException{
+        ByteArrayInputStream bis = new ByteArrayInputStream(bytes);
+        try {
+                    Iterator reader = ImageIO.getImageReadersByFormatName("jpg");
+                    ImageReader ir = (ImageReader) reader.next();
+                    Object source = bis;
+                    ImageInputStream lis = ImageIO.createImageInputStream(source);
+                    ir.setInput(lis,true);
+
+                    return ir.read(0);                    
+        } catch (Exception e) {
+        try {
+                    Iterator reader = ImageIO.getImageReadersByFormatName("png");
+                    ImageReader ir = (ImageReader) reader.next();
+                    Object source = bis;
+                    ImageInputStream lis = ImageIO.createImageInputStream(source);
+                    ir.setInput(lis,true);
+
+                    return ir.read(0);                    
+        } catch (Exception xe) {
+            JOptionPane.showMessageDialog(null, "Solo se aceptan jpg o png");
+            return null;
+        }
+        }
+    }          
+    //
 }

@@ -5,17 +5,21 @@
  */
 package CONTROLADOR;
 
+import VISTA.CRUD.VcliOpro;
 import VISTA.CRUD.VcrudCliente;
 import VISTA.CRUD.VcrudProducto;
 import VISTA.CRUD.VcrudProveedor;
 import VISTA.CRUD.VcrudUsuario;
 import VISTA.PRINCIPAL;
+import VISTA.PrincipalC;
 import VISTA.VLogin;
 import java.awt.event.ActionEvent;
+import java.awt.event.MouseEvent;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
 import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
+import javax.swing.JLabel;
 
 /**
  *
@@ -23,7 +27,7 @@ import javax.swing.JInternalFrame;
  */
 public class ControlPrincipal {
 
-    private PRINCIPAL contenedor;
+    private PrincipalC contenedor;
     private final VLogin vlogin;
 
     public ControlPrincipal(VLogin vlogin) {
@@ -42,7 +46,7 @@ public class ControlPrincipal {
         vlogin.setVisible(true);
         vlogin.setResizable(false);
         vlogin.getTxt_password().setEchoChar((char) '\u2022');
-        vlogin.getBtn_iniciarsesion().addActionListener(action);
+        mouseListenerBtn(vlogin.getLbEntrar());
         vlogin.getTxt_password().addActionListener(action);//para ingresar dando a enter
         vlogin.getTxt_cedula().addActionListener(action);//para ingresar dando a enter
     }
@@ -59,63 +63,89 @@ public class ControlPrincipal {
 
     //Inicia Prgrama
     private void iniciarPrograma() {
-        contenedor = new PRINCIPAL();
+        contenedor = new PrincipalC();
         vlogin.dispose();
         contenedor.setVisible(true);
-        contenedor.setExtendedState(JFrame.MAXIMIZED_BOTH);
-
-        //Abre ventana crud clientes
-        contenedor.getItemClientes().addActionListener(l -> {
-            contenedor.getDtp_principal().removeAll();
-            AbrirCrudCliente();
-        });
-
-        //Abre ventana crud Usuarios
-        contenedor.getItemUsuarios().addActionListener(l -> {
-            contenedor.getDtp_principal().removeAll();
-            AbrirCrudUsuario();
-        });
-
-        //Abre ventana crud Proveedores
-        contenedor.getItemProveedores().addActionListener(l -> {
-            contenedor.getDtp_principal().removeAll();
-            AbrirCrudProveedor();
-        });
+//        //Abre ventana crud Usuarios
+//        contenedor.getItemUsuarios().addActionListener(l -> {
+//            contenedor.getDtp_principal().removeAll();
+//            AbrirCrudUsuario();
+//        });
 
         //Abre ventana crud Producto
-        contenedor.getItemProductos().addActionListener(l -> {
-            contenedor.getDtp_principal().removeAll();
-            AbrirCrudProducto();
+        contenedor.getLbProdYSer().addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent e) {}
+
+            @Override
+            public void mouseEntered(MouseEvent e) {}
+            
+            @Override
+            public void mouseReleased(MouseEvent e) {
+               contenedor.getDtPrincipal().removeAll();
+               AbrirCrudProducto();
+            }
         });
+        
+        //Abre opcion entre Clientes o productos
+        contenedor.getLbCliYProv().addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent e) {}
+
+            @Override
+            public void mouseEntered(MouseEvent e) {}
+            
+            @Override
+            public void mouseReleased(MouseEvent e) {
+               contenedor.getDtPrincipal().removeAll();
+               AbrirVentanaEscCP();
+            }
+        });        
 
     }
     //Fin Inicia Programa
 
+    //Escoger entre Cli o Prov
+    public void AbrirVentanaEscCP(){
+        VcliOpro vcop = new VcliOpro();
+        contenedor.getDtPrincipal().add(vcop);
+        contenedor.getDtPrincipal().updateUI();  
+        CentrarVentanaInterna(vcop);
+        vcop.getBtnCliente().addActionListener(l -> {
+            contenedor.getDtPrincipal().removeAll();
+            AbrirCrudCliente();
+        });
+        vcop.getBtnProveedor().addActionListener(l -> {
+            contenedor.getDtPrincipal().removeAll();
+            AbrirCrudProveedor();
+        });
+    }
+ 
     //Abrir CRUD CLIENTE
     public void AbrirCrudCliente() {
         ControlCRUDCliente ccc = new ControlCRUDCliente();
         VcrudCliente vcc = new VcrudCliente();
-        contenedor.getDtp_principal().add(vcc);
-        contenedor.getDtp_principal().updateUI();
+        contenedor.getDtPrincipal().add(vcc);
+        contenedor.getDtPrincipal().updateUI();
         CentrarVentanaInterna(vcc);
         ccc.IniciarControl(vcc);
     }
     //
 
-    //Arir CRUD Usuario
-    public void AbrirCrudUsuario() {
-        VcrudUsuario vcu = new VcrudUsuario();
-        contenedor.getDtp_principal().add(vcu);
-        contenedor.getDtp_principal().updateUI();
-        CentrarVentanaInterna(vcu);
-    }
-    //
-
-    //Abrir CRUD Proveedor
+//    //Arir CRUD Usuario
+//    public void AbrirCrudUsuario() {
+//        VcrudUsuario vcu = new VcrudUsuario();
+//        contenedor.getDtp_principal().add(vcu);
+//        contenedor.getDtp_principal().updateUI();
+//        CentrarVentanaInterna(vcu);
+//    }
+//    //
+//
+//    //Abrir CRUD Proveedor
     public void AbrirCrudProveedor() {
         VcrudProveedor vcp = new VcrudProveedor();
-        contenedor.getDtp_principal().add(vcp);
-        contenedor.getDtp_principal().updateUI();
+        contenedor.getDtPrincipal().add(vcp);
+        contenedor.getDtPrincipal().updateUI();
         CentrarVentanaInterna(vcp);
     }
     //
@@ -125,17 +155,17 @@ public class ControlPrincipal {
         //ControlCRUDProducto pr = new ControlCRUDProducto();
         ControlCRUDProducto ccp=new ControlCRUDProducto();
         VcrudProducto vcpd = new VcrudProducto();
-        contenedor.getDtp_principal().add(vcpd);
-        contenedor.getDtp_principal().updateUI();
+        contenedor.getDtPrincipal().add(vcpd);
+        contenedor.getDtPrincipal().updateUI();
         CentrarVentanaInterna(vcpd);
         ccp.inicarControl(vcpd);
     }
-//    
+    //    
 
 //Centrar Ventanas Internas
     public void CentrarVentanaInterna(JInternalFrame internalFr) {
-        int x = (contenedor.getDtp_principal().getWidth() / 2) - internalFr.getWidth() / 2;
-        int y = (contenedor.getDtp_principal().getHeight() / 2) - internalFr.getHeight() / 2;
+        int x = (contenedor.getDtPrincipal().getWidth() / 2) - internalFr.getWidth() / 2;
+        int y = (contenedor.getDtPrincipal().getHeight() / 2) - internalFr.getHeight() / 2;
         if (internalFr.isShowing()) {
             internalFr.setLocation(x, y);
         } else {
@@ -143,17 +173,24 @@ public class ControlPrincipal {
             internalFr.setLocation(x, y);
         }
     }
-    /*
-    public void Centrar(JInternalFrame frame) {
-        int x = (contenedor.getDtp_principal().getWidth() / 2 - frame.getWidth() / 2);
-        int y = (contenedor.getDtp_principal().getHeight() / 2 - frame.getHeight() / 2);
-        if (frame.isShowing()) {
-            frame.setLocation(x, y);
-        } else {
-            contenedor.getDtp_principal().add(frame);
-            frame.setLocation(x, y);
+//Fin Centrar Ventanas Internas
+    
+    //MouseListener
+    public void mouseListenerBtn(JLabel jc) {
+
+        jc.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent e) {}
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+              iniciarPrograma();
+            }
+         
+            @Override
+            public void mouseEntered(MouseEvent e) {}
         }
-    }
-     */
-    //Fin Centrar Ventanas Internas
+        );
+    }    
+    //
 }

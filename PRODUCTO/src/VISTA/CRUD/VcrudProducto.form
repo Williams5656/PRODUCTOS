@@ -553,6 +553,9 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Importar Foto"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnImportarFotoActionPerformed"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>
@@ -659,7 +662,8 @@
         <Component class="javax.swing.JTable" name="jtb_productos">
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-              <Table columnCount="9" rowCount="4">
+              <Table columnCount="10" rowCount="4">
+                <Column editable="false" title="Id" type="java.lang.Object"/>
                 <Column editable="false" title="Codigo" type="java.lang.Object"/>
                 <Column editable="false" title="Nombre" type="java.lang.Object"/>
                 <Column editable="false" title="Precio" type="java.lang.Object"/>
@@ -707,8 +711,9 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JLabel" name="jLabel1">
+    <Component class="javax.swing.JLabel" name="LbFotoM">
       <Properties>
+        <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
             <LineBorder/>
@@ -722,12 +727,9 @@
       </Constraints>
     </Component>
     <Component class="javax.swing.JLabel" name="LbNombreArtF">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Nombre Producto"/>
-      </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="770" y="310" width="-1" height="-1"/>
+          <AbsoluteConstraints x="770" y="310" width="210" height="30"/>
         </Constraint>
       </Constraints>
     </Component>
