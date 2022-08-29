@@ -296,7 +296,6 @@ public class VcrudProducto extends javax.swing.JInternalFrame {
         TxtCodAuxProd = new javax.swing.JTextField();
         BtnGuardarProd = new javax.swing.JButton();
         BtnImportarFoto = new javax.swing.JButton();
-        jLabel8 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         BtnAgregarArt = new javax.swing.JButton();
         BtnEditarArt = new javax.swing.JButton();
@@ -315,7 +314,7 @@ public class VcrudProducto extends javax.swing.JInternalFrame {
 
         jPanel1.setBackground(new java.awt.Color(33, 49, 91));
 
-        jLabel3.setFont(new java.awt.Font("Roboto Mono Medium", 1, 48)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("SansSerif", 1, 48)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("PRODUCTOS");
 
@@ -326,13 +325,13 @@ public class VcrudProducto extends javax.swing.JInternalFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel3)
-                .addContainerGap(430, Short.MAX_VALUE))
+                .addContainerGap(410, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jLabel3)
-                .addGap(0, 16, Short.MAX_VALUE))
+                .addGap(0, 18, Short.MAX_VALUE))
         );
 
         BG.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 730, 80));
@@ -562,8 +561,6 @@ public class VcrudProducto extends javax.swing.JInternalFrame {
             .addComponent(BG, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jLabel8.setText("jLabel8");
-
         setTitle("Productos");
         setPreferredSize(new java.awt.Dimension(1000, 550));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -675,7 +672,6 @@ public class VcrudProducto extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

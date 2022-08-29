@@ -84,7 +84,12 @@ public class VcrudProveedor extends javax.swing.JInternalFrame {
 
         lblProvincia.setText("Provincia");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Azuay", "Bolivar", "Cañar", "Carchi", "Chimborazo", "Cotopaxi", "El Oro", "Esmeraldas", "Exterior", "Galapagos", "Guayas", "Imbabura", "Loja", "Los Ríos", "Manabí ", "Morona Santiago", "Napo", "Orrellana", "Pastaza", "Pichincha", "Santa Elena", "Santo Domingo", "Sin Especificar", "Sucumbios", "Tungurahua", "Zamora Chimchipe" }));
+        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox2ActionPerformed(evt);
+            }
+        });
 
         lblCiudad.setText("Ciudad");
 
@@ -276,6 +281,10 @@ public class VcrudProveedor extends javax.swing.JInternalFrame {
     private void ComBoxCedulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComBoxCedulaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ComBoxCedulaActionPerformed
+
+    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

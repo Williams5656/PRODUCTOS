@@ -16,6 +16,7 @@ public class VLogin extends javax.swing.JFrame {
 
     public VLogin() {
         initComponents();
+        
     }
 
     @SuppressWarnings("unchecked")
@@ -39,6 +40,7 @@ public class VLogin extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 153, 255));
+        setIconImages(null);
         setLocationByPlatform(true);
         setResizable(false);
 
@@ -111,11 +113,11 @@ public class VLogin extends javax.swing.JFrame {
         jLabel1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(491, 0, 340, 490));
 
-        jLabel4.setFont(new java.awt.Font("Roboto Mono Medium", 1, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("SansSerif", 1, 16)); // NOI18N
         jLabel4.setText("Contraseña");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, -1, -1));
 
-        jLabel5.setFont(new java.awt.Font("Roboto Mono Medium", 1, 14)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("SansSerif", 1, 16)); // NOI18N
         jLabel5.setText("Usuario");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, -1, -1));
         jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, 300, 10));
@@ -284,9 +286,6 @@ public class VLogin extends javax.swing.JFrame {
     public void setLbEntrar(JLabel LbEntrar) {
         this.LbEntrar = LbEntrar;
     }
-    
-    
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel LbEntrar;

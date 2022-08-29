@@ -9,8 +9,8 @@ import VISTA.CRUD.VcliOpro;
 import VISTA.CRUD.VcrudCliente;
 import VISTA.CRUD.VcrudProducto;
 import VISTA.CRUD.VcrudProveedor;
+import VISTA.CRUD.VcrudTransportista;
 import VISTA.CRUD.VcrudUsuario;
-import VISTA.PRINCIPAL;
 import VISTA.PrincipalC;
 import VISTA.VLogin;
 import java.awt.event.ActionEvent;
@@ -100,7 +100,20 @@ public class ControlPrincipal {
                contenedor.getDtPrincipal().removeAll();
                AbrirVentanaEscCP();
             }
-        });        
+        });  
+          contenedor.getLblTransp().addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent e) {}
+
+            @Override
+            public void mouseEntered(MouseEvent e) {}
+            
+            @Override
+            public void mouseReleased(MouseEvent e) {
+               contenedor.getDtPrincipal().removeAll();
+               AbrirCrudTransportista();
+            }
+        });
 
     }
     //Fin Inicia Programa
@@ -160,7 +173,18 @@ public class ControlPrincipal {
         CentrarVentanaInterna(vcpd);
         ccp.inicarControl(vcpd);
     }
-    //    
+    //
+public void AbrirCrudTransportista(){
+        ControlCrudTransportista cct= new ControlCrudTransportista ();
+        VcrudTransportista vct= new VcrudTransportista();
+        contenedor.getDtPrincipal().add(vct);
+        contenedor.getDtPrincipal().updateUI();
+        CentrarVentanaInterna(vct);
+        cct.IniciarControl(vct);
+       
+      
+            }  
+
 
 //Centrar Ventanas Internas
     public void CentrarVentanaInterna(JInternalFrame internalFr) {

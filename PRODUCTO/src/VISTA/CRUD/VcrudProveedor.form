@@ -279,14 +279,39 @@
             <Component class="javax.swing.JComboBox" name="jComboBox2">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="4">
-                    <StringItem index="0" value="Item 1"/>
-                    <StringItem index="1" value="Item 2"/>
-                    <StringItem index="2" value="Item 3"/>
-                    <StringItem index="3" value="Item 4"/>
+                  <StringArray count="26">
+                    <StringItem index="0" value="Azuay"/>
+                    <StringItem index="1" value="Bolivar"/>
+                    <StringItem index="2" value="Ca&#xf1;ar"/>
+                    <StringItem index="3" value="Carchi"/>
+                    <StringItem index="4" value="Chimborazo"/>
+                    <StringItem index="5" value="Cotopaxi"/>
+                    <StringItem index="6" value="El Oro"/>
+                    <StringItem index="7" value="Esmeraldas"/>
+                    <StringItem index="8" value="Exterior"/>
+                    <StringItem index="9" value="Galapagos"/>
+                    <StringItem index="10" value="Guayas"/>
+                    <StringItem index="11" value="Imbabura"/>
+                    <StringItem index="12" value="Loja"/>
+                    <StringItem index="13" value="Los R&#xed;os"/>
+                    <StringItem index="14" value="Manab&#xed; "/>
+                    <StringItem index="15" value="Morona Santiago"/>
+                    <StringItem index="16" value="Napo"/>
+                    <StringItem index="17" value="Orrellana"/>
+                    <StringItem index="18" value="Pastaza"/>
+                    <StringItem index="19" value="Pichincha"/>
+                    <StringItem index="20" value="Santa Elena"/>
+                    <StringItem index="21" value="Santo Domingo"/>
+                    <StringItem index="22" value="Sin Especificar"/>
+                    <StringItem index="23" value="Sucumbios"/>
+                    <StringItem index="24" value="Tungurahua"/>
+                    <StringItem index="25" value="Zamora Chimchipe"/>
                   </StringArray>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBox2ActionPerformed"/>
+              </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
               </AuxValues>

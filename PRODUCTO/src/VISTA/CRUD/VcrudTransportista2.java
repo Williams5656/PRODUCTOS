@@ -16,12 +16,12 @@ import javax.swing.JTextField;
  *
  * @author User
  */
-public class VcrudCliente extends javax.swing.JInternalFrame {
+public class VcrudTransportista2 extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form VcrudCliente
      */
-    public VcrudCliente() {
+    public VcrudTransportista2() {
         initComponents();
     }
     
@@ -199,6 +199,8 @@ public class VcrudCliente extends javax.swing.JInternalFrame {
         JdCliente = new javax.swing.JDialog();
         jLabelTitulo = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
+        jLabel3 = new javax.swing.JLabel();
+        TxtCedulaCli = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         TxtNombre = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
@@ -218,13 +220,6 @@ public class VcrudCliente extends javax.swing.JInternalFrame {
         TxtCelular = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         TxtCorreo = new javax.swing.JTextField();
-        jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        TxtCedulaCli = new javax.swing.JTextField();
-        jLabel12 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
         BtnAgregarCli = new javax.swing.JButton();
         BtnEditarCli = new javax.swing.JButton();
         BtnEliminarCli = new javax.swing.JButton();
@@ -237,6 +232,8 @@ public class VcrudCliente extends javax.swing.JInternalFrame {
         jLabelTitulo.setFont(new java.awt.Font("Dialog", 1, 30)); // NOI18N
         jLabelTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelTitulo.setText("Registrar Cliente");
+
+        jLabel3.setText("RUC/CI:");
 
         jLabel4.setText("Nombre:");
 
@@ -266,51 +263,19 @@ public class VcrudCliente extends javax.swing.JInternalFrame {
 
         jLabel11.setText("Correo:");
 
-        jPanel1.setBackground(new java.awt.Color(235, 240, 245));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jPanel2.setBackground(new java.awt.Color(33, 49, 91));
-
-        jLabel9.setFont(new java.awt.Font("SansSerif", 1, 48)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel9.setText("CLIENTES");
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel9)
-                .addContainerGap(480, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jLabel9)
-                .addGap(0, 18, Short.MAX_VALUE))
-        );
-
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 730, 80));
-
-        jLabel3.setText("Identificacion:");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 110, 87, 25));
-        jPanel1.add(TxtCedulaCli, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 110, 155, 25));
-
-        jLabel12.setText("Tipo de Identificacion:");
-        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, -1));
-
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cedula", "RUC", "Pasaporte", "Identifiacion del Exterior", "Placa" }));
-        jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 110, 170, -1));
-
         javax.swing.GroupLayout JdClienteLayout = new javax.swing.GroupLayout(JdCliente.getContentPane());
         JdCliente.getContentPane().setLayout(JdClienteLayout);
         JdClienteLayout.setHorizontalGroup(
             JdClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jSeparator1)
             .addGroup(JdClienteLayout.createSequentialGroup()
+                .addGap(99, 99, 99)
+                .addComponent(jLabelTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 373, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(JdClienteLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(JdClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4)
                     .addComponent(jLabel5)
                     .addComponent(jLabel6)
@@ -319,12 +284,13 @@ public class VcrudCliente extends javax.swing.JInternalFrame {
                     .addComponent(jLabel2)
                     .addComponent(jLabel10)
                     .addComponent(jLabel11))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(JdClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(JdClienteLayout.createSequentialGroup()
                         .addGroup(JdClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(TxtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(TxtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TxtCedulaCli, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(TxtCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(TxtDireccion, javax.swing.GroupLayout.DEFAULT_SIZE, 242, Short.MAX_VALUE)
                             .addComponent(TxtDireccionDom))
@@ -338,26 +304,27 @@ public class VcrudCliente extends javax.swing.JInternalFrame {
                                 .addGap(34, 34, 34)))
                         .addGap(45, 45, 45))
                     .addGroup(JdClienteLayout.createSequentialGroup()
-                        .addComponent(TxtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(JdClienteLayout.createSequentialGroup()
-                        .addGroup(JdClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(TxtCelular, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(TxtTelefono, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 154, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabelTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 373, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(20, 20, 20))))
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(JdClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(JdClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(TxtCelular, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(TxtTelefono, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 154, Short.MAX_VALUE))
+                            .addComponent(TxtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         JdClienteLayout.setVerticalGroup(
             JdClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JdClienteLayout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(JdClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(JdClienteLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabelTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 86, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(JdClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(TxtCedulaCli, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(JdClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4)
                             .addComponent(TxtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -378,31 +345,32 @@ public class VcrudCliente extends javax.swing.JInternalFrame {
                             .addComponent(jLabel8)
                             .addComponent(TxtCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(JdClienteLayout.createSequentialGroup()
+                        .addGap(72, 72, 72)
                         .addComponent(jLabelIcono, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(BtnGuardarCli)
                         .addGap(4, 4, 4)
                         .addComponent(BtnCancelarCli)))
-                .addGap(1096, 1096, 1096)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(JdClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(TxtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(JdClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(TxtCelular, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel10)
-                    .addComponent(jLabelTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel10))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(JdClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(TxtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel11)))
+                    .addComponent(jLabel11))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 102, 204), 5, true));
         setTitle("CRUD de Clientes");
 
         BtnAgregarCli.setIcon(new javax.swing.ImageIcon(getClass().getResource("/VISTA/ICONOS/business_application_addmale_useradd_insert_add_user_client_2312.png"))); // NOI18N
-        BtnAgregarCli.setText("Agregar");
+        BtnAgregarCli.setText("Nuevo Transportista");
         BtnAgregarCli.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         BtnAgregarCli.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         BtnAgregarCli.addActionListener(new java.awt.event.ActionListener() {
@@ -426,11 +394,11 @@ public class VcrudCliente extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "Cedula/Ruc", "Apellido", "Nombre", "Contacto", "Direccion"
+                "Cedula/Ru", "Nombre/Razón social", "Ientificacion", "Tipo", "Email"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
                 false, false, false, false, false
@@ -518,12 +486,10 @@ public class VcrudCliente extends javax.swing.JInternalFrame {
     private javax.swing.JTextField TxtDireccionDom;
     private javax.swing.JTextField TxtNombre;
     private javax.swing.JTextField TxtTelefono;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBuscar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -531,11 +497,8 @@ public class VcrudCliente extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabelIcono;
     private javax.swing.JLabel jLabelTitulo;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTable jtb_cliente;
