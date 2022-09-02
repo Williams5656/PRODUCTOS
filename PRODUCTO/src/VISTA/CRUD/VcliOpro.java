@@ -57,7 +57,7 @@ public class VcliOpro extends javax.swing.JInternalFrame {
         BtnCliente = new javax.swing.JButton();
         BtnProveedor = new javax.swing.JButton();
 
-        jPanel1.setBackground(new java.awt.Color(240, 240, 255));
+        jPanel1.setBackground(new java.awt.Color(33, 49, 91));
 
         BtnCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/VISTA/ICONOS/ICCliente.png"))); // NOI18N
         BtnCliente.setText("CLIENTE");

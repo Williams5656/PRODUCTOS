@@ -5,6 +5,7 @@
 package CONTROLADOR;
 
 import MODELO.Producto;
+import VISTA.CRUD.VCrearProducto;
 import VISTA.CRUD.VcrudProducto;
 import java.awt.Image;
 import java.awt.event.KeyEvent;
@@ -39,6 +40,7 @@ public class ControlCRUDProducto {
     private ImageIcon ic;    
     Producto prod=new Producto();
     VcrudProducto vcp=new VcrudProducto();
+    VCrearProducto vcpd=new VCrearProducto();
 
     public void inicarControl(VcrudProducto vcp) {
         mouseListenerTabla(vcp);
@@ -50,6 +52,11 @@ public class ControlCRUDProducto {
         vcp.getBtnEliminarArt().addActionListener(l->EliminarProducto(vcp));
     }
 
+    public void iniciarControlC(VCrearProducto vcpd){
+        vcpd.getBtnGuardarProd().addActionListener(l->GuardarNuevoProducto(vcpd));
+        vcpd.getBtnImportarFoto().addActionListener(l->CargarFotoN(vcpd));
+    }
+    
     //Cargar Datos a la tabla    
     private void CargarProductos(VcrudProducto vcp, String nombre, String campo){
         List<Producto> ListaC = prod.mostrarProductos(nombre, campo);
@@ -99,6 +106,18 @@ public class ControlCRUDProducto {
             }
         }         
     }       
+    
+    public void GuardarNuevoProducto(VCrearProducto vcpd){
+            List<Producto> Bp = new ArrayList<>();
+                try {
+                    Bp = prod.mostrarProductos(vcpd.getTxtCodProd().getText(),"codigo_prod");
+                    Bp.get(0).getCodigoP().equalsIgnoreCase("");
+                    JOptionPane.showMessageDialog(null, "Ya existe otro producto con el mismo codigo");
+                } catch (Exception e) {
+                    prod.InsertarProducto(vcpd.getTxtCodProd().getText(),vcpd.getTxtNombreProd().getText(),vcpd.getTxtDescProd().getText(),"1",vcpd.getTxtPrecio1Prod().getText(),vcpd.getTxtPrecio2Prod().getText(),vcpd.getTxtPrecio3Prod().getText(),vcpd.getCbTipoProd().getSelectedItem().toString(),vcpd.getCbTipoIvaProd().getSelectedItem().toString(),vcpd.getCbIceProd().getSelectedItem().toString(),vcpd.getCbMStockProd().getSelectedItem().toString(),vcpd.getCbCateProd().getSelectedItem().toString(),ObtenFechaN(vcpd),vcpd.getTxtSubsiProd().getText(),vcpd.getCbUnidadProd().getSelectedItem().toString(),vcpd.getTxtCodAuxProd().getText(),OFotoN(vcpd));
+                    JOptionPane.showMessageDialog(vcp, "Guardado Exitoso");
+                }        
+    }
     
     //Para mostrar la foto segun la fila seleccionada
     public void mouseListenerTabla(VcrudProducto vcp) {
@@ -206,10 +225,41 @@ public class ControlCRUDProducto {
         }
     }     
     
+    private void CargarFotoN(VCrearProducto vcp){
+        //Para dar estilo Windows
+       try {
+            // TODO add your handling code here:
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
+            Logger.getLogger(VcrudProducto.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    //Proceso de Foto
+        vcp.getLbFotoAGProd().setIcon(null);
+        JFileChooser jfc = new JFileChooser();
+        jfc.setFileSelectionMode(JFileChooser.FILES_ONLY);
+        jfc.setFileFilter(new FileNameExtensionFilter("IMAGENES", "jpg", "png", "jpeg"));
+        int estado = jfc.showOpenDialog(null);
+        if (estado == JFileChooser.APPROVE_OPTION) {
+            try {
+                Image foto = ImageIO.read(jfc.getSelectedFile());
+                vcp.getLbFotoAGProd().setIcon(new ImageIcon(foto.getScaledInstance(vcp.getLbFotoAGProd().getWidth(), vcp.getLbFotoAGProd().getHeight(), Image.SCALE_DEFAULT)));
+                vcp.getLbFotoAGProd().updateUI();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }       
+    
     public Image OFoto(VcrudProducto vcp){
         ImageIcon ico = (ImageIcon)vcp.getLbFotoAGProd().getIcon();
         return ico.getImage();
-    }    
+    }   
+    
+    public Image OFotoN(VCrearProducto vcp){
+        ImageIcon ico = (ImageIcon)vcp.getLbFotoAGProd().getIcon();
+        return ico.getImage();
+    }      
+    
     //Foto
     
     //Obtener Fecha Seleccionada
@@ -221,6 +271,15 @@ public class ControlCRUDProducto {
         String fe = (a+"-"+m+"-"+d);
         return fe;
     }
+    
+    private String ObtenFechaN(VCrearProducto vcp){
+        int d, m, a;
+        d = vcp.getJcFVenciProd().getCalendar().get(Calendar.DAY_OF_MONTH);
+        m = 1+(vcp.getJcFVenciProd().getCalendar().get(Calendar.MONTH));
+        a = vcp.getJcFVenciProd().getCalendar().get(Calendar.YEAR);
+        String fe = (a+"-"+m+"-"+d);
+        return fe;
+    }    
     
     //Limpia los campos o los deja por defecto
     public void limpiar(VcrudProducto vcp) {

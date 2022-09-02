@@ -330,13 +330,14 @@ public class VcrudProducto extends javax.swing.JInternalFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jLabel3)
-                .addGap(0, 18, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         BG.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 730, 80));
 
-        jPanel2.setBackground(new java.awt.Color(225, 235, 245));
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
         LbFotoAGProd.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         LbFotoAGProd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/VISTA/ICONOS/ProductoGenerico.png"))); // NOI18N
@@ -455,8 +456,8 @@ public class VcrudProducto extends javax.swing.JInternalFrame {
                                         .addComponent(jLabel13)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(CbTipoIvaProd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(0, 31, Short.MAX_VALUE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE))
+                                .addGap(0, 36, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel2Layout.createSequentialGroup()
@@ -473,16 +474,14 @@ public class VcrudProducto extends javax.swing.JInternalFrame {
                         .addComponent(CbUnidadProd, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(LbFotoAGProd, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(19, 19, 19))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addComponent(BtnImportarFoto)
-                        .addGap(61, 61, 61))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(BtnGuardarProd)
-                .addContainerGap())
+                        .addGap(61, 61, 61))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(BtnGuardarProd)
+                            .addComponent(LbFotoAGProd, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(19, 19, 19))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -548,7 +547,7 @@ public class VcrudProducto extends javax.swing.JInternalFrame {
                 .addContainerGap())
         );
 
-        BG.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 720, 330));
+        BG.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 730, 330));
 
         javax.swing.GroupLayout JdProductoLayout = new javax.swing.GroupLayout(JdProducto.getContentPane());
         JdProducto.getContentPane().setLayout(JdProductoLayout);

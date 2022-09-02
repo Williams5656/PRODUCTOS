@@ -5,6 +5,10 @@
  */
 package CONTROLADOR;
 
+import VISTA.CRUD.VCrearCliente;
+import VISTA.CRUD.VCrearProducto;
+import VISTA.CRUD.VOpcionesCli;
+import VISTA.CRUD.VOpcionesProd;
 import VISTA.CRUD.VcliOpro;
 import VISTA.CRUD.VcrudCliente;
 import VISTA.CRUD.VcrudProducto;
@@ -34,7 +38,7 @@ public class ControlPrincipal {
         this.vlogin = vlogin;
         componentesLogin();
     }
-
+ 
     //Inicia Control
     public void iniciarcontrol() {
         vlogin.setVisible(true);
@@ -56,9 +60,10 @@ public class ControlPrincipal {
     public Action action = new AbstractAction() {
         @Override
         public void actionPerformed(ActionEvent e) {
+            //If usuario en la base, permitir ingreso
             iniciarPrograma();
         }
-    };
+    };   
     //fin proceso verificaion usuario
 
     //Inicia Prgrama
@@ -66,76 +71,36 @@ public class ControlPrincipal {
         contenedor = new PrincipalC();
         vlogin.dispose();
         contenedor.setVisible(true);
-//        //Abre ventana crud Usuarios
-//        contenedor.getItemUsuarios().addActionListener(l -> {
-//            contenedor.getDtp_principal().removeAll();
-//            AbrirCrudUsuario();
-//        });
-
-        //Abre ventana crud Producto
-        contenedor.getLbProdYSer().addMouseListener(new java.awt.event.MouseAdapter() {
-            @Override
-            public void mousePressed(MouseEvent e) {}
-
-            @Override
-            public void mouseEntered(MouseEvent e) {}
-            
-            @Override
-            public void mouseReleased(MouseEvent e) {
-               contenedor.getDtPrincipal().removeAll();
-               AbrirCrudProducto();
-            }
-        });
-        
-        //Abre opcion entre Clientes o productos
-        contenedor.getLbCliYProv().addMouseListener(new java.awt.event.MouseAdapter() {
-            @Override
-            public void mousePressed(MouseEvent e) {}
-
-            @Override
-            public void mouseEntered(MouseEvent e) {}
-            
-            @Override
-            public void mouseReleased(MouseEvent e) {
-               contenedor.getDtPrincipal().removeAll();
-               AbrirVentanaEscCP();
-            }
-        });  
-          contenedor.getLblTransp().addMouseListener(new java.awt.event.MouseAdapter() {
-            @Override
-            public void mousePressed(MouseEvent e) {}
-
-            @Override
-            public void mouseEntered(MouseEvent e) {}
-            
-            @Override
-            public void mouseReleased(MouseEvent e) {
-               contenedor.getDtPrincipal().removeAll();
-               AbrirCrudTransportista();
-            }
-        });
-
+        //Abre ventana opciones Producto
+        MLProducto();
+        //Abre ventana opciones Clientes, proveedores y transportistas
+        MLCliPro();
     }
     //Fin Inicia Programa
 
-    //Escoger entre Cli o Prov
-    public void AbrirVentanaEscCP(){
-        VcliOpro vcop = new VcliOpro();
-        contenedor.getDtPrincipal().add(vcop);
-        contenedor.getDtPrincipal().updateUI();  
-        CentrarVentanaInterna(vcop);
-        vcop.getBtnCliente().addActionListener(l -> {
-            contenedor.getDtPrincipal().removeAll();
-            AbrirCrudCliente();
-        });
-        vcop.getBtnProveedor().addActionListener(l -> {
-            contenedor.getDtPrincipal().removeAll();
-            AbrirCrudProveedor();
-        });
+    //Internal Frames
+    //Abrir CRUD Producto
+    public void AbrirMostrarProducto() {
+        ControlCRUDProducto ccp=new ControlCRUDProducto();
+        VcrudProducto vcpd = new VcrudProducto();
+        contenedor.getDtPrincipal().add(vcpd);
+        contenedor.getDtPrincipal().updateUI();
+        CentrarVentanaInterna(vcpd);
+        ccp.inicarControl(vcpd);
+    }   
+    
+    //
+    public void AbrirCrearProducto(){
+        ControlCRUDProducto ccp=new ControlCRUDProducto();
+        VCrearProducto vcpd = new VCrearProducto();
+        contenedor.getDtPrincipal().add(vcpd);
+        contenedor.getDtPrincipal().updateUI();
+        CentrarVentanaInterna(vcpd);
+        ccp.iniciarControlC(vcpd);
     }
- 
+     
     //Abrir CRUD CLIENTE
-    public void AbrirCrudCliente() {
+    public void AbrirMostrarCliente() {
         ControlCRUDCliente ccc = new ControlCRUDCliente();
         VcrudCliente vcc = new VcrudCliente();
         contenedor.getDtPrincipal().add(vcc);
@@ -143,6 +108,16 @@ public class ControlPrincipal {
         CentrarVentanaInterna(vcc);
         ccc.IniciarControl(vcc);
     }
+    
+    public void AbrirCrearCliente(){
+//        ControlCRUDProducto ccp=new ControlCRUDProducto();
+        VCrearCliente vcc = new VCrearCliente();
+        contenedor.getDtPrincipal().add(vcc);
+        contenedor.getDtPrincipal().updateUI();
+        CentrarVentanaInterna(vcc);
+//        ccp.iniciarControlC(vcpd);
+    }    
+    
     //
 
 //    //Arir CRUD Usuario
@@ -162,16 +137,21 @@ public class ControlPrincipal {
         CentrarVentanaInterna(vcp);
     }
     //
-
-    //Abrir CRUD Producto
-    public void AbrirCrudProducto() {
-        //ControlCRUDProducto pr = new ControlCRUDProducto();
-        ControlCRUDProducto ccp=new ControlCRUDProducto();
-        VcrudProducto vcpd = new VcrudProducto();
-        contenedor.getDtPrincipal().add(vcpd);
+    //Abrir Eleccion de acciones en producto
+    public void AbrirOpcionesProd(){
+        VOpcionesProd vop=new VOpcionesProd();
+        contenedor.getDtPrincipal().add(vop);
         contenedor.getDtPrincipal().updateUI();
-        CentrarVentanaInterna(vcpd);
-        ccp.inicarControl(vcpd);
+        CentrarVentanaInterna(vop);
+        AsignaBtnControlPro(vop);
+    }
+    
+    public void AbrirOpcionesCli(){
+        VOpcionesCli voc=new VOpcionesCli();
+        contenedor.getDtPrincipal().add(voc);
+        contenedor.getDtPrincipal().updateUI();
+        CentrarVentanaInterna(voc);   
+        AsignaBtnControlCli(voc);
     }
     //
 public void AbrirCrudTransportista(){
@@ -181,10 +161,7 @@ public void AbrirCrudTransportista(){
         contenedor.getDtPrincipal().updateUI();
         CentrarVentanaInterna(vct);
         cct.IniciarControl(vct);
-       
-      
-            }  
-
+    }  
 
 //Centrar Ventanas Internas
     public void CentrarVentanaInterna(JInternalFrame internalFr) {
@@ -199,20 +176,91 @@ public void AbrirCrudTransportista(){
     }
 //Fin Centrar Ventanas Internas
     
-    //MouseListener
+    //MouseListener Botones jlabel
+    public void AsignaBtnControlPro(VOpcionesProd vop){        
+        //LbNuevo
+        vop.getLbNuev().addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
+            public void mouseReleased(MouseEvent e) {
+               contenedor.getDtPrincipal().removeAll();
+               AbrirCrearProducto();
+            }
+        });    
+        
+        vop.getLbMostrar().addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
+            public void mouseReleased(MouseEvent e) {
+               contenedor.getDtPrincipal().removeAll();
+                AbrirMostrarProducto();
+            }
+        });           
+    }
+    
+    public void AsignaBtnControlCli(VOpcionesCli voc){        
+        //LbNuevo
+        
+        voc.getLbNCli().addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
+            public void mouseReleased(MouseEvent e) {
+               contenedor.getDtPrincipal().removeAll();
+               AbrirCrearCliente();
+            }
+        });            
+        
+        voc.getLbMostrarCli().addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
+            public void mouseReleased(MouseEvent e) {
+               contenedor.getDtPrincipal().removeAll();
+               AbrirMostrarCliente();
+            }
+        });    
+        
+        voc.getLbNProv().addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
+            public void mouseReleased(MouseEvent e) {
+               contenedor.getDtPrincipal().removeAll();
+                AbrirCrudProveedor();
+            }
+        });   
+
+        voc.getLbNTransp().addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
+            public void mouseReleased(MouseEvent e) {
+               contenedor.getDtPrincipal().removeAll();
+                AbrirCrudTransportista();
+            }
+        });          
+    }    
+    //
+    //MouseListener CRUD producto
+    public void MLProducto(){
+        contenedor.getLbProdYSer().addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
+            public void mouseReleased(MouseEvent e) {
+               contenedor.getDtPrincipal().removeAll();
+                 AbrirOpcionesProd();
+            }
+        });   
+    }
+    //Clientes Proveedores
+    public void MLCliPro(){
+        contenedor.getLbCliYProv().addMouseListener(new java.awt.event.MouseAdapter() {            
+            @Override
+            public void mouseReleased(MouseEvent e) {
+               contenedor.getDtPrincipal().removeAll();
+               AbrirOpcionesCli();
+            }
+        });          
+    }
+    
+    //MouseListener Login
     public void mouseListenerBtn(JLabel jc) {
 
         jc.addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
-            public void mousePressed(MouseEvent e) {}
-
-            @Override
             public void mouseReleased(MouseEvent e) {
               iniciarPrograma();
             }
-         
-            @Override
-            public void mouseEntered(MouseEvent e) {}
         }
         );
     }    
