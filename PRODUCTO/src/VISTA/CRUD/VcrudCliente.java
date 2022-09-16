@@ -27,22 +27,6 @@ public class VcrudCliente extends javax.swing.JInternalFrame {
     
     //Getters y Setter
 
-    public JButton getBtnAgregarCli() {
-        return BtnAgregarCli;
-    }
-
-    public void setBtnAgregarCli(JButton BtnAgregarCli) {
-        this.BtnAgregarCli = BtnAgregarCli;
-    }
-
-    public JButton getBtnCancelarCli() {
-        return BtnCancelarCli;
-    }
-
-    public void setBtnCancelarCli(JButton BtnCancelarCli) {
-        this.BtnCancelarCli = BtnCancelarCli;
-    }
-
     public JButton getBtnEditarCli() {
         return BtnEditarCli;
     }
@@ -59,28 +43,12 @@ public class VcrudCliente extends javax.swing.JInternalFrame {
         this.BtnEliminarCli = BtnEliminarCli;
     }
 
-    public JButton getBtnGuardarCli() {
-        return BtnGuardarCli;
-    }
-
-    public void setBtnGuardarCli(JButton BtnGuardarCli) {
-        this.BtnGuardarCli = BtnGuardarCli;
-    }
-
     public JDialog getJdCliente() {
         return JdCliente;
     }
 
     public void setJdCliente(JDialog JdCliente) {
         this.JdCliente = JdCliente;
-    }
-
-    public JTextField getTxtApellido() {
-        return TxtApellido;
-    }
-
-    public void setTxtApellido(JTextField TxtApellido) {
-        this.TxtApellido = TxtApellido;
     }
 
     public JTextField getTxtBuscarCli() {
@@ -91,12 +59,52 @@ public class VcrudCliente extends javax.swing.JInternalFrame {
         this.TxtBuscarCli = TxtBuscarCli;
     }
 
-    public JTextField getTxtCedulaCli() {
-        return TxtCedulaCli;
+    public JLabel getjLabelIcono() {
+        return jLabelIcono;
     }
 
-    public void setTxtCedulaCli(JTextField TxtCedulaCli) {
-        this.TxtCedulaCli = TxtCedulaCli;
+    public void setjLabelIcono(JLabel jLabelIcono) {
+        this.jLabelIcono = jLabelIcono;
+    }
+
+    public JTable getJtb_cliente() {
+        return jtb_cliente;
+    }
+    
+    public void setJtb_cliente(JTable jtb_cliente) {
+        this.jtb_cliente = jtb_cliente;
+    }
+
+    public JButton getBtnGuardarCli() {
+        return BtnGuardarCli;
+    }
+
+    public void setBtnGuardarCli(JButton BtnGuardarCli) {
+        this.BtnGuardarCli = BtnGuardarCli;
+    }
+
+    public JComboBox<String> getCbCiudad() {
+        return CbCiudad;
+    }
+
+    public void setCbCiudad(JComboBox<String> CbCiudad) {
+        this.CbCiudad = CbCiudad;
+    }
+
+    public JComboBox<String> getCbProvincia() {
+        return CbProvincia;
+    }
+
+    public void setCbProvincia(JComboBox<String> CbProvincia) {
+        this.CbProvincia = CbProvincia;
+    }
+
+    public JComboBox<String> getCbTipoId() {
+        return CbTipoId;
+    }
+
+    public void setCbTipoId(JComboBox<String> CbTipoId) {
+        this.CbTipoId = CbTipoId;
     }
 
     public JTextField getTxtCelular() {
@@ -107,12 +115,20 @@ public class VcrudCliente extends javax.swing.JInternalFrame {
         this.TxtCelular = TxtCelular;
     }
 
-    public JTextField getTxtCiudad() {
-        return TxtCiudad;
+    public JTextField getTxtCodSucursal() {
+        return TxtCodSucursal;
     }
 
-    public void setTxtCiudad(JTextField TxtCiudad) {
-        this.TxtCiudad = TxtCiudad;
+    public void setTxtCodSucursal(JTextField TxtCodSucursal) {
+        this.TxtCodSucursal = TxtCodSucursal;
+    }
+
+    public JTextField getTxtCorreo() {
+        return TxtCorreo;
+    }
+
+    public void setTxtCorreo(JTextField TxtCorreo) {
+        this.TxtCorreo = TxtCorreo;
     }
 
     public JTextField getTxtDireccion() {
@@ -123,6 +139,14 @@ public class VcrudCliente extends javax.swing.JInternalFrame {
         this.TxtDireccion = TxtDireccion;
     }
 
+    public JTextField getTxtIdentificacion() {
+        return TxtIdentificacion;
+    }
+
+    public void setTxtIdentificacion(JTextField TxtIdentificacion) {
+        this.TxtIdentificacion = TxtIdentificacion;
+    }
+
     public JTextField getTxtNombre() {
         return TxtNombre;
     }
@@ -131,62 +155,32 @@ public class VcrudCliente extends javax.swing.JInternalFrame {
         this.TxtNombre = TxtNombre;
     }
 
-    public JTextField getTxtTelefono() {
-        return TxtTelefono;
+    public JTextField getTxtSucursal() {
+        return TxtSucursal;
     }
 
-    public void setTxtTelefono(JTextField TxtTelefono) {
-        this.TxtTelefono = TxtTelefono;
+    public void setTxtSucursal(JTextField TxtSucursal) {
+        this.TxtSucursal = TxtSucursal;
     }
 
-    public JComboBox<String> getjComboBuscar() {
-        return jComboBuscar;
+    public JTextField getTxttelefono() {
+        return Txttelefono;
     }
 
-    public void setjComboBuscar(JComboBox<String> jComboBuscar) {
-        this.jComboBuscar = jComboBuscar;
+    public void setTxttelefono(JTextField Txttelefono) {
+        this.Txttelefono = Txttelefono;
     }
 
-    public JLabel getjLabelIcono() {
-        return jLabelIcono;
+    public JComboBox<String> getCbBuscarCli() {
+        return CbBuscarCli;
     }
 
-    public void setjLabelIcono(JLabel jLabelIcono) {
-        this.jLabelIcono = jLabelIcono;
-    }
-
-    public JLabel getjLabelTitulo() {
-        return jLabelTitulo;
-    }
-
-    public void setjLabelTitulo(JLabel jLabelTitulo) {
-        this.jLabelTitulo = jLabelTitulo;
-    }
-
-    public JTable getJtb_cliente() {
-        return jtb_cliente;
-    }
-
-    public JTextField getTxtCorreo() {
-        return TxtCorreo;
-    }
-
-    public void setTxtCorreo(JTextField TxtCorreo) {
-        this.TxtCorreo = TxtCorreo;
-    }
-    
-    public void setJtb_cliente(JTable jtb_cliente) {
-        this.jtb_cliente = jtb_cliente;
-    }
-
-    public JTextField getTxtDireccionDom() {
-        return TxtDireccionDom;
-    }
-
-    public void setTxtDireccionDom(JTextField TxtDireccionDom) {
-        this.TxtDireccionDom = TxtDireccionDom;
+    public void setCbBuscarCli(JComboBox<String> CbBuscarCli) {
+        this.CbBuscarCli = CbBuscarCli;
     }
         
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -197,83 +191,56 @@ public class VcrudCliente extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         JdCliente = new javax.swing.JDialog();
-        jLabelTitulo = new javax.swing.JLabel();
-        jSeparator1 = new javax.swing.JSeparator();
-        jLabel4 = new javax.swing.JLabel();
-        TxtNombre = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        TxtApellido = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
-        TxtDireccion = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
-        TxtDireccionDom = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
-        TxtCiudad = new javax.swing.JTextField();
-        jLabelIcono = new javax.swing.JLabel();
-        BtnGuardarCli = new javax.swing.JButton();
-        BtnCancelarCli = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        TxtTelefono = new javax.swing.JTextField();
-        jLabel10 = new javax.swing.JLabel();
-        TxtCelular = new javax.swing.JTextField();
-        jLabel11 = new javax.swing.JLabel();
-        TxtCorreo = new javax.swing.JTextField();
-        jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jLabel9 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        TxtCedulaCli = new javax.swing.JTextField();
+        jPanel3 = new javax.swing.JPanel();
+        jSeparator7 = new javax.swing.JSeparator();
+        jSeparator8 = new javax.swing.JSeparator();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        TxtIdentificacion = new javax.swing.JTextField();
+        jLabel15 = new javax.swing.JLabel();
+        TxtDireccion = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        BtnAgregarCli = new javax.swing.JButton();
+        CbTipoId = new javax.swing.JComboBox<>();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        CbCiudad = new javax.swing.JComboBox<>();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        TxtSucursal = new javax.swing.JTextField();
+        jLabel21 = new javax.swing.JLabel();
+        CbProvincia = new javax.swing.JComboBox<>();
+        jLabel22 = new javax.swing.JLabel();
+        TxtCodSucursal = new javax.swing.JTextField();
+        BtnGuardarCli = new javax.swing.JButton();
+        jSeparator9 = new javax.swing.JSeparator();
+        jSeparator10 = new javax.swing.JSeparator();
+        jLabel23 = new javax.swing.JLabel();
+        TxtNombre = new javax.swing.JTextField();
+        Txttelefono = new javax.swing.JTextField();
+        jSeparator12 = new javax.swing.JSeparator();
+        TxtCelular = new javax.swing.JTextField();
+        jSeparator13 = new javax.swing.JSeparator();
+        TxtCorreo = new javax.swing.JTextField();
+        jSeparator14 = new javax.swing.JSeparator();
+        jLabel24 = new javax.swing.JLabel();
+        jSeparator15 = new javax.swing.JSeparator();
+        jLabelIcono = new javax.swing.JLabel();
         BtnEditarCli = new javax.swing.JButton();
         BtnEliminarCli = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtb_cliente = new javax.swing.JTable();
         TxtBuscarCli = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        jComboBuscar = new javax.swing.JComboBox<>();
-
-        jLabelTitulo.setFont(new java.awt.Font("Dialog", 1, 30)); // NOI18N
-        jLabelTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelTitulo.setText("Registrar Cliente");
-
-        jLabel4.setText("Nombre:");
-
-        jLabel5.setText("Apellido:");
-
-        jLabel6.setText("Direccion:");
-
-        jLabel7.setText("Domicilio:");
-
-        jLabel8.setText("Ciudad:");
-
-        jLabelIcono.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelIcono.setIcon(new javax.swing.ImageIcon(getClass().getResource("/VISTA/ICONOS/ClienteG.png"))); // NOI18N
-
-        BtnGuardarCli.setText("Guardar");
-
-        BtnCancelarCli.setText("Cancelar");
-        BtnCancelarCli.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnCancelarCliActionPerformed(evt);
-            }
-        });
-
-        jLabel2.setText("Telefono:");
-
-        jLabel10.setText("Celular:");
-
-        jLabel11.setText("Correo:");
-
-        jPanel1.setBackground(new java.awt.Color(235, 240, 245));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        CbBuscarCli = new javax.swing.JComboBox<>();
 
         jPanel2.setBackground(new java.awt.Color(33, 49, 91));
 
-        jLabel9.setFont(new java.awt.Font("SansSerif", 1, 48)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel9.setText("CLIENTES");
+        jLabel3.setFont(new java.awt.Font("SansSerif", 1, 65)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("CLIENTES");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -281,135 +248,173 @@ public class VcrudCliente extends javax.swing.JInternalFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel9)
-                .addContainerGap(480, Short.MAX_VALUE))
+                .addComponent(jLabel3)
+                .addContainerGap(787, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jLabel9)
-                .addGap(0, 18, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(24, Short.MAX_VALUE)
+                .addComponent(jLabel3)
+                .addContainerGap())
         );
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 730, 80));
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel3.setText("Identificacion:");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 110, 87, 25));
-        jPanel1.add(TxtCedulaCli, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 110, 155, 25));
+        jSeparator7.setForeground(new java.awt.Color(33, 49, 91));
+        jPanel3.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 150, 340, 10));
 
-        jLabel12.setText("Tipo de Identificacion:");
-        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, -1));
+        jSeparator8.setForeground(new java.awt.Color(33, 49, 91));
+        jPanel3.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 230, 180, 10));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cedula", "RUC", "Pasaporte", "Identifiacion del Exterior", "Placa" }));
-        jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 110, 170, -1));
+        jLabel13.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        jLabel13.setText("Tipo de Identificación:");
+        jPanel3.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, -1, -1));
+
+        jLabel14.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        jLabel14.setText("Identificacion:");
+        jPanel3.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 70, -1, -1));
+
+        TxtIdentificacion.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        TxtIdentificacion.setBorder(null);
+        jPanel3.add(TxtIdentificacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 70, 220, 30));
+
+        jLabel15.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        jLabel15.setText("Nombres / Razon Social:");
+        jPanel3.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, -1, 30));
+
+        TxtDireccion.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        TxtDireccion.setBorder(null);
+        jPanel3.add(TxtDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 250, 500, 30));
+
+        jLabel12.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        jLabel12.setText("DATOS BASICOS");
+        jPanel3.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
+
+        CbTipoId.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        CbTipoId.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cedula", "RUC", "Pasaporte", "Identificacion del Exterior", "Placa" }));
+        jPanel3.add(CbTipoId, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 70, 190, 30));
+
+        jLabel16.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        jLabel16.setText("Direccion:");
+        jPanel3.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, -1, -1));
+
+        jLabel17.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        jLabel17.setText("Alias Sucursal:");
+        jPanel3.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, -1, -1));
+
+        jLabel18.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        jLabel18.setText("Telefono:");
+        jPanel3.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, -1, -1));
+
+        CbCiudad.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        CbCiudad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Principal", "Prueba", "Juan" }));
+        jPanel3.add(CbCiudad, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 340, 130, 30));
+
+        jLabel19.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        jLabel19.setText("Celular:");
+        jPanel3.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 300, -1, -1));
+
+        jLabel20.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        jLabel20.setText("Provincia:");
+        jPanel3.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 350, -1, -1));
+
+        TxtSucursal.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        TxtSucursal.setBorder(null);
+        jPanel3.add(TxtSucursal, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 200, 180, 30));
+
+        jLabel21.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        jLabel21.setText("Correo:");
+        jPanel3.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 300, -1, -1));
+
+        CbProvincia.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        CbProvincia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ninguno", "Unidad", "test", "Saco 75Kg", "Saco 5Kg", "Saco 50Kg", "Saco 4Kg", "Saco 45Kg", "Saco 40Kg", "Saco 3Kg", "Saco 35Kg", "Saco 30Kg", "Saco 2Kg", "Saco 25Kg", "Saco 20Kg", "Saco 1Kg", "Saco 15Kg", "Saco 10Kg", "Saco 100Kg", "Paquete de 9", "Paquete de 6", "Paquete de 4", "Paquete de 36", "Paquete de 3", "Paquete de 24", "Paquete de 20", "Paquete de 18", "Paquete de 13", "Paquete de 12", "Paquete de 10", "Metros", "Kilogramo" }));
+        jPanel3.add(CbProvincia, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 340, 140, 30));
+
+        jLabel22.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        jLabel22.setText("Ciudad:");
+        jPanel3.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 350, -1, -1));
+
+        TxtCodSucursal.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        TxtCodSucursal.setBorder(null);
+        jPanel3.add(TxtCodSucursal, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 200, 100, 30));
+
+        BtnGuardarCli.setFont(new java.awt.Font("SansSerif", 0, 15)); // NOI18N
+        BtnGuardarCli.setText("Guardar");
+        jPanel3.add(BtnGuardarCli, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 420, 90, 40));
+
+        jSeparator9.setForeground(new java.awt.Color(33, 49, 91));
+        jPanel3.add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 100, 220, 10));
+
+        jSeparator10.setForeground(new java.awt.Color(33, 49, 91));
+        jPanel3.add(jSeparator10, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 230, 100, 10));
+
+        jLabel23.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        jLabel23.setText("Codigo Sucursal:");
+        jPanel3.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 210, -1, -1));
+
+        TxtNombre.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        TxtNombre.setBorder(null);
+        jPanel3.add(TxtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 120, 340, 30));
+
+        Txttelefono.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        Txttelefono.setBorder(null);
+        jPanel3.add(Txttelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 290, 170, 30));
+
+        jSeparator12.setForeground(new java.awt.Color(33, 49, 91));
+        jPanel3.add(jSeparator12, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 320, 180, 10));
+
+        TxtCelular.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        TxtCelular.setBorder(null);
+        jPanel3.add(TxtCelular, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 290, 160, 30));
+
+        jSeparator13.setForeground(new java.awt.Color(33, 49, 91));
+        jPanel3.add(jSeparator13, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 320, 170, 10));
+
+        TxtCorreo.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        TxtCorreo.setBorder(null);
+        jPanel3.add(TxtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 290, 330, 30));
+
+        jSeparator14.setForeground(new java.awt.Color(33, 49, 91));
+        jPanel3.add(jSeparator14, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 320, 330, 10));
+
+        jLabel24.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        jLabel24.setText("MATRIZ");
+        jPanel3.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, -1, -1));
+
+        jSeparator15.setForeground(new java.awt.Color(33, 49, 91));
+        jPanel3.add(jSeparator15, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 280, 500, 10));
+
+        jLabelIcono.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelIcono.setIcon(new javax.swing.ImageIcon(getClass().getResource("/VISTA/ICONOS/ClienteG.png"))); // NOI18N
+        jPanel3.add(jLabelIcono, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 98, 150, 150));
 
         javax.swing.GroupLayout JdClienteLayout = new javax.swing.GroupLayout(JdCliente.getContentPane());
         JdCliente.getContentPane().setLayout(JdClienteLayout);
         JdClienteLayout.setHorizontalGroup(
             JdClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSeparator1)
             .addGroup(JdClienteLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(JdClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel7)
-                    .addComponent(jLabel8)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel10)
-                    .addComponent(jLabel11))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(JdClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(JdClienteLayout.createSequentialGroup()
-                        .addGroup(JdClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(TxtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(TxtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(TxtCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(TxtDireccion, javax.swing.GroupLayout.DEFAULT_SIZE, 242, Short.MAX_VALUE)
-                            .addComponent(TxtDireccionDom))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(JdClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabelIcono, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JdClienteLayout.createSequentialGroup()
-                                .addGroup(JdClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(BtnCancelarCli, javax.swing.GroupLayout.DEFAULT_SIZE, 91, Short.MAX_VALUE)
-                                    .addComponent(BtnGuardarCli, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(34, 34, 34)))
-                        .addGap(45, 45, 45))
-                    .addGroup(JdClienteLayout.createSequentialGroup()
-                        .addComponent(TxtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(JdClienteLayout.createSequentialGroup()
-                        .addGroup(JdClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(TxtCelular, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(TxtTelefono, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 154, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabelTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 373, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(20, 20, 20))))
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(20, 20, 20)
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 1070, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         JdClienteLayout.setVerticalGroup(
             JdClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JdClienteLayout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(JdClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(JdClienteLayout.createSequentialGroup()
-                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 86, Short.MAX_VALUE)
-                        .addGroup(JdClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
-                            .addComponent(TxtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(JdClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
-                            .addComponent(TxtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(JdClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel6)
-                            .addComponent(TxtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(JdClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel7)
-                            .addComponent(TxtDireccionDom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(JdClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel8)
-                            .addComponent(TxtCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(JdClienteLayout.createSequentialGroup()
-                        .addComponent(jLabelIcono, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(BtnGuardarCli)
-                        .addGap(4, 4, 4)
-                        .addComponent(BtnCancelarCli)))
-                .addGap(1096, 1096, 1096)
-                .addGroup(JdClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(TxtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(JdClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(TxtCelular, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel10)
-                    .addComponent(jLabelTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(JdClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(TxtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel11)))
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 102, 204), 5, true));
+        setBorder(null);
         setTitle("CRUD de Clientes");
-
-        BtnAgregarCli.setIcon(new javax.swing.ImageIcon(getClass().getResource("/VISTA/ICONOS/business_application_addmale_useradd_insert_add_user_client_2312.png"))); // NOI18N
-        BtnAgregarCli.setText("Agregar");
-        BtnAgregarCli.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        BtnAgregarCli.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        BtnAgregarCli.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnAgregarCliActionPerformed(evt);
-            }
-        });
 
         BtnEditarCli.setIcon(new javax.swing.ImageIcon(getClass().getResource("/VISTA/ICONOS/modifica.png"))); // NOI18N
         BtnEditarCli.setText("Editar");
@@ -426,14 +431,14 @@ public class VcrudCliente extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "Cedula/Ruc", "Apellido", "Nombre", "Contacto", "Direccion"
+                "Identificacion", "Nombre o Razon Social", "Tipo"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -448,8 +453,7 @@ public class VcrudCliente extends javax.swing.JInternalFrame {
 
         jLabel1.setText("Clientes");
 
-        jComboBuscar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cedula", "Apellido", "Nombre" }));
-        jComboBuscar.setPreferredSize(new java.awt.Dimension(75, 32));
+        CbBuscarCli.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Identificacion", "Nombre", "Tipo" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -461,10 +465,8 @@ public class VcrudCliente extends javax.swing.JInternalFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(TxtBuscarCli, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(BtnAgregarCli, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(CbBuscarCli, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(220, 220, 220)
                         .addComponent(BtnEditarCli, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(BtnEliminarCli, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -477,67 +479,66 @@ public class VcrudCliente extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(BtnAgregarCli)
                     .addComponent(BtnEditarCli)
                     .addComponent(BtnEliminarCli)
                     .addComponent(TxtBuscarCli, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(CbBuscarCli, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 479, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void BtnCancelarCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCancelarCliActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BtnCancelarCliActionPerformed
-
-    private void BtnAgregarCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAgregarCliActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BtnAgregarCliActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BtnAgregarCli;
-    private javax.swing.JButton BtnCancelarCli;
     private javax.swing.JButton BtnEditarCli;
     private javax.swing.JButton BtnEliminarCli;
     private javax.swing.JButton BtnGuardarCli;
+    private javax.swing.JComboBox<String> CbBuscarCli;
+    private javax.swing.JComboBox<String> CbCiudad;
+    private javax.swing.JComboBox<String> CbProvincia;
+    private javax.swing.JComboBox<String> CbTipoId;
     private javax.swing.JDialog JdCliente;
-    private javax.swing.JTextField TxtApellido;
     private javax.swing.JTextField TxtBuscarCli;
-    private javax.swing.JTextField TxtCedulaCli;
     private javax.swing.JTextField TxtCelular;
-    private javax.swing.JTextField TxtCiudad;
+    private javax.swing.JTextField TxtCodSucursal;
     private javax.swing.JTextField TxtCorreo;
     private javax.swing.JTextField TxtDireccion;
-    private javax.swing.JTextField TxtDireccionDom;
+    private javax.swing.JTextField TxtIdentificacion;
     private javax.swing.JTextField TxtNombre;
-    private javax.swing.JTextField TxtTelefono;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBuscar;
+    private javax.swing.JTextField TxtSucursal;
+    private javax.swing.JTextField Txttelefono;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabelIcono;
-    private javax.swing.JLabel jLabelTitulo;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator10;
+    private javax.swing.JSeparator jSeparator12;
+    private javax.swing.JSeparator jSeparator13;
+    private javax.swing.JSeparator jSeparator14;
+    private javax.swing.JSeparator jSeparator15;
+    private javax.swing.JSeparator jSeparator7;
+    private javax.swing.JSeparator jSeparator8;
+    private javax.swing.JSeparator jSeparator9;
     private javax.swing.JTable jtb_cliente;
     // End of variables declaration//GEN-END:variables
 }

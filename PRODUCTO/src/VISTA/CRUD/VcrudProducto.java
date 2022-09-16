@@ -33,14 +33,6 @@ public class VcrudProducto extends javax.swing.JInternalFrame {
        
     }
 
-    public JButton getBtnAgregarArt() {
-        return BtnAgregarArt;
-    }
-
-    public void setBtnAgregarArt(JButton BtnAgregarArt) {
-        this.BtnAgregarArt = BtnAgregarArt;
-    }
-
     public JDialog getJdProducto() {
         return JdProducto;
     }
@@ -297,7 +289,6 @@ public class VcrudProducto extends javax.swing.JInternalFrame {
         BtnGuardarProd = new javax.swing.JButton();
         BtnImportarFoto = new javax.swing.JButton();
         jLabel18 = new javax.swing.JLabel();
-        BtnAgregarArt = new javax.swing.JButton();
         BtnEditarArt = new javax.swing.JButton();
         BtnEliminarArt = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -565,12 +556,6 @@ public class VcrudProducto extends javax.swing.JInternalFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         getContentPane().add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(53, 64, -1, -1));
 
-        BtnAgregarArt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/VISTA/ICONOS/agrega.png"))); // NOI18N
-        BtnAgregarArt.setText("Agregar");
-        BtnAgregarArt.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        BtnAgregarArt.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        getContentPane().add(BtnAgregarArt, new org.netbeans.lib.awtextra.AbsoluteConstraints(287, 6, 195, -1));
-
         BtnEditarArt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/VISTA/ICONOS/edita.png"))); // NOI18N
         BtnEditarArt.setText("Editar");
         BtnEditarArt.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -612,7 +597,7 @@ public class VcrudProducto extends javax.swing.JInternalFrame {
         getContentPane().add(LbNombreArtF, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 310, 210, 30));
         getContentPane().add(TxtBuscarArt, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 150, -1));
 
-        CbBuscarProd.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nombre", "Descripcion" }));
+        CbBuscarProd.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nombre", "Codigo" }));
         getContentPane().add(CbBuscarProd, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 30, -1, -1));
 
         jLabel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -628,7 +613,6 @@ public class VcrudProducto extends javax.swing.JInternalFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel BG;
-    private javax.swing.JButton BtnAgregarArt;
     private javax.swing.JButton BtnEditarArt;
     private javax.swing.JButton BtnEliminarArt;
     private javax.swing.JButton BtnGuardarProd;

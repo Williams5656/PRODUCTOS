@@ -5,6 +5,7 @@
  */
 package VISTA.CRUD;
 
+import MODELO.Validaciones;
 import com.toedter.calendar.JDateChooser;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -17,18 +18,27 @@ import javax.swing.JTextField;
  */
 public class VCrearCliente extends javax.swing.JInternalFrame {
 
+    protected Validaciones validaciones = new Validaciones();
     /**
      * Creates new form VOpcionesProd
      */
     public VCrearCliente() {
         initComponents();
         quitarBarra();
+        Validar();
     }
 
     
     public void quitarBarra(){
         ((javax.swing.plaf.basic.BasicInternalFrameUI)this.getUI()).setNorthPane(null);
     }        
+    
+    
+    public void Validar(){
+        validaciones.createFilteredField(TxtCelular, 10, Validaciones.MATCH_NUMEROS);
+        validaciones.createFilteredField(Txttelefono, 10, Validaciones.MATCH_NUMEROS);
+        validaciones.createFilteredField(TxtCorreo, 50, Validaciones.MATCH_EMAILS);
+    }    
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -47,32 +57,32 @@ public class VCrearCliente extends javax.swing.JInternalFrame {
         jSeparator8 = new javax.swing.JSeparator();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        TxtPrecio1Prod = new javax.swing.JTextField();
+        TxtId = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        TxtPrecio2Prod = new javax.swing.JTextField();
+        TxtDireccion = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         CbTipoId = new javax.swing.JComboBox<>();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
-        CbCateProd = new javax.swing.JComboBox<>();
+        CbCiudad = new javax.swing.JComboBox<>();
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
-        TxtSubsiProd = new javax.swing.JTextField();
+        TxtAliasSuc = new javax.swing.JTextField();
         jLabel21 = new javax.swing.JLabel();
-        CbUnidadProd = new javax.swing.JComboBox<>();
+        CbProvincia = new javax.swing.JComboBox<>();
         jLabel22 = new javax.swing.JLabel();
-        TxtCodAuxProd = new javax.swing.JTextField();
-        BtnGuardarProd = new javax.swing.JButton();
+        TxtCodSucursal = new javax.swing.JTextField();
+        BtnGuardarCli = new javax.swing.JButton();
         jSeparator9 = new javax.swing.JSeparator();
         jSeparator10 = new javax.swing.JSeparator();
         jLabel17 = new javax.swing.JLabel();
-        TxtPrecio2Prod1 = new javax.swing.JTextField();
-        TxtSubsiProd1 = new javax.swing.JTextField();
+        TxtNombre = new javax.swing.JTextField();
+        Txttelefono = new javax.swing.JTextField();
         jSeparator12 = new javax.swing.JSeparator();
-        TxtSubsiProd2 = new javax.swing.JTextField();
+        TxtCelular = new javax.swing.JTextField();
         jSeparator13 = new javax.swing.JSeparator();
-        TxtSubsiProd3 = new javax.swing.JTextField();
+        TxtCorreo = new javax.swing.JTextField();
         jSeparator14 = new javax.swing.JSeparator();
         jLabel15 = new javax.swing.JLabel();
         jSeparator15 = new javax.swing.JSeparator();
@@ -124,15 +134,17 @@ public class VCrearCliente extends javax.swing.JInternalFrame {
         jLabel6.setText("Identificacion:");
         jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 70, -1, -1));
 
-        TxtPrecio1Prod.setBorder(null);
-        jPanel3.add(TxtPrecio1Prod, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 70, 220, 30));
+        TxtId.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        TxtId.setBorder(null);
+        jPanel3.add(TxtId, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 70, 220, 30));
 
         jLabel7.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         jLabel7.setText("Nombres / Razon Social:");
         jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, -1, 30));
 
-        TxtPrecio2Prod.setBorder(null);
-        jPanel3.add(TxtPrecio2Prod, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 250, 500, 30));
+        TxtDireccion.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        TxtDireccion.setBorder(null);
+        jPanel3.add(TxtDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 250, 500, 30));
 
         jLabel12.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel12.setText("DATOS BASICOS");
@@ -154,9 +166,9 @@ public class VCrearCliente extends javax.swing.JInternalFrame {
         jLabel16.setText("Telefono:");
         jPanel3.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, -1, -1));
 
-        CbCateProd.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
-        CbCateProd.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Principal", "Prueba", "Juan" }));
-        jPanel3.add(CbCateProd, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 340, 130, 30));
+        CbCiudad.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        CbCiudad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sin Especificar" }));
+        jPanel3.add(CbCiudad, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 340, 200, 30));
 
         jLabel19.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         jLabel19.setText("Celular:");
@@ -166,29 +178,34 @@ public class VCrearCliente extends javax.swing.JInternalFrame {
         jLabel20.setText("Provincia:");
         jPanel3.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 350, -1, -1));
 
-        TxtSubsiProd.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
-        TxtSubsiProd.setBorder(null);
-        jPanel3.add(TxtSubsiProd, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 200, 180, 30));
+        TxtAliasSuc.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        TxtAliasSuc.setBorder(null);
+        jPanel3.add(TxtAliasSuc, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 200, 180, 30));
 
         jLabel21.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         jLabel21.setText("Correo:");
         jPanel3.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 300, -1, -1));
 
-        CbUnidadProd.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
-        CbUnidadProd.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ninguno", "Unidad", "test", "Saco 75Kg", "Saco 5Kg", "Saco 50Kg", "Saco 4Kg", "Saco 45Kg", "Saco 40Kg", "Saco 3Kg", "Saco 35Kg", "Saco 30Kg", "Saco 2Kg", "Saco 25Kg", "Saco 20Kg", "Saco 1Kg", "Saco 15Kg", "Saco 10Kg", "Saco 100Kg", "Paquete de 9", "Paquete de 6", "Paquete de 4", "Paquete de 36", "Paquete de 3", "Paquete de 24", "Paquete de 20", "Paquete de 18", "Paquete de 13", "Paquete de 12", "Paquete de 10", "Metros", "Kilogramo" }));
-        jPanel3.add(CbUnidadProd, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 340, 140, 30));
+        CbProvincia.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        CbProvincia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sin Especificar", "Azuay                                                                                                                                                ", "Bolivar                                                                                                                                       ", "Cañar", "Carchi", "Chimborazo", "Cotopaxi", "Esmeraldas", "Exterior", "Galapagos", "Guayas", "Imbabura", "Loja", "Los Rios", "Manabi", "Morona Santiago", "Napo", "Orellana", "Pastaza", "Pichincha", "Santa Elena", "Santo Domingo", "Sucumbios", "Tungurahua", "Zamora Chinchipe" }));
+        CbProvincia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CbProvinciaActionPerformed(evt);
+            }
+        });
+        jPanel3.add(CbProvincia, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 340, 190, 30));
 
         jLabel22.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         jLabel22.setText("Ciudad:");
-        jPanel3.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 350, -1, -1));
+        jPanel3.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 350, -1, -1));
 
-        TxtCodAuxProd.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
-        TxtCodAuxProd.setBorder(null);
-        jPanel3.add(TxtCodAuxProd, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 200, 100, 30));
+        TxtCodSucursal.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        TxtCodSucursal.setBorder(null);
+        jPanel3.add(TxtCodSucursal, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 200, 100, 30));
 
-        BtnGuardarProd.setFont(new java.awt.Font("SansSerif", 0, 15)); // NOI18N
-        BtnGuardarProd.setText("Guardar");
-        jPanel3.add(BtnGuardarProd, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 420, 90, 40));
+        BtnGuardarCli.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        BtnGuardarCli.setText("Guardar");
+        jPanel3.add(BtnGuardarCli, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 420, 110, 40));
 
         jSeparator9.setForeground(new java.awt.Color(33, 49, 91));
         jPanel3.add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 100, 220, 10));
@@ -200,26 +217,27 @@ public class VCrearCliente extends javax.swing.JInternalFrame {
         jLabel17.setText("Codigo Sucursal:");
         jPanel3.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 210, -1, -1));
 
-        TxtPrecio2Prod1.setBorder(null);
-        jPanel3.add(TxtPrecio2Prod1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 120, 340, 30));
+        TxtNombre.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        TxtNombre.setBorder(null);
+        jPanel3.add(TxtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 120, 340, 30));
 
-        TxtSubsiProd1.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
-        TxtSubsiProd1.setBorder(null);
-        jPanel3.add(TxtSubsiProd1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 290, 170, 30));
+        Txttelefono.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        Txttelefono.setBorder(null);
+        jPanel3.add(Txttelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 290, 170, 30));
 
         jSeparator12.setForeground(new java.awt.Color(33, 49, 91));
-        jPanel3.add(jSeparator12, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 320, 170, 10));
+        jPanel3.add(jSeparator12, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 320, 180, 10));
 
-        TxtSubsiProd2.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
-        TxtSubsiProd2.setBorder(null);
-        jPanel3.add(TxtSubsiProd2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 290, 160, 30));
+        TxtCelular.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        TxtCelular.setBorder(null);
+        jPanel3.add(TxtCelular, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 290, 160, 30));
 
         jSeparator13.setForeground(new java.awt.Color(33, 49, 91));
-        jPanel3.add(jSeparator13, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 320, 160, 10));
+        jPanel3.add(jSeparator13, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 320, 170, 10));
 
-        TxtSubsiProd3.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
-        TxtSubsiProd3.setBorder(null);
-        jPanel3.add(TxtSubsiProd3, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 290, 330, 30));
+        TxtCorreo.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        TxtCorreo.setBorder(null);
+        jPanel3.add(TxtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 290, 330, 30));
 
         jSeparator14.setForeground(new java.awt.Color(33, 49, 91));
         jPanel3.add(jSeparator14, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 320, 330, 10));
@@ -247,20 +265,210 @@ public class VCrearCliente extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void CbProvinciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CbProvinciaActionPerformed
+        // TODO add your handling code here:
+        int prov = CbProvincia.getSelectedIndex();
+        switch(prov){
+            case 0: 
+                    CbCiudad.removeAllItems();
+                    CbCiudad.addItem("Sin Especificar");
+            break;
+            case 1: 
+                    CbCiudad.removeAllItems();
+                    CbCiudad.addItem("Sin Especificar");
+                    CbCiudad.addItem("Camilo Ponce Enriquez");
+                    CbCiudad.addItem("Chordeleg");
+                    CbCiudad.addItem("Cuenca");
+                    CbCiudad.addItem("El Pan");
+                    CbCiudad.addItem("Giron");
+                    CbCiudad.addItem("Guachapala");
+                    CbCiudad.addItem("Gualaceo");
+                    CbCiudad.addItem("Nabon");
+                    CbCiudad.addItem("Oña");
+                    CbCiudad.addItem("Paute");
+                    CbCiudad.addItem("Pucara");
+                    CbCiudad.addItem("San Fernando");
+                    CbCiudad.addItem("Santa Isabel");
+                    CbCiudad.addItem("Sevilla de Oro");
+                    CbCiudad.addItem("Sigsig");
+            break;
+            case 2: 
+                    CbCiudad.removeAllItems();
+                    CbCiudad.addItem("Sin Especificar");
+                    CbCiudad.addItem("Caluma");
+                    CbCiudad.addItem("Chillanes");
+                    CbCiudad.addItem("Chimbo");
+                    CbCiudad.addItem("Echeandia");
+                    CbCiudad.addItem("Guaranda");
+                    CbCiudad.addItem("Las Naves");
+                    CbCiudad.addItem("San Miguel");
+            break;
+            case 3: 
+                    CbCiudad.removeAllItems();
+                    CbCiudad.addItem("Sin Especificar");
+                    CbCiudad.addItem("Azogues");
+                    CbCiudad.addItem("Biblian");
+                    CbCiudad.addItem("Cañar");
+                    CbCiudad.addItem("Deleg");
+                    CbCiudad.addItem("El Tambo");
+                    CbCiudad.addItem("La Troncal");
+                    CbCiudad.addItem("Suscal");
+            break;
+            case 4: System.out.println("caso 1");
+            break;
+            case 5: System.out.println("caso 1");
+            break;
+            case 6: System.out.println("caso 1");
+            break;
+            case 7: System.out.println("caso 1");
+            break;
+            case 8: System.out.println("caso 1");
+            break;
+            case 9: System.out.println("caso 1");
+            break;
+            case 10: System.out.println("caso 1");
+            break;
+            case 11: System.out.println("caso 1");
+            break;
+            case 12: System.out.println("caso 1");
+            break;
+            case 13: System.out.println("caso 1");
+            break;
+            case 14: System.out.println("caso 1");
+            break;
+            case 15: System.out.println("caso 1");
+            break;
+            case 16: System.out.println("caso 1");
+            break;
+            case 17: System.out.println("caso 1");
+            break;
+            case 18: System.out.println("caso 1");
+            break;
+            case 19: System.out.println("caso 1");
+            break;
+            case 20: System.out.println("caso 1");
+            break;
+            case 21: System.out.println("caso 1");
+            break;
+            case 22: System.out.println("caso 1");
+            break;
+            case 23: System.out.println("caso 1");
+            break;
+        }
+    }//GEN-LAST:event_CbProvinciaActionPerformed
+
+    public JButton getBtnGuardarCli() {
+        return BtnGuardarCli;
+    }
+
+    public void setBtnGuardarCli(JButton BtnGuardarCli) {
+        this.BtnGuardarCli = BtnGuardarCli;
+    }
+  
+    public JComboBox<String> getCbCiudad() {
+        return CbCiudad;
+    }
+
+    public void setCbCiudad(JComboBox<String> CbCiudad) {
+        this.CbCiudad = CbCiudad;
+    }
+
+    public JComboBox<String> getCbProvincia() {
+        return CbProvincia;
+    }
+
+    public void setCbProvincia(JComboBox<String> CbProvincia) {
+        this.CbProvincia = CbProvincia;
+    }
+
+    public JComboBox<String> getCbTipoId() {
+        return CbTipoId;
+    }
+
+    public void setCbTipoId(JComboBox<String> CbTipoId) {
+        this.CbTipoId = CbTipoId;
+    }
+
+    public JTextField getTxtAliasSuc() {
+        return TxtAliasSuc;
+    }
+
+    public void setTxtAliasSuc(JTextField TxtAliasSuc) {
+        this.TxtAliasSuc = TxtAliasSuc;
+    }
+
+    public JTextField getTxtCelular() {
+        return TxtCelular;
+    }
+
+    public void setTxtCelular(JTextField TxtCelular) {
+        this.TxtCelular = TxtCelular;
+    }
+
+    public JTextField getTxtCodSucursal() {
+        return TxtCodSucursal;
+    }
+
+    public void setTxtCodSucursal(JTextField TxtCodSucursal) {
+        this.TxtCodSucursal = TxtCodSucursal;
+    }
+
+    public JTextField getTxtCorreo() {
+        return TxtCorreo;
+    }
+
+    public void setTxtCorreo(JTextField TxtCorreo) {
+        this.TxtCorreo = TxtCorreo;
+    }
+
+    public JTextField getTxtId() {
+        return TxtId;
+    }
+
+    public void setTxtId(JTextField TxtId) {
+        this.TxtId = TxtId;
+    }
+
+    public JTextField getTxtNombre() {
+        return TxtNombre;
+    }
+
+    public void setTxtNombre(JTextField TxtNombre) {
+        this.TxtNombre = TxtNombre;
+    }
+
+    public JTextField getTxtDireccion() {
+        return TxtDireccion;
+    }
+
+    public void setTxtDireccion(JTextField TxtDireccion) {
+        this.TxtDireccion = TxtDireccion;
+    }
+
+    public JTextField getTxttelefono() {
+        return Txttelefono;
+    }
+
+    public void setTxttelefono(JTextField Txttelefono) {
+        this.Txttelefono = Txttelefono;
+    }
+
+    
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BtnGuardarProd;
-    private javax.swing.JComboBox<String> CbCateProd;
+    private javax.swing.JButton BtnGuardarCli;
+    private javax.swing.JComboBox<String> CbCiudad;
+    private javax.swing.JComboBox<String> CbProvincia;
     private javax.swing.JComboBox<String> CbTipoId;
-    private javax.swing.JComboBox<String> CbUnidadProd;
-    private javax.swing.JTextField TxtCodAuxProd;
-    private javax.swing.JTextField TxtPrecio1Prod;
-    private javax.swing.JTextField TxtPrecio2Prod;
-    private javax.swing.JTextField TxtPrecio2Prod1;
-    private javax.swing.JTextField TxtSubsiProd;
-    private javax.swing.JTextField TxtSubsiProd1;
-    private javax.swing.JTextField TxtSubsiProd2;
-    private javax.swing.JTextField TxtSubsiProd3;
+    private javax.swing.JTextField TxtAliasSuc;
+    private javax.swing.JTextField TxtCelular;
+    private javax.swing.JTextField TxtCodSucursal;
+    private javax.swing.JTextField TxtCorreo;
+    private javax.swing.JTextField TxtDireccion;
+    private javax.swing.JTextField TxtId;
+    private javax.swing.JTextField TxtNombre;
+    private javax.swing.JTextField Txttelefono;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;

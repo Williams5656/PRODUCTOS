@@ -89,12 +89,12 @@ public class VOpcionesCli extends javax.swing.JInternalFrame {
         this.LbNProv = LbNProv;
     }
 
-    public JLabel getLbNTransp() {
-        return LbNTransp;
+    public JLabel getLbNTrans() {
+        return LbNTrans;
     }
 
-    public void setLbNTransp(JLabel LbNTransp) {
-        this.LbNTransp = LbNTransp;
+    public void setLbNTrans(JLabel LbNTrans) {
+        this.LbNTrans = LbNTrans;
     }
 
     /**
@@ -112,9 +112,9 @@ public class VOpcionesCli extends javax.swing.JInternalFrame {
         LbMostrarTrans = new javax.swing.JLabel();
         LbNCli = new javax.swing.JLabel();
         LbMostrarCli = new javax.swing.JLabel();
-        LbNTransp = new javax.swing.JLabel();
         LbMostrarProv = new javax.swing.JLabel();
         LbImportarProv = new javax.swing.JLabel();
+        LbNTrans = new javax.swing.JLabel();
         LbFondo = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(1120, 670));
@@ -172,16 +172,6 @@ public class VOpcionesCli extends javax.swing.JInternalFrame {
         LbMostrarCli.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jPanel1.add(LbMostrarCli, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 70, 180, 190));
 
-        LbNTransp.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
-        LbNTransp.setForeground(new java.awt.Color(255, 255, 255));
-        LbNTransp.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        LbNTransp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/VISTA/ICONOS/AddProve.png"))); // NOI18N
-        LbNTransp.setText(" Nuevo Transportista");
-        LbNTransp.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        LbNTransp.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        LbNTransp.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jPanel1.add(LbNTransp, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 70, 250, 190));
-
         LbMostrarProv.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
         LbMostrarProv.setForeground(new java.awt.Color(255, 255, 255));
         LbMostrarProv.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -201,6 +191,16 @@ public class VOpcionesCli extends javax.swing.JInternalFrame {
         LbImportarProv.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         LbImportarProv.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jPanel1.add(LbImportarProv, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 290, 250, 190));
+
+        LbNTrans.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
+        LbNTrans.setForeground(new java.awt.Color(255, 255, 255));
+        LbNTrans.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        LbNTrans.setIcon(new javax.swing.ImageIcon(getClass().getResource("/VISTA/ICONOS/AddTrans.png"))); // NOI18N
+        LbNTrans.setText(" Nuevo Transportista");
+        LbNTrans.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        LbNTrans.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        LbNTrans.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jPanel1.add(LbNTrans, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 70, 250, 190));
 
         LbFondo.setBackground(new java.awt.Color(255, 255, 255));
         LbFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/VISTA/ICONOS/FondoOpciones.jpg"))); // NOI18N
@@ -232,7 +232,7 @@ public class VOpcionesCli extends javax.swing.JInternalFrame {
     private javax.swing.JLabel LbMostrarTrans;
     private javax.swing.JLabel LbNCli;
     private javax.swing.JLabel LbNProv;
-    private javax.swing.JLabel LbNTransp;
+    private javax.swing.JLabel LbNTrans;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

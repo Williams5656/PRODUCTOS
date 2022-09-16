@@ -307,7 +307,7 @@
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/VISTA/ICONOS/business_application_addmale_useradd_insert_add_user_client_2312.png"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Nuevo Proveedor"/>
+        <Property name="text" type="java.lang.String" value="Nuevo Transportista"/>
         <Property name="horizontalTextPosition" type="int" value="0"/>
         <Property name="verticalTextPosition" type="int" value="3"/>
       </Properties>
@@ -348,8 +348,8 @@
               <Table columnCount="5" rowCount="0">
                 <Column editable="false" title="Cedula/Ru" type="java.lang.Integer"/>
                 <Column editable="false" title="Nombre/Raz&#xf3;n social" type="java.lang.String"/>
-                <Column editable="false" title="Ientificacion" type="java.lang.String"/>
-                <Column editable="false" title="Tipo" type="java.lang.String"/>
+                <Column editable="false" title="Ciudad" type="java.lang.String"/>
+                <Column editable="false" title="Telefono" type="java.lang.String"/>
                 <Column editable="false" title="Email" type="java.lang.String"/>
               </Table>
             </Property>

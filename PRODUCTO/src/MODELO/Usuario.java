@@ -8,37 +8,30 @@ package MODELO;
  *
  * @author prisc
  */
-public class Usuario extends Persona{
+public class Usuario{
     
-    private String contrasenia;
-    private int codigo_usuario;
+    private String clave;
     private String usuario;
+    private String permisos;
 
     public Usuario() {
     }
 
-    public Usuario(String contrasenia, int codigo_usuario, String cedula, String nombre, String apellido, String correo, String direccion, String telefono, String fecha_nac, String ciudad, String celular, String usuario) {
-        super(cedula, nombre, apellido, correo, direccion, telefono, fecha_nac, ciudad, celular);
-        this.contrasenia = contrasenia;
-        this.codigo_usuario = codigo_usuario;
+    public Usuario(String clave, String usuario, String permisos) {
+        this.clave = clave;
         this.usuario = usuario;
+        this.permisos = permisos;
     }
 
-    public String getContrasenia() {
-        return contrasenia;
+    //Getters y Setters
+
+    public String getClave() {
+        return clave;
     }
 
-    public void setContrasenia(String contrasenia) {
-        this.contrasenia = contrasenia;
+    public void setClave(String clave) {
+        this.clave = clave;
     }
-
-    public int getCodigo_usuario() {
-        return codigo_usuario;
-    }
-
-    public void setCodigo_usuario(int codigo_usuario) {
-        this.codigo_usuario = codigo_usuario;
-    }   
 
     public String getUsuario() {
         return usuario;
@@ -47,5 +40,14 @@ public class Usuario extends Persona{
     public void setUsuario(String usuario) {
         this.usuario = usuario;
     }
+
+    public String getPermisos() {
+        return permisos;
+    }
+
+    public void setPermisos(String permisos) {
+        this.permisos = permisos;
+    }
+
 
 }

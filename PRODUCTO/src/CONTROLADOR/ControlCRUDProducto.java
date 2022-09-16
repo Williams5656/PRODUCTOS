@@ -5,6 +5,7 @@
 package CONTROLADOR;
 
 import MODELO.Producto;
+import MODELO.Validaciones;
 import VISTA.CRUD.VCrearProducto;
 import VISTA.CRUD.VcrudProducto;
 import java.awt.Image;
@@ -12,12 +13,8 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.io.IOException;
-import java.sql.SQLOutput;
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -41,18 +38,20 @@ public class ControlCRUDProducto {
     Producto prod=new Producto();
     VcrudProducto vcp=new VcrudProducto();
     VCrearProducto vcpd=new VCrearProducto();
+    Validaciones vali=new Validaciones();
 
     public void inicarControl(VcrudProducto vcp) {
+        vali.validarJDialog(vcp.getJdProducto());
+        FiltrarProducto(vcp);
         mouseListenerTabla(vcp);
         CargarProductos(vcp, "", "nombre");
-        vcp.getBtnAgregarArt().addActionListener(l -> AgregarProducto(vcp));
-        vcp.getBtnGuardarProd().addActionListener(l->GuardarProducto(vcp));
+        vcp.getBtnGuardarProd().addActionListener(l->ActualizarProducto(vcp));
         vcp.getBtnImportarFoto().addActionListener(l->CargarFoto(vcp));
         vcp.getBtnEditarArt().addActionListener(l->EditarProducto(vcp));
         vcp.getBtnEliminarArt().addActionListener(l->EliminarProducto(vcp));
     }
 
-    public void iniciarControlC(VCrearProducto vcpd){
+    public void iniciarControlCrear(VCrearProducto vcpd){
         vcpd.getBtnGuardarProd().addActionListener(l->GuardarNuevoProducto(vcpd));
         vcpd.getBtnImportarFoto().addActionListener(l->CargarFotoN(vcpd));
     }
@@ -80,20 +79,7 @@ public class ControlCRUDProducto {
         vcp.getJdProducto().setTitle("Agregar");
     }
         //Agregar
-    public void GuardarProducto(VcrudProducto vcp){        
-        if(vcp.getJdProducto().getTitle().equalsIgnoreCase("Agregar")){
-            List<Producto> Bp = new ArrayList<>();
-                try {
-                    Bp = prod.mostrarProductos(vcp.getTxtCodProd().getText(),"codigo_prod");
-                    Bp.get(0).getCodigoP().equalsIgnoreCase("");
-                    JOptionPane.showMessageDialog(null, "Ya existe otro producto con el mismo codigo");
-                } catch (Exception e) {
-                    prod.InsertarProducto(vcp.getTxtCodProd().getText(),vcp.getTxtNombreProd().getText(),vcp.getTxtDescProd().getText(),"1",vcp.getTxtPrecio1Prod().getText(),vcp.getTxtPrecio2Prod().getText(),vcp.getTxtPrecio3Prod().getText(),vcp.getCbTipoProd().getSelectedItem().toString(),vcp.getCbTipoIvaProd().getSelectedItem().toString(),vcp.getCbIceProd().getSelectedItem().toString(),vcp.getCbMStockProd().getSelectedItem().toString(),vcp.getCbCateProd().getSelectedItem().toString(),ObtenFecha(vcp),vcp.getTxtSubsiProd().getText(),vcp.getCbUnidadProd().getSelectedItem().toString(),vcp.getTxtCodAuxProd().getText(),OFoto(vcp));
-                    JOptionPane.showMessageDialog(vcp, "Guardado Exitoso");
-                    CargarProductos(vcp, "","nombre");
-                    vcp.getJdProducto().dispose(); 
-                }
-        }        
+    public void ActualizarProducto(VcrudProducto vcp){              
         //editar
         if(vcp.getJdProducto().getTitle().equalsIgnoreCase("Editar")){
             try{
@@ -199,6 +185,25 @@ public class ControlCRUDProducto {
         }           
     }
     
+    public void FiltrarProducto(VcrudProducto vcp){
+        KeyListener eventoTeclado=new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent ke) {                 
+            }
+
+            @Override
+            public void keyPressed(KeyEvent ke) {
+            }
+
+            @Override
+            public void keyReleased(KeyEvent ke) {
+                 String busca = (vcp.getTxtBuscarArt().getText());
+                 CargarProductos(vcp, busca, SeleccionaCampo(vcp));
+            }
+        };
+        vcp.getTxtBuscarArt().addKeyListener(eventoTeclado);
+    }       
+    
     //Cargar Foto
     private void CargarFoto(VcrudProducto vcp){
         //Para dar estilo Windows
@@ -280,6 +285,18 @@ public class ControlCRUDProducto {
         String fe = (a+"-"+m+"-"+d);
         return fe;
     }    
+
+    public String SeleccionaCampo(VcrudProducto vp){
+        String camp= "";
+        if (vp.getCbBuscarProd().getSelectedIndex() == 0) {
+            camp = "nombre";
+        }else{
+            if (vp.getCbBuscarProd().getSelectedIndex() == 1) {
+                camp = "codigo_prod";
+            }
+        }
+        return camp;
+    }        
     
     //Limpia los campos o los deja por defecto
     public void limpiar(VcrudProducto vcp) {

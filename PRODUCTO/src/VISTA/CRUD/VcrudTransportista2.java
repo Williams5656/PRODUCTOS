@@ -394,7 +394,7 @@ public class VcrudTransportista2 extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "Cedula/Ru", "Nombre/Razón social", "Ientificacion", "Tipo", "Email"
+                "Cedula/Ru", "Nombre/Razón social", "Ciudad", "Telefono", "Email"
             }
         ) {
             Class[] types = new Class [] {

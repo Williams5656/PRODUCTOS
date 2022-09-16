@@ -370,7 +370,7 @@ public class VcrudProveedor2 extends javax.swing.JInternalFrame {
         setTitle("CRUD de Clientes");
 
         BtnAgregarCli.setIcon(new javax.swing.ImageIcon(getClass().getResource("/VISTA/ICONOS/business_application_addmale_useradd_insert_add_user_client_2312.png"))); // NOI18N
-        BtnAgregarCli.setText("Nuevo Proveedor");
+        BtnAgregarCli.setText("Nuevo Transportista");
         BtnAgregarCli.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         BtnAgregarCli.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         BtnAgregarCli.addActionListener(new java.awt.event.ActionListener() {
@@ -394,7 +394,7 @@ public class VcrudProveedor2 extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "Cedula/Ru", "Nombre/Razón social", "Ientificacion", "Tipo", "Email"
+                "Cedula/Ru", "Nombre/Razón social", "Ciudad", "Telefono", "Email"
             }
         ) {
             Class[] types = new Class [] {

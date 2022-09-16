@@ -7,14 +7,17 @@ package CONTROLADOR;
 
 import VISTA.CRUD.VCrearCliente;
 import VISTA.CRUD.VCrearProducto;
+import VISTA.CRUD.VCrearProveedor;
+import VISTA.CRUD.VCrearTransportista;
 import VISTA.CRUD.VOpcionesCli;
 import VISTA.CRUD.VOpcionesProd;
 import VISTA.CRUD.VcliOpro;
 import VISTA.CRUD.VcrudCliente;
 import VISTA.CRUD.VcrudProducto;
-import VISTA.CRUD.VcrudProveedor;
-import VISTA.CRUD.VcrudTransportista;
-import VISTA.CRUD.VcrudUsuario;
+import VISTA.CRUD.VcrudProveedor2;
+
+import VISTA.CRUD.VcrudTransportista2;
+
 import VISTA.PrincipalC;
 import VISTA.VLogin;
 import java.awt.event.ActionEvent;
@@ -96,7 +99,7 @@ public class ControlPrincipal {
         contenedor.getDtPrincipal().add(vcpd);
         contenedor.getDtPrincipal().updateUI();
         CentrarVentanaInterna(vcpd);
-        ccp.iniciarControlC(vcpd);
+        ccp.iniciarControlCrear(vcpd);
     }
      
     //Abrir CRUD CLIENTE
@@ -110,16 +113,53 @@ public class ControlPrincipal {
     }
     
     public void AbrirCrearCliente(){
-//        ControlCRUDProducto ccp=new ControlCRUDProducto();
+        ControlCRUDCliente ccp=new ControlCRUDCliente();
         VCrearCliente vcc = new VCrearCliente();
         contenedor.getDtPrincipal().add(vcc);
         contenedor.getDtPrincipal().updateUI();
         CentrarVentanaInterna(vcc);
-//        ccp.iniciarControlC(vcpd);
+        ccp.IniciarControlCrear(vcc);
     }    
-    
     //
 
+    //Abrir CRUD Proveedores
+    public void AbrirCrearProveedor() {
+        controlCrudProveedor ccc = new controlCrudProveedor ();
+        VCrearProveedor vcp = new VCrearProveedor();
+        contenedor.getDtPrincipal().add(vcp);
+        contenedor.getDtPrincipal().updateUI();
+        CentrarVentanaInterna(vcp);
+      ccc.iniciarControlC(vcp);
+    }        
+    
+    public void AbrirMostrarProveedor() {
+     controlCrudProveedor ccc = new controlCrudProveedor ();
+        VcrudProveedor2 vcp = new VcrudProveedor2();
+        contenedor.getDtPrincipal().add(vcp);
+        contenedor.getDtPrincipal().updateUI();
+        CentrarVentanaInterna(vcp);
+       ccc.iniciarControl(vcp);
+    }    
+    
+    //Abrir CRUD Proveedores
+    public void AbrirCrearTransportista() {
+       ControlCrudTransportista ccc = new ControlCrudTransportista ();
+        VCrearTransportista vct = new VCrearTransportista();
+        contenedor.getDtPrincipal().add(vct);
+        contenedor.getDtPrincipal().updateUI();
+        CentrarVentanaInterna(vct);
+//        ccc.IniciarControl(vcp);
+    }        
+    
+    public void AbrirMostrarTransportista() {
+       ControlCrudTransportista ccc = new ControlCrudTransportista ();
+        VcrudTransportista2 vct = new VcrudTransportista2();
+        contenedor.getDtPrincipal().add(vct);
+        contenedor.getDtPrincipal().updateUI();
+        CentrarVentanaInterna(vct);
+//        ccc.IniciarControl(vcc);
+    }        
+    
 //    //Arir CRUD Usuario
 //    public void AbrirCrudUsuario() {
 //        VcrudUsuario vcu = new VcrudUsuario();
@@ -129,14 +169,7 @@ public class ControlPrincipal {
 //    }
 //    //
 //
-//    //Abrir CRUD Proveedor
-    public void AbrirCrudProveedor() {
-        VcrudProveedor vcp = new VcrudProveedor();
-        contenedor.getDtPrincipal().add(vcp);
-        contenedor.getDtPrincipal().updateUI();
-        CentrarVentanaInterna(vcp);
-    }
-    //
+
     //Abrir Eleccion de acciones en producto
     public void AbrirOpcionesProd(){
         VOpcionesProd vop=new VOpcionesProd();
@@ -155,12 +188,12 @@ public class ControlPrincipal {
     }
     //
 public void AbrirCrudTransportista(){
-        ControlCrudTransportista cct= new ControlCrudTransportista ();
-        VcrudTransportista vct= new VcrudTransportista();
+//        ControlCrudTransportista cct= new ControlCrudTransportista ();
+        VcrudTransportista2 vct= new VcrudTransportista2();
         contenedor.getDtPrincipal().add(vct);
         contenedor.getDtPrincipal().updateUI();
         CentrarVentanaInterna(vct);
-        cct.IniciarControl(vct);
+//        cct.IniciarControl(vct);
     }  
 
 //Centrar Ventanas Internas
@@ -219,11 +252,27 @@ public void AbrirCrudTransportista(){
             @Override
             public void mouseReleased(MouseEvent e) {
                contenedor.getDtPrincipal().removeAll();
-                AbrirCrudProveedor();
+                AbrirCrearProveedor();
             }
         });   
+        
+        voc.getLbMostrarProv().addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
+            public void mouseReleased(MouseEvent e) {
+               contenedor.getDtPrincipal().removeAll();
+                AbrirMostrarProveedor();
+            }
+        });           
 
-        voc.getLbNTransp().addMouseListener(new java.awt.event.MouseAdapter() {
+        voc.getLbNTrans().addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
+            public void mouseReleased(MouseEvent e) {
+               contenedor.getDtPrincipal().removeAll();
+                AbrirCrearTransportista();
+            }
+        });          
+        
+        voc.getLbMostrarTrans().addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
             public void mouseReleased(MouseEvent e) {
                contenedor.getDtPrincipal().removeAll();

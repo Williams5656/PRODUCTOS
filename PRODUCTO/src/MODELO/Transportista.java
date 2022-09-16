@@ -11,78 +11,141 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JOptionPane;
 
 /**
  *
  * @author Andrea
  */
-public class Transportista extends Persona {
-
+public class Transportista {
+    private String TipoId;
+    private String Id;
+    private String RazonSocial;
+    private String Telefono;
+    private String Celular;
+    private String Direccion;
+    private String Ciudad;
+    private String Provincia;
+    private String Correo;
     private String Placa;
 
-    public Transportista(String Placa) {
+    public Transportista(String TipoId, String Id, String RazonSocial, String Telefono, String Celular, String Direccion, String Ciudad, String Provincia, String Correo, String Placa) {
+        this.TipoId = TipoId;
+        this.Id = Id;
+        this.RazonSocial = RazonSocial;
+        this.Telefono = Telefono;
+        this.Celular = Celular;
+        this.Direccion = Direccion;
+        this.Ciudad = Ciudad;
+        this.Provincia = Provincia;
+        this.Correo = Correo;
         this.Placa = Placa;
     }
-
-    
-    public Transportista() {
+    public Transportista(){
+        
     }
 
-    public Transportista(String cedula, String nombre, String apellido, String correo, String direccion, String telefono, String fecha_nac, String ciudad, String celular) {
-        super(cedula, nombre, apellido, correo, direccion, telefono, fecha_nac, ciudad, celular);
+    public String getTipoId() {
+        return TipoId;
+    }
+
+    public void setTipoId(String TipoId) {
+        this.TipoId = TipoId;
+    }
+
+    public String getId() {
+        return Id;
+    }
+
+    public void setId(String Id) {
+        this.Id = Id;
+    }
+
+    public String getRazonSocial() {
+        return RazonSocial;
+    }
+
+    public void setRazonSocial(String RazonSocial) {
+        this.RazonSocial = RazonSocial;
+    }
+
+    public String getTelefono() {
+        return Telefono;
+    }
+
+    public void setTelefono(String Telefono) {
+        this.Telefono = Telefono;
+    }
+
+    public String getCelular() {
+        return Celular;
+    }
+
+    public void setCelular(String Celular) {
+        this.Celular = Celular;
+    }
+
+    public String getDireccion() {
+        return Direccion;
+    }
+
+    public void setDireccion(String Direccion) {
+        this.Direccion = Direccion;
+    }
+
+    public String getCiudad() {
+        return Ciudad;
+    }
+
+    public void setCiudad(String Ciudad) {
+        this.Ciudad = Ciudad;
+    }
+
+    public String getProvincia() {
+        return Provincia;
+    }
+
+    public void setProvincia(String Provincia) {
+        this.Provincia = Provincia;
+    }
+
+    public String getCorreo() {
+        return Correo;
+    }
+
+    public void setCorreo(String Correo) {
+        this.Correo = Correo;
     }
 
     public String getPlaca() {
         return Placa;
     }
-    
 
     public void setPlaca(String Placa) {
         this.Placa = Placa;
     }
     
-    
-    public boolean InsertarPersona(String Ced, String nomb, String Ape, String Dir, String telf, String cel, String ciudad, String direcciondom, String correo,int codigo, String provincia, String placa) {
+      public boolean InsertarTransportista(String tipid, 
+              String id, 
+              String razon,
+              String telf,
+              String celular, 
+              String dir,
+              String ciud, 
+              String prov,
+              String corr, 
+              String placa) {
         ConexionDB conec=new ConexionDB();  
-        try {
-            String sql;
-                sql = "Insert into persona ";
-                sql += "(cedula, nombre, apellido, direccion, telefono, celular, correo, ciudad, placa)";
-                sql += "VALUES ('"+Ced+"', '"+nomb+"', '"+Ape+"', '"+Dir+"', '"+telf+"', '"+cel+"', '"+correo+"', '"+ciudad+"', '"+placa+"')";
-                if (conec.noQuery(sql) == null) {
-                    InsertarTransportista(placa);
-                    return true;
-                } else {
-                    return false;
-                }
-        } catch (Exception e) {
-            //En caso de que la persona ya se encuentre registrada en la base, solo se añadiran los datos adicionales como cliente
-           InsertarTransportista(placa);
-            return false;
-        }finally{
-            try {
-                conec.CerrarConexion();
-            } catch (SQLException e) {
-                System.err.println(e);
-            }            
-        }   
-    }   
-
-     public boolean InsertarTransportista( String placa) {
-        ConexionDB conec=new ConexionDB();  
-        try {
-            String sql;
+        try {      String sql;
                 sql = "Insert into transportista ";
-                sql += " (placa) ";
-                sql += "VALUES ('"+placa+"')";
+                sql += " (tipo_id, id_proveedor, razon, telefono, celular, ciudad, provincia,  correo, placa, eliminado) ";
+                sql += "VALUES ('"+tipid+"','"+id+"','"+razon+"','"+telf+"','"+celular+"','"+ciud+"','"+prov+"','"+corr+"','"+placa+"', '1')";
                 if (conec.noQuery(sql) == null) {
                     return true;
                 } else {
                     return false;
                 }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "El transportista ya se encuentra registrado en la base de datos");
+            e.printStackTrace();
             return false;
         }finally{
             try {
@@ -92,60 +155,47 @@ public class Transportista extends Persona {
             }            
         }   
     }
-    public boolean ActualizarPersona(String Ced, String nomb, String Ape, String correo, String dir, String telf, String cel, String ciudad, String direcciondom, String placa){
+     public boolean ActualizarTransportista( String id, String razon, String telf,String celular, 
+              String dir, String ciud, String prov, String corr, String placa){
         ConexionDB conec=new ConexionDB();  
         String sql;
-        sql = "UPDATE persona ";
-        sql += "SET nombre = '"+nomb+"', apellido = '"+Ape+"', correo = '"+correo+"', direccion = '"+dir+"', telefono = '"+telf+"', celular = '"+cel+"', ciudad = '"+ciudad+"'";
-        sql += "WHERE cedula = '"+Ced+"'";        
+        sql = "Update cliente ";
+        sql += "SET  nombres='"+razon+"', telefono='"+telf+"', celular='"+celular+"', direccion='"+dir+"', ciudad='"+ciud+"', provincia='"+prov+"',correo='"+corr+"',placa='"+placa+"' ";
+        sql += "WHERE id_cliente = '"+id+"'";
         if (conec.noQuery(sql) == null) {
-            ActualizarTransportista(placa);
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-        
-   
-    public boolean ActualizarTransportista(String placa){
-        ConexionDB con=new ConexionDB();  
-        String sql;
-        sql = "Update proveedor ";
-        sql += "SET codigo_proveedor ='"+placa+"' ";
-
-        if (con.noQuery(sql) == null) {
                         try {
-                con.CerrarConexion();
+                conec.CerrarConexion();
             } catch (SQLException e) {
                 System.err.println(e);
             } 
             return true;
         } else {
                         try {
-                con.CerrarConexion();
+                conec.CerrarConexion();
             } catch (SQLException e) {
                 System.err.println(e);
             } 
             return false;
         }        
     } 
-       public boolean EliminarProvedor(String codigo){
-        ConexionDB con=new ConexionDB();
+    
+//Eliminar Clientes   
+    public boolean EliminarpTransportista(String cedula){
+        ConexionDB conec=new ConexionDB();
         try {
 
         String sql;
-        sql = "delete from cliente where codigo_transportista ='"+codigo+"'";
-        if (con.noQuery(sql) == null) {
+        sql = "update cliente set eliminado = 0 where id_cliente ='"+cedula+"'";
+        if (conec.noQuery(sql) == null) {
                         try {
-                con.CerrarConexion();
+                conec.CerrarConexion();
             } catch (SQLException e) {
                 System.err.println(e);
             } 
             return true;
         } else {
                         try {
-                con.CerrarConexion();
+                conec.CerrarConexion();
             } catch (SQLException e) {
                 System.err.println(e);
             } 
@@ -154,33 +204,33 @@ public class Transportista extends Persona {
         } catch (Exception ex) {
            return false;
         }
-    }  
-     public List<Transportista> mostrarClientes(String codigo, String campo){
+    }     
+    
+//mostrar los clientes de la base 
+    public List<Transportista> mostrarTransportista(String cedula){
         ConexionDB conec=new ConexionDB();  
         try {
-        String sql = "SELECT * FROM vista_cliemte_comp where UPPER("+campo+") like UPPER('"+codigo+"%')";
+        String sql = "SELECT * FROM cliente where UPPER(id_cliente) like UPPER('"+cedula+"%') and eliminado = 1";
         ResultSet rs = conec.query(sql);
         List<Transportista> listaC = new ArrayList<Transportista>();
             while (rs.next()) {
-                Transportista t= new Transportista();
-                
-               
-                t.setCedula(rs.getString("cedula"));
-                t.setApellido(rs.getString("apellido"));
-                t.setNombre(rs.getString("nombre"));
+                Transportista t = new Transportista();
+                t.setId(rs.getString("Id_Transportista"));
+                t.setRazonSocial(rs.getString("RazónSocial"));
+                t.setTipoId(rs.getString("Tipo_id"));
+                 t.setDireccion(rs.getString("direccion"));
                 t.setTelefono(rs.getString("telefono"));
                 t.setCelular(rs.getString("celular"));
-//                t.setProvincia(rs.getString("domicilio"));
-                t.setDireccion(rs.getString("direccion"));
-                t.setCiudad(rs.getString("ciudad"));
                 t.setCorreo(rs.getString("correo"));
+                t.setProvincia(rs.getString("provincia"));
+                t.setCiudad(rs.getString("ciudad"));
                 t.setPlaca(rs.getString("placa"));
                 listaC.add(t);
             }
             rs.close();
             return listaC;
         } catch (SQLException ex) {
-            Logger.getLogger(Cliente.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Proveedores.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }   finally{
             try {
@@ -188,10 +238,8 @@ public class Transportista extends Persona {
             } catch (SQLException e) {
                 System.err.println(e);
             }            
-        } 
-    
-    
+        }        
+    }    
 
-}
-     
+   
 }

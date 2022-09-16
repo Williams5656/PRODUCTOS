@@ -348,8 +348,8 @@
               <Table columnCount="5" rowCount="0">
                 <Column editable="false" title="Cedula/Ru" type="java.lang.Integer"/>
                 <Column editable="false" title="Nombre/Raz&#xf3;n social" type="java.lang.String"/>
-                <Column editable="false" title="Ientificacion" type="java.lang.String"/>
-                <Column editable="false" title="Tipo" type="java.lang.String"/>
+                <Column editable="false" title="Ciudad" type="java.lang.String"/>
+                <Column editable="false" title="Telefono" type="java.lang.String"/>
                 <Column editable="false" title="Email" type="java.lang.String"/>
               </Table>
             </Property>

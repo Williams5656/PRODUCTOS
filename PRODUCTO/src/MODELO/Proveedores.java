@@ -1,6 +1,7 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 package MODELO;
 
@@ -10,88 +11,148 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JOptionPane;
 
 /**
  *
- * @author prisc
+ * @author Andrea
  */
-public class Proveedores extends Persona{
+public class Proveedores {
     
-    private int codigo_proveedor;
-    private String provincia;
+    private String Id;
+    private String Tipo_id;
+    private String RazonSocial;
+    private String Sucursal;
+    private String Telefono;
+    private String Celular;
+    private String Domicilio;
+    private String Provincia;
+    private String Ciudad;
+    private String Codigo;
+    private String Correo;
 
-    public Proveedores(int codigo_proveedor, String provincia) {
-        this.codigo_proveedor = codigo_proveedor;
-        this.provincia = provincia;
+    public Proveedores(String Id, String Tipo_id, String RazonSocial, String Sucursal, String Telefono, String Celular, String Domicilio, String Provincia, String Ciudad, String Codigo, String Correo) {
+        this.Id = Id;
+        this.Tipo_id = Tipo_id;
+        this.RazonSocial = RazonSocial;
+        this.Sucursal = Sucursal;
+        this.Telefono = Telefono;
+        this.Celular = Celular;
+        this.Domicilio = Domicilio;
+        this.Provincia = Provincia;
+        this.Ciudad = Ciudad;
+        this.Codigo = Codigo;
+        this.Correo = Correo;
     }
 
-    public Proveedores(int codigo_proveedor, String provincia, String cedula, String nombre, String apellido, String correo, String direccion, String telefono, String fecha_nac, String ciudad, String celular) {
-        super(cedula, nombre, apellido, correo, direccion, telefono, fecha_nac, ciudad, celular);
-        this.codigo_proveedor = codigo_proveedor;
-        this.provincia = provincia;
+   
+    
+    public Proveedores(){
+        
+    }
+        
+
+    public String getId() {
+        return Id;
     }
 
-    public Proveedores() {
-       
+    public void setId(String Id) {
+        this.Id = Id;
     }
 
-    public int getCodigo_proveedor() {
-        return codigo_proveedor;
+    public String getRazonSocial() {
+        return RazonSocial;
     }
 
-    public void setCodigo_proveedor(int codigo_proveedor) {
-        this.codigo_proveedor = codigo_proveedor;
+    public void setRazonSocial(String RazonSocial) {
+        this.RazonSocial = RazonSocial;
+    }
+
+    public String getSucursal() {
+        return Sucursal;
+    }
+
+    public void setSucursal(String Sucursal) {
+        this.Sucursal = Sucursal;
+    }
+
+    public String getTelefono() {
+        return Telefono;
+    }
+
+    public void setTelefono(String Telefono) {
+        this.Telefono = Telefono;
+    }
+
+    public String getCelular() {
+        return Celular;
+    }
+
+    public void setCelular(String Celular) {
+        this.Celular = Celular;
+    }
+
+    public String getDomicilio() {
+        return Domicilio;
+    }
+
+    public void setDomicilio(String Domicilio) {
+        this.Domicilio = Domicilio;
     }
 
     public String getProvincia() {
-        return provincia;
+        return Provincia;
     }
 
-    public void setProvincia(String provincia) {
-        this.provincia = provincia;
+    public void setProvincia(String Provincia) {
+        this.Provincia = Provincia;
     }
 
-     public boolean InsertarPersona(String Ced, String nomb, String Ape, String Dir, String telf, String cel, String ciudad, String direcciondom, String correo,int codigo, String provincia) {
-        ConexionDB conec=new ConexionDB();  
-        try {
-            String sql;
-                sql = "Insert into persona ";
-                sql += "(cedula, nombre, apellido, direccion, telefono, celular, correo, ciudad)";
-                sql += "VALUES ('"+Ced+"', '"+nomb+"', '"+Ape+"', '"+Dir+"', '"+telf+"', '"+cel+"', '"+correo+"', '"+ciudad+"')";
-                if (conec.noQuery(sql) == null) {
-                    InsertarProveedor(codigo,provincia);
-                    return true;
-                } else {
-                    return false;
-                }
-        } catch (Exception e) {
-            //En caso de que la persona ya se encuentre registrada en la base, solo se añadiran los datos adicionales como cliente
-           InsertarProveedor(codigo,provincia);
-            return false;
-        }finally{
-            try {
-                conec.CerrarConexion();
-            } catch (SQLException e) {
-                System.err.println(e);
-            }            
-        }   
-    }   
+    public String getCiudad() {
+        return Ciudad;
+    }
 
-     public boolean InsertarProveedor(int codigo, String prov) {
+    public void setCiudad(String Ciudad) {
+        this.Ciudad = Ciudad;
+    }
+
+    public String getCodigo() {
+        return Codigo;
+    }
+
+    public void setCodigo(String Codigo) {
+        this.Codigo = Codigo;
+    }
+
+    public String getCorreo() {
+        return Correo;
+    }
+
+    public void setCorreo(String Correo) {
+        this.Correo = Correo;
+    }
+
+    public String getTipo_id() {
+        return Tipo_id;
+    }
+
+    public void setTipo_id(String Tipo_id) {
+        this.Tipo_id = Tipo_id;
+    }
+    
+     public boolean InsertarProveedor(String tipo_id, String id, String nomb, String aliasS, String codsuc, String dir, String telf, String cel, String corr, String prov, String ciu) {
         ConexionDB conec=new ConexionDB();  
         try {
             String sql;
                 sql = "Insert into proveedor ";
-                sql += " (codigo_proveedor, provincia) ";
-                sql += "VALUES ('"+codigo+"','"+prov+"')";
+                sql += " (tipo_id, identificacion, nombres, alias_suc, cod_suc, direccion, telefono, celular, correo, provincia, ciudad, eliminado) ";
+                sql += "VALUES ('"+tipo_id+"','"+id+"','"+nomb+"','"+aliasS+"','"+codsuc+"','"+dir+"','"+telf+"','"+cel+"','"+corr+"','"+prov+"','"+ciu+"', '1')";
                 if (conec.noQuery(sql) == null) {
                     return true;
                 } else {
                     return false;
                 }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "El proveedor ya se encuentra registrado en la base de datos");
+            e.printStackTrace();
             return false;
         }finally{
             try {
@@ -101,60 +162,46 @@ public class Proveedores extends Persona{
             }            
         }   
     }
-    public boolean ActualizarPersona(String Ced, String nomb, String Ape, String correo, String dir, String telf, String cel, String ciudad, String direcciondom, int codigo, String prov){
+     public boolean ActualizarProveedior( String id, String nomb, String aliasS, String codsuc, String dir, String telf, String cel, String corr, String prov, String ciu){
         ConexionDB conec=new ConexionDB();  
         String sql;
-        sql = "UPDATE persona ";
-        sql += "SET nombre = '"+nomb+"', apellido = '"+Ape+"', correo = '"+correo+"', direccion = '"+dir+"', telefono = '"+telf+"', celular = '"+cel+"', ciudad = '"+ciudad+"'";
-        sql += "WHERE cedula = '"+Ced+"'";        
-        if (conec.noQuery(sql) == null) {
-            ActualizarProveedor(codigo,prov);
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-        
-   
-    public boolean ActualizarProveedor(int codigo, String prov){
-        ConexionDB con=new ConexionDB();  
-        String sql;
         sql = "Update proveedor ";
-        sql += "SET codigo_proveedor ='"+codigo+"' ";
-        sql += "WHERE provincia = '"+prov+"'";
-        if (con.noQuery(sql) == null) {
+        sql += "SET  nombres='"+nomb+"', alias_suc= '"+aliasS+"', cod_suc='"+codsuc+"', direccion='"+dir+"', telefono='"+telf+"', celular='"+cel+"', correo='"+corr+"', provincia='"+prov+"', ciudad='"+ciu+"' ";
+        sql += "WHERE identificacion = '"+id+"'";
+        if (conec.noQuery(sql) == null) {
                         try {
-                con.CerrarConexion();
+                conec.CerrarConexion();
             } catch (SQLException e) {
                 System.err.println(e);
             } 
             return true;
         } else {
                         try {
-                con.CerrarConexion();
+                conec.CerrarConexion();
             } catch (SQLException e) {
                 System.err.println(e);
             } 
             return false;
         }        
     } 
-       public boolean EliminarProvedor(String codigo){
-        ConexionDB con=new ConexionDB();
+    
+//Eliminar Clientes   
+    public boolean EliminarpProveedor(String cedula){
+        ConexionDB conec=new ConexionDB();
         try {
 
         String sql;
-        sql = "delete from cliente where codigo_proveedor ='"+codigo+"'";
-        if (con.noQuery(sql) == null) {
+        sql = "update proveedor set eliminado = 0 where identificacion ='"+cedula+"'";
+        if (conec.noQuery(sql) == null) {
                         try {
-                con.CerrarConexion();
+                conec.CerrarConexion();
             } catch (SQLException e) {
                 System.err.println(e);
             } 
             return true;
         } else {
                         try {
-                con.CerrarConexion();
+                conec.CerrarConexion();
             } catch (SQLException e) {
                 System.err.println(e);
             } 
@@ -163,32 +210,36 @@ public class Proveedores extends Persona{
         } catch (Exception ex) {
            return false;
         }
-    }  
-     public List<Proveedores> mostrarProveedor(String codigo, String campo){
+    }     
+    
+//mostrar los clientes de la base 
+    public List<Proveedores> mostrarProveedor(String cedula){
         ConexionDB conec=new ConexionDB();  
         try {
-        String sql = "SELECT * FROM vista_cliemte_comp where UPPER("+campo+") like UPPER('"+codigo+"%')";
+        String sql = "SELECT * FROM proveedor where UPPER(identificacion) like UPPER('"+cedula+"%') and eliminado= '1'";
         ResultSet rs = conec.query(sql);
         List<Proveedores> listaC = new ArrayList<Proveedores>();
             while (rs.next()) {
-                Proveedores p= new Proveedores();
-                Cliente c = new Cliente();
-                p.setCodigo_proveedor(rs.getInt("codigo_proveedor"));
-                p.setCedula(rs.getString("cedula"));
-                p.setApellido(rs.getString("apellido"));
-                p.setNombre(rs.getString("nombre"));
+                Proveedores p = new Proveedores();
+                  
+                p.setId(rs.getString("identificacion"));
+                p.setRazonSocial(rs.getString("nombres"));
+                p.setSucursal(rs.getString("alias_suc"));
+                p.setCodigo(rs.getString("cod_suc"));
+                p.setDomicilio(rs.getString("direccion"));
                 p.setTelefono(rs.getString("telefono"));
                 p.setCelular(rs.getString("celular"));
-                p.setProvincia(rs.getString("provincia"));
-                p.setDireccion(rs.getString("direccion"));
-                p.setCiudad(rs.getString("ciudad"));
                 p.setCorreo(rs.getString("correo"));
+                p.setProvincia(rs.getString("provincia"));
+                p.setCiudad(rs.getString("ciudad"));
+                 p.setTipo_id(rs.getString("tipo_id"));
+                
                 listaC.add(p);
             }
             rs.close();
             return listaC;
         } catch (SQLException ex) {
-            Logger.getLogger(Cliente.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Proveedores.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }   finally{
             try {
@@ -198,17 +249,7 @@ public class Proveedores extends Persona{
             }            
         }        
     }    
-
- 
- 
-
     
-    
-
-  
-    
-
-
  
     
 }
