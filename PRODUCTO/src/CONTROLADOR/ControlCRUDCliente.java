@@ -33,6 +33,7 @@ public class ControlCRUDCliente {
         CargarCliente(vcc, "","id_cliente");  
         vcc.getBtnEliminarCli().addActionListener(l->EliminarCliente(vcc));
         vcc.getBtnEditarCli().addActionListener(l->EditarCliente(vcc));
+        vcc.getBtnGuardarCli().addActionListener(l->ActuCli(vcc));
     }
     
     public void IniciarControlCrear(VCrearCliente vac){
@@ -42,7 +43,7 @@ public class ControlCRUDCliente {
     //Carga datos de cliente a la tabla
     private void CargarCliente(VcrudCliente vc, String busca, String campo){
         List<Cliente> ListaC = cli.mostrarClientes(busca, campo);
-        vcc.getJtb_cliente().setRowHeight(135);
+//        vcc.getJtb_cliente().setRowHeight(135);
         DefaultTableModel mtdTable;
         mtdTable = (DefaultTableModel)vcc.getJtb_cliente().getModel();
         mtdTable.setRowCount(0);
@@ -54,10 +55,9 @@ public class ControlCRUDCliente {
     }    
     
     //Agregar un cliente
-
     public void GuardarCliente(VCrearCliente vc){        
         //Agregar
-        List<Cliente> Bc = new ArrayList<>();
+        List<Cliente> Bc = new ArrayList<>();//Para buscar si el cliente ya se encuentra en la base de datos
         try {
                 Bc = cli.mostrarClientes(vc.getTxtId().getText(),"id_cliente");
                 Bc.get(0).getTipoid().equalsIgnoreCase("");
@@ -66,11 +66,10 @@ public class ControlCRUDCliente {
                 cli.InsertarCliente(vc.getCbTipoId().getSelectedItem().toString(), vc.getTxtId().getText(), vc.getTxtNombre().getText(), vc.getTxtAliasSuc().getText(), vc.getTxtCodSucursal().getText(), vc.getTxtDireccion().getText(), vc.getTxttelefono().getText(), vc.getTxtCelular().getText(), vc.getTxtCorreo().getText(),vc.getCbProvincia().getSelectedItem().toString(), vc.getCbCiudad().getSelectedItem().toString());
                 JOptionPane.showMessageDialog(vcc, "Guardado Exitoso");
         }
-      
     }   
     
     public void ActuCli(VcrudCliente vc){
-//        editar
+            //Guardar Cambios editados
             try{
                 cli.ActualizarCliente(vc.getCbTipoId().getSelectedItem().toString(), vc.getTxtIdentificacion().getText(), vc.getTxtNombre().getText(), vc.getTxtSucursal().getText(), vc.getTxtCodSucursal().getText(), vc.getTxtDireccion().getText(), vc.getTxttelefono().getText(), vc.getTxtCelular().getText(), vc.getTxtCorreo().getText(),vc.getCbProvincia().getSelectedItem().toString(), vc.getCbCiudad().getSelectedItem().toString());
                 JOptionPane.showMessageDialog(vcc, "Cambios guardados con exito");
@@ -122,6 +121,7 @@ public class ControlCRUDCliente {
                     CargarCliente(vistac, "", "id_cliente");
                     JOptionPane.showMessageDialog(vcc, "Cliente eliminado exitosamente");
                 }
+        CargarCliente(vcc, "","id_cliente");          
         }        
     }    
     

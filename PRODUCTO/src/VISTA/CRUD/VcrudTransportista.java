@@ -5,41 +5,169 @@
  */
 package VISTA.CRUD;
 
-import MODELO.Validaciones;
-import com.toedter.calendar.JDateChooser;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JDialog;
 import javax.swing.JLabel;
+import javax.swing.JTable;
 import javax.swing.JTextField;
 
 /**
  *
- * @author james
+ * @author User
  */
-public class VCrearCliente extends javax.swing.JInternalFrame {
+public class VcrudTransportista extends javax.swing.JInternalFrame {
 
-    protected Validaciones validaciones = new Validaciones();
     /**
-     * Creates new form VOpcionesProd
+     * Creates new form VcrudCliente
      */
-    public VCrearCliente() {
+    public VcrudTransportista() {
         initComponents();
-        quitarBarra();
-        Validar();
+    }
+    
+    //Getters y Setter
+
+    public JButton getBtnEditarTra() {
+        return BtnEditarTra;
     }
 
+    public void setBtnEditarTra(JButton BtnEditarTra) {
+        this.BtnEditarTra = BtnEditarTra;
+    }
+
+    public JButton getBtnEliminarTra() {
+        return BtnEliminarTra;
+    }
+
+    public void setBtnEliminarTra(JButton BtnEliminarTra) {
+        this.BtnEliminarTra = BtnEliminarTra;
+    }
+
+    public JButton getBtnGuardarTra() {
+        return BtnGuardarTra;
+    }
+
+    public void setBtnGuardarTra(JButton BtnGuardarTra) {
+        this.BtnGuardarTra = BtnGuardarTra;
+    }
+
+    public JComboBox<String> getCbCiudad() {
+        return CbCiudad;
+    }
+
+    public void setCbCiudad(JComboBox<String> CbCiudad) {
+        this.CbCiudad = CbCiudad;
+    }
+
+    public JComboBox<String> getCbProvincia() {
+        return CbProvincia;
+    }
+
+    public void setCbProvincia(JComboBox<String> CbProvincia) {
+        this.CbProvincia = CbProvincia;
+    }
+
+    public JComboBox<String> getCbTipoId() {
+        return CbTipoId;
+    }
+
+    public void setCbTipoId(JComboBox<String> CbTipoId) {
+        this.CbTipoId = CbTipoId;
+    }
+
+    public JDialog getJdTransportista() {
+        return JdTransportista;
+    }
+
+    public void setJdTransportista(JDialog JdTransportista) {
+        this.JdTransportista = JdTransportista;
+    }
+
+    public JTextField getTxtBuscarTra() {
+        return TxtBuscarTra;
+    }
+
+    public void setTxtBuscarTra(JTextField TxtBuscarTra) {
+        this.TxtBuscarTra = TxtBuscarTra;
+    }
+
+    public JTextField getTxtCelular() {
+        return TxtCelular;
+    }
+
+    public void setTxtCelular(JTextField TxtCelular) {
+        this.TxtCelular = TxtCelular;
+    }
+
+    public JTextField getTxtCorreo() {
+        return TxtCorreo;
+    }
+
+    public void setTxtCorreo(JTextField TxtCorreo) {
+        this.TxtCorreo = TxtCorreo;
+    }
+
+    public JTextField getTxtDireccion() {
+        return TxtDireccion;
+    }
+
+    public void setTxtDireccion(JTextField TxtDireccion) {
+        this.TxtDireccion = TxtDireccion;
+    }
+
+    public JTextField getTxtId() {
+        return TxtId;
+    }
+
+    public void setTxtId(JTextField TxtId) {
+        this.TxtId = TxtId;
+    }
+
+    public JTextField getTxtNombre() {
+        return TxtNombre;
+    }
+
+    public void setTxtNombre(JTextField TxtNombre) {
+        this.TxtNombre = TxtNombre;
+    }
+
+    public JTextField getTxtPlaca() {
+        return TxtPlaca;
+    }
+
+    public void setTxtPlaca(JTextField TxtPlaca) {
+        this.TxtPlaca = TxtPlaca;
+    }
+
+    public JTextField getTxttelefono() {
+        return Txttelefono;
+    }
+
+    public void setTxttelefono(JTextField Txttelefono) {
+        this.Txttelefono = Txttelefono;
+    }
+
+    public JComboBox<String> getjComboBuscar() {
+        return jComboBuscar;
+    }
+
+    public void setjComboBuscar(JComboBox<String> jComboBuscar) {
+        this.jComboBuscar = jComboBuscar;
+    }
+
+    public JTable getJtb_transportista() {
+        return jtb_transportista;
+    }
+
+    public void setJtb_transportista(JTable jtb_transportista) {
+        this.jtb_transportista = jtb_transportista;
+    }
+
+ 
+
     
-    public void quitarBarra(){
-        ((javax.swing.plaf.basic.BasicInternalFrameUI)this.getUI()).setNorthPane(null);
-    }        
     
-    
-    public void Validar(){
-        validaciones.createFilteredField(TxtCelular, 10, Validaciones.MATCH_NUMEROS);
-        validaciones.createFilteredField(Txttelefono, 10, Validaciones.MATCH_NUMEROS);
-        validaciones.createFilteredField(TxtCorreo, 50, Validaciones.MATCH_EMAILS);
-    }    
-    
+        
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -49,34 +177,31 @@ public class VCrearCliente extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        JdTransportista = new javax.swing.JDialog();
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jSeparator7 = new javax.swing.JSeparator();
         jSeparator8 = new javax.swing.JSeparator();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
         TxtId = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
         TxtDireccion = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         CbTipoId = new javax.swing.JComboBox<>();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
         CbCiudad = new javax.swing.JComboBox<>();
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
-        TxtAliasSuc = new javax.swing.JTextField();
+        TxtPlaca = new javax.swing.JTextField();
         jLabel21 = new javax.swing.JLabel();
         CbProvincia = new javax.swing.JComboBox<>();
         jLabel22 = new javax.swing.JLabel();
-        TxtCodSucursal = new javax.swing.JTextField();
-        BtnGuardarCli = new javax.swing.JButton();
+        BtnGuardarTra = new javax.swing.JButton();
         jSeparator9 = new javax.swing.JSeparator();
-        jSeparator10 = new javax.swing.JSeparator();
-        jLabel17 = new javax.swing.JLabel();
         TxtNombre = new javax.swing.JTextField();
         Txttelefono = new javax.swing.JTextField();
         jSeparator12 = new javax.swing.JSeparator();
@@ -84,19 +209,21 @@ public class VCrearCliente extends javax.swing.JInternalFrame {
         jSeparator13 = new javax.swing.JSeparator();
         TxtCorreo = new javax.swing.JTextField();
         jSeparator14 = new javax.swing.JSeparator();
-        jLabel15 = new javax.swing.JLabel();
         jSeparator15 = new javax.swing.JSeparator();
-
-        setPreferredSize(new java.awt.Dimension(1120, 670));
-
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jLabelIcono = new javax.swing.JLabel();
+        BtnEditarTra = new javax.swing.JButton();
+        BtnEliminarTra = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jtb_transportista = new javax.swing.JTable();
+        TxtBuscarTra = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jComboBuscar = new javax.swing.JComboBox<>();
 
         jPanel2.setBackground(new java.awt.Color(33, 49, 91));
 
         jLabel3.setFont(new java.awt.Font("SansSerif", 1, 65)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("CLIENTES");
+        jLabel3.setText("TRANSPORTISTA");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -105,7 +232,7 @@ public class VCrearCliente extends javax.swing.JInternalFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel3)
-                .addContainerGap(787, Short.MAX_VALUE))
+                .addContainerGap(552, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -115,8 +242,6 @@ public class VCrearCliente extends javax.swing.JInternalFrame {
                 .addContainerGap())
         );
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1120, 120));
-
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -124,27 +249,27 @@ public class VCrearCliente extends javax.swing.JInternalFrame {
         jPanel3.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 150, 340, 10));
 
         jSeparator8.setForeground(new java.awt.Color(33, 49, 91));
-        jPanel3.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 230, 180, 10));
+        jPanel3.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 200, 180, 10));
 
-        jLabel5.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
-        jLabel5.setText("Tipo de Identificación:");
-        jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, -1, -1));
+        jLabel13.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        jLabel13.setText("Tipo de Identificación:");
+        jPanel3.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, -1, -1));
 
-        jLabel6.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
-        jLabel6.setText("Identificacion:");
-        jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 70, -1, -1));
+        jLabel14.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        jLabel14.setText("Identificacion:");
+        jPanel3.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 70, -1, -1));
 
         TxtId.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         TxtId.setBorder(null);
         jPanel3.add(TxtId, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 70, 220, 30));
 
-        jLabel7.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
-        jLabel7.setText("Nombres / Razon Social:");
-        jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, -1, 30));
+        jLabel15.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        jLabel15.setText("Nombres / Razon Social:");
+        jPanel3.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, -1, 30));
 
         TxtDireccion.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         TxtDireccion.setBorder(null);
-        jPanel3.add(TxtDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 250, 500, 30));
+        jPanel3.add(TxtDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 210, 500, 30));
 
         jLabel12.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel12.setText("DATOS BASICOS");
@@ -154,37 +279,37 @@ public class VCrearCliente extends javax.swing.JInternalFrame {
         CbTipoId.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cedula", "RUC", "Pasaporte", "Identificacion del Exterior", "Placa" }));
         jPanel3.add(CbTipoId, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 70, 190, 30));
 
-        jLabel13.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
-        jLabel13.setText("Direccion:");
-        jPanel3.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, -1, -1));
-
-        jLabel14.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
-        jLabel14.setText("Alias Sucursal:");
-        jPanel3.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, -1, -1));
-
         jLabel16.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
-        jLabel16.setText("Telefono:");
-        jPanel3.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, -1, -1));
+        jLabel16.setText("Direccion:");
+        jPanel3.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, -1, -1));
+
+        jLabel17.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        jLabel17.setText("Placa:");
+        jPanel3.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, -1, -1));
+
+        jLabel18.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        jLabel18.setText("Telefono:");
+        jPanel3.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, -1, -1));
 
         CbCiudad.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
-        CbCiudad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sin Especificar" }));
-        jPanel3.add(CbCiudad, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 340, 200, 30));
+        CbCiudad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Principal", "Prueba", "Juan" }));
+        jPanel3.add(CbCiudad, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 360, 190, 30));
 
         jLabel19.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         jLabel19.setText("Celular:");
-        jPanel3.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 300, -1, -1));
+        jPanel3.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 260, -1, -1));
 
         jLabel20.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         jLabel20.setText("Provincia:");
-        jPanel3.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 350, -1, -1));
+        jPanel3.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, -1, -1));
 
-        TxtAliasSuc.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
-        TxtAliasSuc.setBorder(null);
-        jPanel3.add(TxtAliasSuc, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 200, 180, 30));
+        TxtPlaca.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        TxtPlaca.setBorder(null);
+        jPanel3.add(TxtPlaca, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 170, 180, 30));
 
         jLabel21.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         jLabel21.setText("Correo:");
-        jPanel3.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 300, -1, -1));
+        jPanel3.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 260, -1, -1));
 
         CbProvincia.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         CbProvincia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sin Especificar", "Azuay                                                                                                                                                ", "Bolivar                                                                                                                                       ", "Cañar", "Carchi", "Chimborazo", "Cotopaxi", "El Oro", "Esmeraldas", "Exterior", "Galapagos", "Guayas", "Imbabura", "Loja", "Los Rios", "Manabi", "Morona Santiago", "Napo", "Orellana", "Pastaza", "Pichincha", "Santa Elena", "Santo Domingo", "Sucumbios", "Tungurahua", "Zamora Chinchipe" }));
@@ -193,29 +318,18 @@ public class VCrearCliente extends javax.swing.JInternalFrame {
                 CbProvinciaActionPerformed(evt);
             }
         });
-        jPanel3.add(CbProvincia, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 340, 190, 30));
+        jPanel3.add(CbProvincia, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 310, 190, 30));
 
         jLabel22.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         jLabel22.setText("Ciudad:");
-        jPanel3.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 350, -1, -1));
+        jPanel3.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, -1, -1));
 
-        TxtCodSucursal.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
-        TxtCodSucursal.setBorder(null);
-        jPanel3.add(TxtCodSucursal, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 200, 100, 30));
-
-        BtnGuardarCli.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
-        BtnGuardarCli.setText("Guardar");
-        jPanel3.add(BtnGuardarCli, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 420, 110, 40));
+        BtnGuardarTra.setFont(new java.awt.Font("SansSerif", 0, 15)); // NOI18N
+        BtnGuardarTra.setText("Guardar");
+        jPanel3.add(BtnGuardarTra, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 420, 90, 40));
 
         jSeparator9.setForeground(new java.awt.Color(33, 49, 91));
         jPanel3.add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 100, 220, 10));
-
-        jSeparator10.setForeground(new java.awt.Color(33, 49, 91));
-        jPanel3.add(jSeparator10, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 230, 100, 10));
-
-        jLabel17.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
-        jLabel17.setText("Codigo Sucursal:");
-        jPanel3.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 210, -1, -1));
 
         TxtNombre.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         TxtNombre.setBorder(null);
@@ -223,43 +337,130 @@ public class VCrearCliente extends javax.swing.JInternalFrame {
 
         Txttelefono.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         Txttelefono.setBorder(null);
-        jPanel3.add(Txttelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 290, 170, 30));
+        jPanel3.add(Txttelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 250, 170, 30));
 
         jSeparator12.setForeground(new java.awt.Color(33, 49, 91));
-        jPanel3.add(jSeparator12, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 320, 180, 10));
+        jPanel3.add(jSeparator12, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 280, 180, 10));
 
         TxtCelular.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         TxtCelular.setBorder(null);
-        jPanel3.add(TxtCelular, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 290, 160, 30));
+        jPanel3.add(TxtCelular, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 250, 160, 30));
 
         jSeparator13.setForeground(new java.awt.Color(33, 49, 91));
-        jPanel3.add(jSeparator13, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 320, 170, 10));
+        jPanel3.add(jSeparator13, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 280, 170, 10));
 
         TxtCorreo.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         TxtCorreo.setBorder(null);
-        jPanel3.add(TxtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 290, 330, 30));
+        jPanel3.add(TxtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 250, 330, 30));
 
         jSeparator14.setForeground(new java.awt.Color(33, 49, 91));
-        jPanel3.add(jSeparator14, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 320, 330, 10));
-
-        jLabel15.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
-        jLabel15.setText("MATRIZ");
-        jPanel3.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, -1, -1));
+        jPanel3.add(jSeparator14, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 280, 330, 10));
 
         jSeparator15.setForeground(new java.awt.Color(33, 49, 91));
-        jPanel3.add(jSeparator15, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 280, 500, 10));
+        jPanel3.add(jSeparator15, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 240, 500, 10));
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 1070, 500));
+        jLabelIcono.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelIcono.setIcon(new javax.swing.ImageIcon(getClass().getResource("/VISTA/ICONOS/EditarPersona.png"))); // NOI18N
+        jPanel3.add(jLabelIcono, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 70, 150, 150));
+
+        javax.swing.GroupLayout JdTransportistaLayout = new javax.swing.GroupLayout(JdTransportista.getContentPane());
+        JdTransportista.getContentPane().setLayout(JdTransportistaLayout);
+        JdTransportistaLayout.setHorizontalGroup(
+            JdTransportistaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JdTransportistaLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 1070, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(JdTransportistaLayout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        JdTransportistaLayout.setVerticalGroup(
+            JdTransportistaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JdTransportistaLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
+        setBorder(null);
+        setTitle("CRUD de Transportista");
+
+        BtnEditarTra.setIcon(new javax.swing.ImageIcon(getClass().getResource("/VISTA/ICONOS/modifica.png"))); // NOI18N
+        BtnEditarTra.setText("Editar");
+        BtnEditarTra.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        BtnEditarTra.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+
+        BtnEliminarTra.setIcon(new javax.swing.ImageIcon(getClass().getResource("/VISTA/ICONOS/user_eliminate_12817.png"))); // NOI18N
+        BtnEliminarTra.setText("Eliminar");
+        BtnEliminarTra.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        BtnEliminarTra.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+
+        jtb_transportista.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Cedula/Ru", "Nombre/Razón social", "Tipo", "Placa", "Ciudad", "Telefono", "Email"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(jtb_transportista);
+
+        jLabel1.setText("Transportista");
+
+        jComboBuscar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Identificacion", "Nombre", "Tipo" }));
+        jComboBuscar.setPreferredSize(new java.awt.Dimension(75, 32));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(TxtBuscarTra, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jComboBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(209, 209, 209)
+                        .addComponent(BtnEditarTra, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(BtnEliminarTra, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 975, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(BtnEditarTra)
+                    .addComponent(BtnEliminarTra)
+                    .addComponent(TxtBuscarTra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 479, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -267,7 +468,7 @@ public class VCrearCliente extends javax.swing.JInternalFrame {
 
     private void CbProvinciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CbProvinciaActionPerformed
         // TODO add your handling code here:
-        int prov = CbProvincia.getSelectedIndex();
+    int prov = CbProvincia.getSelectedIndex();
         switch(prov){
             case 0: 
                     CbCiudad.removeAllItems();
@@ -597,136 +798,41 @@ public class VCrearCliente extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_CbProvinciaActionPerformed
 
-    public JButton getBtnGuardarCli() {
-        return BtnGuardarCli;
-    }
-
-    public void setBtnGuardarCli(JButton BtnGuardarCli) {
-        this.BtnGuardarCli = BtnGuardarCli;
-    }
-  
-    public JComboBox<String> getCbCiudad() {
-        return CbCiudad;
-    }
-
-    public void setCbCiudad(JComboBox<String> CbCiudad) {
-        this.CbCiudad = CbCiudad;
-    }
-
-    public JComboBox<String> getCbProvincia() {
-        return CbProvincia;
-    }
-
-    public void setCbProvincia(JComboBox<String> CbProvincia) {
-        this.CbProvincia = CbProvincia;
-    }
-
-    public JComboBox<String> getCbTipoId() {
-        return CbTipoId;
-    }
-
-    public void setCbTipoId(JComboBox<String> CbTipoId) {
-        this.CbTipoId = CbTipoId;
-    }
-
-    public JTextField getTxtAliasSuc() {
-        return TxtAliasSuc;
-    }
-
-    public void setTxtAliasSuc(JTextField TxtAliasSuc) {
-        this.TxtAliasSuc = TxtAliasSuc;
-    }
-
-    public JTextField getTxtCelular() {
-        return TxtCelular;
-    }
-
-    public void setTxtCelular(JTextField TxtCelular) {
-        this.TxtCelular = TxtCelular;
-    }
-
-    public JTextField getTxtCodSucursal() {
-        return TxtCodSucursal;
-    }
-
-    public void setTxtCodSucursal(JTextField TxtCodSucursal) {
-        this.TxtCodSucursal = TxtCodSucursal;
-    }
-
-    public JTextField getTxtCorreo() {
-        return TxtCorreo;
-    }
-
-    public void setTxtCorreo(JTextField TxtCorreo) {
-        this.TxtCorreo = TxtCorreo;
-    }
-
-    public JTextField getTxtId() {
-        return TxtId;
-    }
-
-    public void setTxtId(JTextField TxtId) {
-        this.TxtId = TxtId;
-    }
-
-    public JTextField getTxtNombre() {
-        return TxtNombre;
-    }
-
-    public void setTxtNombre(JTextField TxtNombre) {
-        this.TxtNombre = TxtNombre;
-    }
-
-    public JTextField getTxtDireccion() {
-        return TxtDireccion;
-    }
-
-    public void setTxtDireccion(JTextField TxtDireccion) {
-        this.TxtDireccion = TxtDireccion;
-    }
-
-    public JTextField getTxttelefono() {
-        return Txttelefono;
-    }
-
-    public void setTxttelefono(JTextField Txttelefono) {
-        this.Txttelefono = Txttelefono;
-    }
-
-    
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BtnGuardarCli;
+    private javax.swing.JButton BtnEditarTra;
+    private javax.swing.JButton BtnEliminarTra;
+    private javax.swing.JButton BtnGuardarTra;
     private javax.swing.JComboBox<String> CbCiudad;
     private javax.swing.JComboBox<String> CbProvincia;
     private javax.swing.JComboBox<String> CbTipoId;
-    private javax.swing.JTextField TxtAliasSuc;
+    private javax.swing.JDialog JdTransportista;
+    private javax.swing.JTextField TxtBuscarTra;
     private javax.swing.JTextField TxtCelular;
-    private javax.swing.JTextField TxtCodSucursal;
     private javax.swing.JTextField TxtCorreo;
     private javax.swing.JTextField TxtDireccion;
     private javax.swing.JTextField TxtId;
     private javax.swing.JTextField TxtNombre;
+    private javax.swing.JTextField TxtPlaca;
     private javax.swing.JTextField Txttelefono;
+    private javax.swing.JComboBox<String> jComboBuscar;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel jLabelIcono;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JSeparator jSeparator10;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator12;
     private javax.swing.JSeparator jSeparator13;
     private javax.swing.JSeparator jSeparator14;
@@ -734,5 +840,6 @@ public class VCrearCliente extends javax.swing.JInternalFrame {
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JSeparator jSeparator9;
+    private javax.swing.JTable jtb_transportista;
     // End of variables declaration//GEN-END:variables
 }

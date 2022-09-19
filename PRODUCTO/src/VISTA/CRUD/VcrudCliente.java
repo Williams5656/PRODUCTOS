@@ -310,7 +310,7 @@ public class VcrudCliente extends javax.swing.JInternalFrame {
 
         CbCiudad.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         CbCiudad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Principal", "Prueba", "Juan" }));
-        jPanel3.add(CbCiudad, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 340, 130, 30));
+        jPanel3.add(CbCiudad, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 340, 190, 30));
 
         jLabel19.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         jLabel19.setText("Celular:");
@@ -329,12 +329,17 @@ public class VcrudCliente extends javax.swing.JInternalFrame {
         jPanel3.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 300, -1, -1));
 
         CbProvincia.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
-        CbProvincia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ninguno", "Unidad", "test", "Saco 75Kg", "Saco 5Kg", "Saco 50Kg", "Saco 4Kg", "Saco 45Kg", "Saco 40Kg", "Saco 3Kg", "Saco 35Kg", "Saco 30Kg", "Saco 2Kg", "Saco 25Kg", "Saco 20Kg", "Saco 1Kg", "Saco 15Kg", "Saco 10Kg", "Saco 100Kg", "Paquete de 9", "Paquete de 6", "Paquete de 4", "Paquete de 36", "Paquete de 3", "Paquete de 24", "Paquete de 20", "Paquete de 18", "Paquete de 13", "Paquete de 12", "Paquete de 10", "Metros", "Kilogramo" }));
-        jPanel3.add(CbProvincia, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 340, 140, 30));
+        CbProvincia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sin Especificar", "Azuay                                                                                                                                                ", "Bolivar                                                                                                                                       ", "Cañar", "Carchi", "Chimborazo", "Cotopaxi", "El Oro", "Esmeraldas", "Exterior", "Galapagos", "Guayas", "Imbabura", "Loja", "Los Rios", "Manabi", "Morona Santiago", "Napo", "Orellana", "Pastaza", "Pichincha", "Santa Elena", "Santo Domingo", "Sucumbios", "Tungurahua", "Zamora Chinchipe" }));
+        CbProvincia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CbProvinciaActionPerformed(evt);
+            }
+        });
+        jPanel3.add(CbProvincia, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 340, 190, 30));
 
         jLabel22.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         jLabel22.setText("Ciudad:");
-        jPanel3.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 350, -1, -1));
+        jPanel3.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 350, -1, -1));
 
         TxtCodSucursal.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         TxtCodSucursal.setBorder(null);
@@ -387,7 +392,7 @@ public class VcrudCliente extends javax.swing.JInternalFrame {
         jPanel3.add(jSeparator15, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 280, 500, 10));
 
         jLabelIcono.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelIcono.setIcon(new javax.swing.ImageIcon(getClass().getResource("/VISTA/ICONOS/ClienteG.png"))); // NOI18N
+        jLabelIcono.setIcon(new javax.swing.ImageIcon(getClass().getResource("/VISTA/ICONOS/EditarPersona.png"))); // NOI18N
         jPanel3.add(jLabelIcono, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 98, 150, 150));
 
         javax.swing.GroupLayout JdClienteLayout = new javax.swing.GroupLayout(JdCliente.getContentPane());
@@ -492,6 +497,338 @@ public class VcrudCliente extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void CbProvinciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CbProvinciaActionPerformed
+        // TODO add your handling code here:
+int prov = CbProvincia.getSelectedIndex();
+        switch(prov){
+            case 0: 
+                    CbCiudad.removeAllItems();
+                    CbCiudad.addItem("Sin Especificar");
+            break;
+            case 1: 
+                    CbCiudad.removeAllItems();
+                    CbCiudad.addItem("Sin Especificar");
+                    CbCiudad.addItem("Camilo Ponce Enriquez");
+                    CbCiudad.addItem("Chordeleg");
+                    CbCiudad.addItem("Cuenca");
+                    CbCiudad.addItem("El Pan");
+                    CbCiudad.addItem("Giron");
+                    CbCiudad.addItem("Guachapala");
+                    CbCiudad.addItem("Gualaceo");
+                    CbCiudad.addItem("Nabon");
+                    CbCiudad.addItem("Oña");
+                    CbCiudad.addItem("Paute");
+                    CbCiudad.addItem("Pucara");
+                    CbCiudad.addItem("San Fernando");
+                    CbCiudad.addItem("Santa Isabel");
+                    CbCiudad.addItem("Sevilla de Oro");
+                    CbCiudad.addItem("Sigsig");
+            break;
+            case 2: 
+                    CbCiudad.removeAllItems();
+                    CbCiudad.addItem("Sin Especificar");
+                    CbCiudad.addItem("Caluma");
+                    CbCiudad.addItem("Chillanes");
+                    CbCiudad.addItem("Chimbo");
+                    CbCiudad.addItem("Echeandia");
+                    CbCiudad.addItem("Guaranda");
+                    CbCiudad.addItem("Las Naves");
+                    CbCiudad.addItem("San Miguel");
+            break;
+            case 3: 
+                    CbCiudad.removeAllItems();
+                    CbCiudad.addItem("Sin Especificar");
+                    CbCiudad.addItem("Azogues");
+                    CbCiudad.addItem("Biblian");
+                    CbCiudad.addItem("Cañar");
+                    CbCiudad.addItem("Deleg");
+                    CbCiudad.addItem("El Tambo");
+                    CbCiudad.addItem("La Troncal");
+                    CbCiudad.addItem("Suscal");
+            break;
+            case 4: 
+                    CbCiudad.removeAllItems();
+                    CbCiudad.addItem("Sin Especificar");
+                    CbCiudad.addItem("Bolivar");
+                    CbCiudad.addItem("Espejo");
+                    CbCiudad.addItem("Huace");
+                    CbCiudad.addItem("Mira");
+                    CbCiudad.addItem("Montufar");
+                    CbCiudad.addItem("Tulcan");
+            break;
+            case 5: 
+                    CbCiudad.removeAllItems();
+                    CbCiudad.addItem("Sin Especificar");
+                    CbCiudad.addItem("Alausi");
+                    CbCiudad.addItem("Chambo");
+                    CbCiudad.addItem("Chunchi");
+                    CbCiudad.addItem("Cumanda");
+                    CbCiudad.addItem("Guamote");
+                    CbCiudad.addItem("Guano");
+                    CbCiudad.addItem("Pallatanga");
+                    CbCiudad.addItem("Penipe");
+                    CbCiudad.addItem("Riobamba");                
+            break;
+            case 6: 
+                    CbCiudad.removeAllItems();
+                    CbCiudad.addItem("Sin Especificar");
+                    CbCiudad.addItem("La Mana");
+                    CbCiudad.addItem("Latacunga");
+                    CbCiudad.addItem("Pangua");
+                    CbCiudad.addItem("Pujili");
+                    CbCiudad.addItem("Salcedo");
+                    CbCiudad.addItem("Saquisili");
+                    CbCiudad.addItem("Sigchos");               
+            break;
+            case 7:
+                    CbCiudad.removeAllItems();
+                    CbCiudad.addItem("Sin Especificar");
+                    CbCiudad.addItem("Arenillas");
+                    CbCiudad.addItem("Atagualpa");
+                    CbCiudad.addItem("Balsas");
+                    CbCiudad.addItem("Chilla");
+                    CbCiudad.addItem("El Guabo");
+                    CbCiudad.addItem("Huaquillas");
+                    CbCiudad.addItem("Las Lajas");                      
+                    CbCiudad.addItem("Machala");
+                    CbCiudad.addItem("Marcabeli");
+                    CbCiudad.addItem("Pasaje");
+                    CbCiudad.addItem("Piñas");
+                    CbCiudad.addItem("Portovelo");                 
+                    CbCiudad.addItem("Santa Rosa");
+                    CbCiudad.addItem("Zaruma");  
+            break;
+            case 8: 
+                    CbCiudad.removeAllItems();
+                    CbCiudad.addItem("Sin Especificar");
+                    CbCiudad.addItem("Atacames");
+                    CbCiudad.addItem("Eloy Alfaro");
+                    CbCiudad.addItem("Esmeraldas");
+                    CbCiudad.addItem("Muisne");
+                    CbCiudad.addItem("Quininde");
+                    CbCiudad.addItem("Rioverde");
+                    CbCiudad.addItem("San Lorenzo");     
+            break;
+            case 9: 
+                    CbCiudad.removeAllItems();
+                    CbCiudad.addItem("Sin Especificar");                
+            break;
+            case 10: 
+                    CbCiudad.removeAllItems();
+                    CbCiudad.addItem("Sin Especificar");    
+                    CbCiudad.addItem("Isabela");    
+                    CbCiudad.addItem("San Cristobal");    
+                    CbCiudad.addItem("Santa Cruz");    
+            break;
+            case 11:
+                    CbCiudad.removeAllItems();
+                    CbCiudad.addItem("Sin Especificar");    
+                    CbCiudad.addItem("Balao");    
+                    CbCiudad.addItem("Balzar");  
+                    CbCiudad.addItem("Bucay");  
+                    CbCiudad.addItem("Colimes");  
+                    CbCiudad.addItem("Daule");  
+                    CbCiudad.addItem("Duran");  
+                    CbCiudad.addItem("El Empalme");  
+                    CbCiudad.addItem("El Triunfo");  
+                    CbCiudad.addItem("Guayaquil");  
+                    CbCiudad.addItem("Isidro Ayora");  
+                    CbCiudad.addItem("Jujan");  
+                    CbCiudad.addItem("Lomas de Sargentillo");  
+                    CbCiudad.addItem("Marcelino Maridueña");  
+                    CbCiudad.addItem("Milagro");  
+                    CbCiudad.addItem("Naranjal");  
+                    CbCiudad.addItem("Naranjito");  
+                    CbCiudad.addItem("Nobol");  
+                    CbCiudad.addItem("Palestina");  
+                    CbCiudad.addItem("Pedro Carbo");
+                    CbCiudad.addItem("Playas");  
+                    CbCiudad.addItem("Salitre");  
+                    CbCiudad.addItem("Sanborondon"); 
+                    CbCiudad.addItem("Santa Lucia");  
+                    CbCiudad.addItem("Simon Bolivar");
+                    CbCiudad.addItem("Yaguachi");  
+            break;
+            case 12: 
+                    CbCiudad.removeAllItems();
+                    CbCiudad.addItem("Sin Especificar");    
+                    CbCiudad.addItem("Anotonio Ante");    
+                    CbCiudad.addItem("Cotacachi");  
+                    CbCiudad.addItem("Otavalo");  
+                    CbCiudad.addItem("Pimampiro");  
+                    CbCiudad.addItem("San Miguel de Urcuqui");  
+            break;
+            case 13: 
+                    CbCiudad.removeAllItems();
+                    CbCiudad.addItem("Sin Especificar");    
+                    CbCiudad.addItem("Alamor");    
+                    CbCiudad.addItem("Calvas");  
+                    CbCiudad.addItem("Catamayo");  
+                    CbCiudad.addItem("Celica");  
+                    CbCiudad.addItem("Chaguarpamba");  
+                    CbCiudad.addItem("Espindola");  
+                    CbCiudad.addItem("Gonzanama");  
+                    CbCiudad.addItem("Loja");  
+                    CbCiudad.addItem("Macara");  
+                    CbCiudad.addItem("Olmedo");  
+                    CbCiudad.addItem("Paltas");  
+                    CbCiudad.addItem("Pindal");  
+                    CbCiudad.addItem("Puyango");  
+                    CbCiudad.addItem("Quilanga");  
+                    CbCiudad.addItem("Saraguro");  
+                    CbCiudad.addItem("Sozoranga");  
+                    CbCiudad.addItem("Zapotillo");  
+            break;
+            case 14: 
+                    CbCiudad.removeAllItems();
+                    CbCiudad.addItem("Sin Especificar");    
+                    CbCiudad.addItem("Baba");    
+                    CbCiudad.addItem("Babahoyo");  
+                    CbCiudad.addItem("Buena Fe");  
+                    CbCiudad.addItem("Mocache");  
+                    CbCiudad.addItem("Montalvo");  
+                    CbCiudad.addItem("Palenque");  
+                    CbCiudad.addItem("Pueblo Viejo");  
+                    CbCiudad.addItem("Quevedo");  
+                    CbCiudad.addItem("Quinsaloma");  
+                    CbCiudad.addItem("Urdaneta");  
+                    CbCiudad.addItem("Valencia"); 
+                    CbCiudad.addItem("Ventanas"); 
+                    CbCiudad.addItem("Vinces"); 
+            break;
+            case 15:
+                    CbCiudad.removeAllItems();
+                    CbCiudad.addItem("Sin Especificar");    
+                    CbCiudad.addItem("24 de Mayo");    
+                    CbCiudad.addItem("Bolivar");  
+                    CbCiudad.addItem("Calceta");  
+                    CbCiudad.addItem("Chone");  
+                    CbCiudad.addItem("El Carmen");  
+                    CbCiudad.addItem("Flavio Alfaro");  
+                    CbCiudad.addItem("Jama");  
+                    CbCiudad.addItem("Jaramijo");  
+                    CbCiudad.addItem("Jipijapa");  
+                    CbCiudad.addItem("Junin");  
+                    CbCiudad.addItem("Manta");  
+                    CbCiudad.addItem("Montecristi");  
+                    CbCiudad.addItem("Olmedo");  
+                    CbCiudad.addItem("Pajan");  
+                    CbCiudad.addItem("Pedernales");  
+                    CbCiudad.addItem("Pichincha");  
+                    CbCiudad.addItem("Portoviejo");  
+                    CbCiudad.addItem("Puerto Lopez");  
+                    CbCiudad.addItem("Rocafuerte");  
+                    CbCiudad.addItem("San Vicente"); 
+                    CbCiudad.addItem("Santa Ana"); 
+                    CbCiudad.addItem("Sucre"); 
+                    CbCiudad.addItem("Tosagua"); 
+            break;
+            case 16:
+                    CbCiudad.removeAllItems();
+                    CbCiudad.addItem("Sin Especificar");    
+                    CbCiudad.addItem("Gualaquiza");    
+                    CbCiudad.addItem("Huamboya");  
+                    CbCiudad.addItem("Limon Indanza");  
+                    CbCiudad.addItem("Logroño");  
+                    CbCiudad.addItem("Morona");  
+                    CbCiudad.addItem("Pablo Sexto");  
+                    CbCiudad.addItem("Palora");  
+                    CbCiudad.addItem("San Juan Bosco");  
+                    CbCiudad.addItem("Santiago de Mendez");  
+                    CbCiudad.addItem("Sucua");  
+                    CbCiudad.addItem("Taisha");  
+                    CbCiudad.addItem("Tiwintza");  
+
+            break;
+            case 17:
+                    CbCiudad.removeAllItems();
+                    CbCiudad.addItem("Sin Especificar");    
+                    CbCiudad.addItem("Archidona");    
+                    CbCiudad.addItem("Carlos Julio Arosemena Tola");  
+                    CbCiudad.addItem("El Chaco");  
+                    CbCiudad.addItem("Quijos");  
+                    CbCiudad.addItem("Tena");  
+            break;
+            case 18: 
+                    CbCiudad.removeAllItems();
+                    CbCiudad.addItem("Sin Especificar");    
+                    CbCiudad.addItem("Aguarico");    
+                    CbCiudad.addItem("Francisco de Orellana");  
+                    CbCiudad.addItem("La Joya de los Sachas");  
+                    CbCiudad.addItem("Loreto");               
+            break;
+            case 19:
+                    CbCiudad.removeAllItems();
+                    CbCiudad.addItem("Sin Especificar");    
+                    CbCiudad.addItem("Arajuno");    
+                    CbCiudad.addItem("Mera");  
+                    CbCiudad.addItem("Pastaza");  
+                    CbCiudad.addItem("Santa Clara");    
+            break;
+            case 20: 
+                    CbCiudad.removeAllItems();
+                    CbCiudad.addItem("Sin Especificar");    
+                    CbCiudad.addItem("Cayambe");    
+                    CbCiudad.addItem("Mejia");  
+                    CbCiudad.addItem("Pedro Moncayo");                      
+                    CbCiudad.addItem("Pedro Vicente Maldonado");    
+                    CbCiudad.addItem("Puerto Quito");    
+                    CbCiudad.addItem("Quito");  
+                    CbCiudad.addItem("Rumiñahui");  
+                    CbCiudad.addItem("San Miguel de los Bancos"); 
+            break;
+            case 21: 
+                    CbCiudad.removeAllItems();
+                    CbCiudad.addItem("Sin Especificar");    
+                    CbCiudad.addItem("La Libertad");    
+                    CbCiudad.addItem("Salinas");  
+                    CbCiudad.addItem("Santa Elena");  
+            break;
+            case 22:
+                    CbCiudad.removeAllItems();
+                    CbCiudad.addItem("Sin Especificar");
+                    CbCiudad.addItem("La Concordia");
+                    CbCiudad.addItem("Santo Domingo");                
+            break;
+            case 23:
+                    CbCiudad.removeAllItems();
+                    CbCiudad.addItem("Sin Especificar");
+                    CbCiudad.addItem("Cascales");
+                    CbCiudad.addItem("Cuyabeno");
+                    CbCiudad.addItem("Gonzalo Pizarro");
+                    CbCiudad.addItem("Lago Agrio");
+                    CbCiudad.addItem("Putumayo");
+                    CbCiudad.addItem("Shushufindi");
+                    CbCiudad.addItem("Sucumbios");             
+            break;            
+            case 24:
+                    CbCiudad.removeAllItems();
+                    CbCiudad.addItem("Sin Especificar");
+                    CbCiudad.addItem("Ambato");
+                    CbCiudad.addItem("Baños");
+                    CbCiudad.addItem("Cevallos");
+                    CbCiudad.addItem("Mocha");
+                    CbCiudad.addItem("Patate");
+                    CbCiudad.addItem("Pelileo");
+                    CbCiudad.addItem("Santiago de Pillaro");
+                    CbCiudad.addItem("Tisaleo");                
+            break;
+            case 25: 
+                    CbCiudad.removeAllItems();
+                    CbCiudad.addItem("Sin Especificar");
+                    CbCiudad.addItem("Centinela del Condor");
+                    CbCiudad.addItem("Chinchipe");
+                    CbCiudad.addItem("El Pangui");
+                    CbCiudad.addItem("Nangaritza");
+                    CbCiudad.addItem("Palanda");
+                    CbCiudad.addItem("Paquisha");
+                    CbCiudad.addItem("Yacuambi");
+                    CbCiudad.addItem("Yantzaza");
+                    CbCiudad.addItem("Zamora");
+            break;
+        }
+    }//GEN-LAST:event_CbProvinciaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -5,21 +5,14 @@
  */
 package CONTROLADOR;
 
-import Base.cedula;
-import MODELO.Proveedores;
 import MODELO.Transportista;
-import VISTA.CRUD.VCrearProveedor;
+import MODELO.Validaciones;
 import VISTA.CRUD.VCrearTransportista;
-import VISTA.CRUD.VcrudProveedor2;
-import VISTA.CRUD.VcrudTransportista2;
-import java.awt.event.FocusAdapter;
-import java.awt.event.FocusEvent;
+import VISTA.CRUD.VcrudTransportista;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -29,121 +22,109 @@ import javax.swing.table.DefaultTableModel;
  */
 public class ControlCrudTransportista {
 
-   VCrearTransportista vct=new VCrearTransportista();
-   VcrudTransportista2 vct2=new  VcrudTransportista2();
     Transportista tra=new Transportista();
+    VCrearTransportista vat=new VCrearTransportista();
+    VcrudTransportista vct=new VcrudTransportista();
+    Validaciones vali = new Validaciones();
     
-     public void iniciarControl(VcrudTransportista2 vc2){
-      this.FiltrarProveedor(vct2);
-      this.CargarTransportista(vc2, "");
-      
-        vct2.getBtnEditarCli().addActionListener(l-> EditarTransportista (vct2));
-        vct2.getBtnEliminarCli().addActionListener(l-> EliminarTransportista(vct2));
+    public void iniciarControl(VcrudTransportista vct){
+        vali.validarJDialog(vct.getJdTransportista());
+        FiltrarTransportista(vct);
+        CargarTransportista(vct, "", "identificacion");
+        vct.getBtnEditarTra().addActionListener(l-> EditarTransportista(vct));
+        vct.getBtnEliminarTra().addActionListener(l-> EliminarTransportista(vct));
+        vct.getBtnGuardarTra().addActionListener(l->ActuTra(vct));
     }
-    
-    public void iniciarControlC(VCrearTransportista vct){
-        vct.getButtonGuardar().addActionListener(l->GuardarTransportista(vct));
+      
+    public void iniciarControlCrear(VCrearTransportista vat){
+        vat.getBtnGuardarCli().addActionListener(l->GuardarTransportista(vat));
         
     }
     
-    private void CargarTransportista(VcrudTransportista2 vc, String cedula){
-        List<Transportista > ListaC = tra.mostrarTransportista(cedula);
-        vc.getJtb_cliente().setRowHeight(135);
+    private void CargarTransportista(VcrudTransportista vt, String busca, String campo){
+        List<Transportista> ListaT = tra.mostrarTransportista(busca, campo);
         DefaultTableModel mtdTable;
-        mtdTable = (DefaultTableModel)vc.getJtb_cliente().getModel();
+        mtdTable = (DefaultTableModel)vt.getJtb_transportista().getModel();
         mtdTable.setRowCount(0);
-        ListaC.forEach(p->{
-        String Fila[]={p.getId(),p.getRazonSocial(),p.getCiudad(),p.getCiudad(),p.getCorreo()};
+        ListaT.forEach(p->{
+        String Fila[]={p.getId(),p.getRazonSocial(),p.getTipoId(),p.getPlaca(),p.getCiudad(),p.getTelefono(),p.getCorreo()};
         mtdTable.addRow(Fila);
         });
-        vc.getJtb_cliente().setModel(mtdTable);
+        vt.getJtb_transportista().setModel(mtdTable);
     }  
     
-    public void GuardarTransportista(VCrearTransportista vct){        
+    //Agregar un nuevo Transportista
+    public void GuardarTransportista(VCrearTransportista vt){        
         //Agregar
-        List<Transportista> Bc = new ArrayList<>();
+        List<Transportista> Bt = new ArrayList<>();//Para buscar si el transportista ya se encuentra en la base de datos
         try {
-                Bc = tra.mostrarTransportista(vct.getTextId().getText());
-                Bc.get(0).getId().equalsIgnoreCase("");
-                JOptionPane.showMessageDialog(null, "El proveedor ya se encuentra registrado en la base de datos");
+                Bt = tra.mostrarTransportista(vt.getTxtId().getText(),"identificacion");
+                Bt.get(0).getId().equalsIgnoreCase("");
+                JOptionPane.showMessageDialog(null, "El Transportista ya se encuentra registrado en la base de datos");
         } catch (Exception e) {
-                tra.InsertarTransportista(vct.getComboTipoI().getSelectedItem().toString(),
-                        vct.getTextId().getText(), 
-                        vct.getTextRazonS().getText(), 
-                        vct.getjTextTelf().getText(),
-                        vct.getTextCel().getText(), 
-                        vct.getTextDir().getText(),
-                        vct.getComboCiudad().getSelectedItem().toString(),
-                        vct.getComboPro().getSelectedItem().toString(),
-                        vct.getTextCorreo().getText(),
-                        vct.getTextPlaca().getText());
-                JOptionPane.showMessageDialog(vct, "Guardado Exitoso");
+                tra.InsertarTransportista(vt.getCbTipoId().getSelectedItem().toString(), vt.getTxtId().getText(), vt.getTxtNombre().getText(),vt.getTxtDireccion().getText(), vt.getTxttelefono().getText(), vt.getTxtCelular().getText(), vt.getTxtCorreo().getText(),vt.getCbProvincia().getSelectedItem().toString(), vt.getCbCiudad().getSelectedItem().toString(), vt.getTxtPlaca().getText());
+                JOptionPane.showMessageDialog(vt, "Guardado Exitoso");
         }
-      
     }  
-     public void ActualizarProveedor(VCrearTransportista vct){
-//        editar
+    
+    //Actualizar transportista
+    public void ActuTra(VcrudTransportista vt){
+            //Guardar Cambios editados
             try{
-                tra.ActualizarTransportista(
-                        vct.getTextId().getText(), 
-                        vct.getTextRazonS().getText(), 
-                        vct.getjTextTelf().getText(),
-                        vct.getTextCel().getText(), 
-                        vct.getTextDir().getText(),
-                        vct.getComboCiudad().getSelectedItem().toString(),
-                        vct.getComboPro().getSelectedItem().toString(),
-                        vct.getTextCorreo().getText(),
-                        vct.getTextPlaca().getText());
-                JOptionPane.showMessageDialog(vct, "Cambios guardados con exito");
-                CargarTransportista(vct2, "");
-              
+                tra.ActualizarTransportista(vt.getCbTipoId().getSelectedItem().toString(), vt.getTxtId().getText(), vt.getTxtNombre().getText(),vt.getTxtDireccion().getText(), vt.getTxttelefono().getText(), vt.getTxtCelular().getText(), vt.getTxtCorreo().getText(),vt.getCbProvincia().getSelectedItem().toString(), vt.getCbCiudad().getSelectedItem().toString(), vt.getTxtPlaca().getText());
+                JOptionPane.showMessageDialog(vt, "Cambios guardados con exito");
+                CargarTransportista(vt, "", "identificacion");
+                vt.getJdTransportista().dispose();
             }catch(Exception e){}   
-    }
-     
-  
-          public void EditarTransportista(VcrudTransportista2 vcp){
-        int filaseleccionada = vcp.getJtb_cliente().getSelectedRow();
+    }    
+
+    //Editar Transportista
+    public void EditarTransportista(VcrudTransportista vt){
+        int filaseleccionada = vt.getJtb_transportista().getSelectedRow();
         if(filaseleccionada<0){
-            JOptionPane.showMessageDialog(null, "Seleccione el cliente que desea editar");
+            JOptionPane.showMessageDialog(null, "Seleccione el transportista que desea editar");
         }else{
                     //configuracion para mostrar jdialog
-                         vcp.getJdCliente().setVisible(true);
-                    vcp.getJdCliente().setSize(1100,700);
-                    vcp.getJdCliente().setResizable(false);
-                    vcp.getJdCliente().setTitle("Editar");
-                    vcp.getTxtCedulaCli().setEditable(false);
-                    vcp.getjComboBuscar().setEnabled(false);
-                
+                    vt.getJdTransportista().setVisible(true);
+                    vt.getJdTransportista().setSize(1100,700);
+                    vt.getJdTransportista().setResizable(false);
+                    vt.getJdTransportista().setTitle("Editar");
+                    vt.getTxtId().setEditable(false);
+                    vt.getCbTipoId().setEnabled(false);
             //carga
-            int fila = vcp.getJtb_cliente().getSelectedRow();
-            String cedula = vcp.getJtb_cliente().getValueAt(fila, 1).toString();
-             List<Transportista> ListaP = tra.mostrarTransportista(cedula);
-             vcp.getTxtCedulaCli().setText(cedula);             
-             vcp.getTxtNombre().setText(ListaP.get(0).getRazonSocial());
-             vcp.getTxtDireccion().setText(ListaP.get(0).getCiudad());
-             vcp.getTxtCorreo().setText(ListaP.get(0).getCorreo());
-            
+            int fila = vt.getJtb_transportista().getSelectedRow();
+            String cedula = vt.getJtb_transportista().getValueAt(fila, 0).toString();
+             List<Transportista> ListaP = tra.mostrarTransportista(cedula, "identificacion");
+             vt.getTxtId().setText(ListaP.get(0).getId());      
+             vt.getTxtNombre().setText(ListaP.get(0).getRazonSocial());
+             vt.getTxtPlaca().setText(ListaP.get(0).getPlaca());
+             vt.getTxtDireccion().setText(ListaP.get(0).getDireccion());
+             vt.getTxttelefono().setText(ListaP.get(0).getTelefono());
+             vt.getTxtCelular().setText(ListaP.get(0).getCelular());
+             vt.getTxtCorreo().setText(ListaP.get(0).getCorreo());
         }
-    }
-          
-         
-           public void EliminarTransportista(VcrudTransportista2 vistac){
-        int filaseleccionada = vistac.getJtb_cliente().getSelectedRow();
+    }      
+           
+    //Eliminar Clientes
+    public void EliminarTransportista(VcrudTransportista vt){
+        int filaseleccionada = vt.getJtb_transportista().getSelectedRow();
         if(filaseleccionada<0){
-            JOptionPane.showMessageDialog(null, "Seleccione el cliente que desea eliminar");
+            JOptionPane.showMessageDialog(null, "Seleccione el transportista que desea eliminar");
         }else{
-        int fila = vistac.getJtb_cliente().getSelectedRow();
-        String cedula = vistac.getJtb_cliente().getValueAt(fila, 0).toString();
-        String nombre = vistac.getJtb_cliente().getValueAt(fila, 1).toString();
-                int elim = JOptionPane.showConfirmDialog(vct2, "¿Seguro que desea eliminar a "+nombre+"?","Eliminar",JOptionPane.YES_NO_OPTION);
+        int fila = vt.getJtb_transportista().getSelectedRow();
+        String cedula = vt.getJtb_transportista().getValueAt(fila, 0).toString();
+        String nombre = vt.getJtb_transportista().getValueAt(fila, 1).toString();
+                int elim = JOptionPane.showConfirmDialog(vt, "¿Seguro que desea eliminar a "+nombre+"?","Eliminar",JOptionPane.YES_NO_OPTION);
                 if(elim==0){
                     tra.EliminarpTransportista(cedula);
-                    CargarTransportista(vistac, "");
-                    JOptionPane.showMessageDialog(vct2, "proveedor eliminado exitosamente");
+                    CargarTransportista(vt, "", "identificacion");
+                    JOptionPane.showMessageDialog(vt, "Proveedor eliminado exitosamente");
                 }
+                CargarTransportista(vt, "", "identificacion");
         }        
-    }
-       public void FiltrarProveedor(VcrudTransportista2 vc){
+    }    
+           
+    public void FiltrarTransportista(VcrudTransportista vt){
         KeyListener eventoTeclado=new KeyListener() {
             @Override
             public void keyTyped(KeyEvent ke) {                 
@@ -155,11 +136,62 @@ public class ControlCrudTransportista {
 
             @Override
             public void keyReleased(KeyEvent ke) {
-                 String cadena = (vc.getTxtBuscarCli().getText());
-//                 CargarProveedor(vc, cadena);
+                 String cadena = (vt.getTxtBuscarTra().getText());
+                 CargarTransportista(vt, cadena, SeleccionaCampo(vt));
             }
         };
-        vc.getTxtBuscarCli().addKeyListener(eventoTeclado);
+        vt.getTxtBuscarTra().addKeyListener(eventoTeclado);
     }
-     
+       
+    public String SeleccionaCampo(VcrudTransportista vt){
+        String camp= "";
+        if (vt.getjComboBuscar().getSelectedIndex() == 0) {
+            camp = "identificacion";
+        }else{
+            if (vt.getjComboBuscar().getSelectedIndex() == 1) {
+                camp = "nombres";
+            }else{
+                camp= "tipo_id";
+            }
+        }
+        return camp;
+    }       
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

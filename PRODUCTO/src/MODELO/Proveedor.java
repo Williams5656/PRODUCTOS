@@ -16,7 +16,7 @@ import java.util.logging.Logger;
  *
  * @author Andrea
  */
-public class Proveedores {
+public class Proveedor {
     
     private String Id;
     private String Tipo_id;
@@ -30,7 +30,9 @@ public class Proveedores {
     private String Codigo;
     private String Correo;
 
-    public Proveedores(String Id, String Tipo_id, String RazonSocial, String Sucursal, String Telefono, String Celular, String Domicilio, String Provincia, String Ciudad, String Codigo, String Correo) {
+    
+    //Constructores
+    public Proveedor(String Id, String Tipo_id, String RazonSocial, String Sucursal, String Telefono, String Celular, String Domicilio, String Provincia, String Ciudad, String Codigo, String Correo) {
         this.Id = Id;
         this.Tipo_id = Tipo_id;
         this.RazonSocial = RazonSocial;
@@ -44,12 +46,11 @@ public class Proveedores {
         this.Correo = Correo;
     }
 
-   
-    
-    public Proveedores(){
+    public Proveedor(){
         
     }
-        
+     
+    //Getters y Setters
 
     public String getId() {
         return Id;
@@ -139,6 +140,10 @@ public class Proveedores {
         this.Tipo_id = Tipo_id;
     }
     
+    
+    
+    //Metodos de la Base
+    
      public boolean InsertarProveedor(String tipo_id, String id, String nomb, String aliasS, String codsuc, String dir, String telf, String cel, String corr, String prov, String ciu) {
         ConexionDB conec=new ConexionDB();  
         try {
@@ -162,7 +167,7 @@ public class Proveedores {
             }            
         }   
     }
-     public boolean ActualizarProveedior( String id, String nomb, String aliasS, String codsuc, String dir, String telf, String cel, String corr, String prov, String ciu){
+     public boolean ActualizarProveedor( String tipid, String id, String nomb, String aliasS, String codsuc, String dir, String telf, String cel, String corr, String prov, String ciu){
         ConexionDB conec=new ConexionDB();  
         String sql;
         sql = "Update proveedor ";
@@ -186,7 +191,7 @@ public class Proveedores {
     } 
     
 //Eliminar Clientes   
-    public boolean EliminarpProveedor(String cedula){
+    public boolean EliminarProveedor(String cedula){
         ConexionDB conec=new ConexionDB();
         try {
 
@@ -213,14 +218,14 @@ public class Proveedores {
     }     
     
 //mostrar los clientes de la base 
-    public List<Proveedores> mostrarProveedor(String cedula){
+    public List<Proveedor> mostrarProveedor(String busca, String campo){
         ConexionDB conec=new ConexionDB();  
         try {
-        String sql = "SELECT * FROM proveedor where UPPER(identificacion) like UPPER('"+cedula+"%') and eliminado= '1'";
+        String sql = "SELECT * FROM proveedor where UPPER("+campo+") like UPPER('"+busca+"%') and eliminado= '1'";
         ResultSet rs = conec.query(sql);
-        List<Proveedores> listaC = new ArrayList<Proveedores>();
+        List<Proveedor> listaC = new ArrayList<Proveedor>();
             while (rs.next()) {
-                Proveedores p = new Proveedores();
+                Proveedor p = new Proveedor();
                   
                 p.setId(rs.getString("identificacion"));
                 p.setRazonSocial(rs.getString("nombres"));
@@ -239,7 +244,7 @@ public class Proveedores {
             rs.close();
             return listaC;
         } catch (SQLException ex) {
-            Logger.getLogger(Proveedores.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Proveedor.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }   finally{
             try {

@@ -5,126 +5,129 @@
  */
 package CONTROLADOR;
 
-import MODELO.Cliente;
-import MODELO.Proveedores;
+import MODELO.Proveedor;
+import MODELO.Validaciones;
 import VISTA.CRUD.VCrearProveedor;
-import VISTA.CRUD.VcrudCliente;
-import VISTA.CRUD.VcrudProducto;
-import VISTA.CRUD.VcrudProveedor2;
+import VISTA.CRUD.VcrudProveedor;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
-import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author CLIENTE
+ * @author james
  */
 public class controlCrudProveedor {
     
-    Proveedores pro=new Proveedores();
-    VCrearProveedor vcpr= new VCrearProveedor();
-    VcrudProveedor2 vcp2=new VcrudProveedor2();
+    Proveedor pro=new Proveedor();
+    VCrearProveedor vap= new VCrearProveedor();
+    VcrudProveedor vcp=new VcrudProveedor();
+    Validaciones vali = new Validaciones();
     
-    public void iniciarControl(VcrudProveedor2 vcp2){
-      this.FiltrarProveedor(vcp2);
-      this.CargarProveedor(vcp2, "");
-        vcp2.getBtnEditarCli().addActionListener(l-> EditarProveedor (vcp2));
-        vcp2.getBtnEliminarCli().addActionListener(l-> EliminarProveedor(vcp2));
+    public void iniciarControl(VcrudProveedor vcp){
+        vali.validarJDialog(vcp.getJdProveedores());
+        FiltrarProveedor(vcp);
+        CargarProveedor(vcp, "", "identificacion");
+        vcp.getBtnEditarProv().addActionListener(l-> EditarProveedor (vcp));
+        vcp.getBtnEliminarProv().addActionListener(l-> EliminarProveedor(vcp));
+        vcp.getBtnGuardarProv().addActionListener(l->ActuProv(vcp));
     }
     
-    public void iniciarControlC(VCrearProveedor vcp){
-        vcp.getjButtonGuardar().addActionListener(l->GuardarCliente(vcp));
+    public void iniciarControlCrear(VCrearProveedor vap){
+        vap.getBtnGuardarProv().addActionListener(l->GuardarProveedor(vap));
         
     }
     
-    private void CargarProveedor(VcrudProveedor2 vc, String cedula){
-        List<Proveedores> ListaC = pro.mostrarProveedor(cedula);
-        vc.getJtb_cliente().setRowHeight(135);
+    private void CargarProveedor(VcrudProveedor vp, String busca, String campo){
+        List<Proveedor> ListaP = pro.mostrarProveedor(busca, campo);
         DefaultTableModel mtdTable;
-        mtdTable = (DefaultTableModel)vc.getJtb_cliente().getModel();
+        mtdTable = (DefaultTableModel)vp.getJtb_proveedor().getModel();
         mtdTable.setRowCount(0);
-        ListaC.forEach(p->{
-        String Fila[]={p.getId(),p.getRazonSocial(),p.getCiudad(),p.getCiudad(),p.getCorreo()};
+        ListaP.forEach(p->{
+        String Fila[]={p.getId(),p.getRazonSocial(),p.getTipo_id(),p.getCiudad(),p.getTelefono(),p.getCorreo()};
         mtdTable.addRow(Fila);
         });
-        vc.getJtb_cliente().setModel(mtdTable);
+        vp.getJtb_proveedor().setModel(mtdTable);
     }  
     
-    public void GuardarCliente(VCrearProveedor vc){        
+    //Agregar un nuevo Proveedor
+    public void GuardarProveedor(VCrearProveedor vc){        
         //Agregar
-        List<Proveedores> Bc = new ArrayList<>();
+        List<Proveedor> Bp = new ArrayList<>();//Para buscar si el proveedor ya se encuentra en la base de datos
         try {
-                Bc = pro.mostrarProveedor(vc.getjTextID().getText());
-                Bc.get(0).getId().equalsIgnoreCase("");
-                JOptionPane.showMessageDialog(null, "El proveedor ya se encuentra registrado en la base de datos");
+                Bp = pro.mostrarProveedor(vc.getTxtId().getText(),"identificacion");
+                Bp.get(0).getId().equalsIgnoreCase("");
+                JOptionPane.showMessageDialog(null, "El Proveedor ya se encuentra registrado en la base de datos");
         } catch (Exception e) {
-                pro.InsertarProveedor(vc.getjComboTipoI().getSelectedItem().toString(), vc.getjTextID().getText(), vc.getjTextRazonS().getText(), vc.getjTextSucursal().getText(), vc.getjTextSucursal().getText(), vc.getjTextDir().getText(), vc.getjTextCel().getText(), vc.getjTextTelf().getText(), vc.getjTextEmail().getText(),vc.getjComboPro().getSelectedItem().toString(), vc.getjComboCiu().getSelectedItem().toString());
+                pro.InsertarProveedor(vc.getCbTipoId().getSelectedItem().toString(), vc.getTxtId().getText(), vc.getTxtNombre().getText(), vc.getTxtAliasSuc().getText(), vc.getTxtCodSucursal().getText(), vc.getTxtDireccion().getText(), vc.getTxttelefono().getText(), vc.getTxtCelular().getText(), vc.getTxtCorreo().getText(),vc.getCbProvincia().getSelectedItem().toString(), vc.getCbCiudad().getSelectedItem().toString());
                 JOptionPane.showMessageDialog(vc, "Guardado Exitoso");
         }
-      
     }  
-     public void ActualizarProveedor(VCrearProveedor vc){
-//        editar
+    
+    public void ActuProv(VcrudProveedor vc){
+            //Guardar Cambios editados
             try{
-                pro.ActualizarProveedior(vc.getjTextID().getText(), vc.getjTextRazonS().getText(), vc.getjTextSucursal().getText(), vc.getjTextSucursal().getText(), vc.getjTextDir().getText(), vc.getjTextCel().getText(), vc.getjTextTelf().getText(), vc.getjTextEmail().getText(),vc.getjComboPro().getSelectedItem().toString(), vc.getjComboCiu().getSelectedItem().toString());
+                pro.ActualizarProveedor(vc.getCbTipoId().getSelectedItem().toString(), vc.getTxtId().getText(), vc.getTxtNombre().getText(), vc.getTxtSucursal().getText(), vc.getTxtCodSucursal().getText(), vc.getTxtDireccion().getText(), vc.getTxttelefono().getText(), vc.getTxtCelular().getText(), vc.getTxtCorreo().getText(),vc.getCbProvincia().getSelectedItem().toString(), vc.getCbCiudad().getSelectedItem().toString());
                 JOptionPane.showMessageDialog(vc, "Cambios guardados con exito");
-                CargarProveedor(vcp2, "");
-              
+                CargarProveedor(vcp, "", "identificacion");
+                vc.getJdProveedores().dispose();
             }catch(Exception e){}   
-    }
-     
-  
-          public void EditarProveedor(VcrudProveedor2 vcp){
-        int filaseleccionada = vcp.getJtb_cliente().getSelectedRow();
+    }    
+    
+
+    //Editar Cliente
+    public void EditarProveedor(VcrudProveedor vp){
+        int filaseleccionada = vp.getJtb_proveedor().getSelectedRow();
         if(filaseleccionada<0){
-            JOptionPane.showMessageDialog(null, "Seleccione el cliente que desea editar");
+            JOptionPane.showMessageDialog(null, "Seleccione el proveedor que desea editar");
         }else{
                     //configuracion para mostrar jdialog
-                         vcp.getJdCliente().setVisible(true);
-                    vcp.getJdCliente().setSize(1100,700);
-                    vcp.getJdCliente().setResizable(false);
-                    vcp.getJdCliente().setTitle("Editar");
-                    vcp.getTxtCedulaCli().setEditable(false);
-                    vcp.getjComboBuscar().setEnabled(false);
-                
+                    vp.getJdProveedores().setVisible(true);
+                    vp.getJdProveedores().setSize(1100,700);
+                    vp.getJdProveedores().setResizable(false);
+                    vp.getJdProveedores().setTitle("Editar");
+                    vp.getTxtId().setEditable(false);
+                    vp.getCbTipoId().setEnabled(false);
             //carga
-            int fila = vcp.getJtb_cliente().getSelectedRow();
-            String cedula = vcp.getJtb_cliente().getValueAt(fila, 1).toString();
-             List<Proveedores> ListaP = pro.mostrarProveedor(cedula);
-             vcp.getTxtCedulaCli().setText(cedula);             
-             vcp.getTxtNombre().setText(ListaP.get(0).getRazonSocial());
-             vcp.getTxtDireccion().setText(ListaP.get(0).getCiudad());
-             vcp.getTxtCorreo().setText(ListaP.get(0).getCorreo());
-            
+            int fila = vp.getJtb_proveedor().getSelectedRow();
+            String cedula = vp.getJtb_proveedor().getValueAt(fila, 0).toString();
+             List<Proveedor> ListaP = pro.mostrarProveedor(cedula, "identificacion");
+             vp.getTxtId().setText(ListaP.get(0).getId());      
+             vp.getTxtNombre().setText(ListaP.get(0).getRazonSocial());
+             vp.getTxtSucursal().setText(ListaP.get(0).getSucursal());
+             vp.getTxtDireccion().setText(ListaP.get(0).getDomicilio());
+             vp.getTxtCodSucursal().setText(ListaP.get(0).getCodigo());
+             vp.getTxttelefono().setText(ListaP.get(0).getTelefono());
+             vp.getTxtCelular().setText(ListaP.get(0).getCelular());
+             vp.getTxtCorreo().setText(ListaP.get(0).getCorreo());
         }
-    }
+    }      
           
          
-           public void EliminarProveedor(VcrudProveedor2 vistac){
-        int filaseleccionada = vistac.getJtb_cliente().getSelectedRow();
+    //Eliminar Clientes
+    public void EliminarProveedor(VcrudProveedor vp){
+        int filaseleccionada = vp.getJtb_proveedor().getSelectedRow();
         if(filaseleccionada<0){
-            JOptionPane.showMessageDialog(null, "Seleccione el cliente que desea eliminar");
+            JOptionPane.showMessageDialog(null, "Seleccione el proveedor que desea eliminar");
         }else{
-        int fila = vistac.getJtb_cliente().getSelectedRow();
-        String cedula = vistac.getJtb_cliente().getValueAt(fila, 0).toString();
-        String nombre = vistac.getJtb_cliente().getValueAt(fila, 1).toString();
-                int elim = JOptionPane.showConfirmDialog(vcp2, "¿Seguro que desea eliminar a "+nombre+"?","Eliminar",JOptionPane.YES_NO_OPTION);
+        int fila = vp.getJtb_proveedor().getSelectedRow();
+        String cedula = vp.getJtb_proveedor().getValueAt(fila, 0).toString();
+        String nombre = vp.getJtb_proveedor().getValueAt(fila, 1).toString();
+                int elim = JOptionPane.showConfirmDialog(vp, "¿Seguro que desea eliminar a "+nombre+"?","Eliminar",JOptionPane.YES_NO_OPTION);
                 if(elim==0){
-                    pro.EliminarpProveedor(cedula);
-                    CargarProveedor(vistac, "");
-                    JOptionPane.showMessageDialog(vcp2, "proveedor eliminado exitosamente");
+                    pro.EliminarProveedor(cedula);
+                    CargarProveedor(vcp, "", "identificacion");
+                    JOptionPane.showMessageDialog(vp, "Proveedor eliminado exitosamente");
                 }
+                CargarProveedor(vcp, "", "identificacion");
         }        
-    }
-       public void FiltrarProveedor(VcrudProveedor2 vc){
+    }    
+           
+       public void FiltrarProveedor(VcrudProveedor vc){
         KeyListener eventoTeclado=new KeyListener() {
             @Override
             public void keyTyped(KeyEvent ke) {                 
@@ -137,11 +140,25 @@ public class controlCrudProveedor {
             @Override
             public void keyReleased(KeyEvent ke) {
                  String cadena = (vc.getTxtBuscarCli().getText());
-                 CargarProveedor(vc, cadena);
+                 CargarProveedor(vc, cadena, SeleccionaCampo(vc));
             }
         };
         vc.getTxtBuscarCli().addKeyListener(eventoTeclado);
     }
+       
+    public String SeleccionaCampo(VcrudProveedor vp){
+        String camp= "";
+        if (vp.getjComboBuscar().getSelectedIndex() == 0) {
+            camp = "identificacion";
+        }else{
+            if (vp.getjComboBuscar().getSelectedIndex() == 1) {
+                camp = "nombres";
+            }else{
+                camp= "tipo_id";
+            }
+        }
+        return camp;
+    }       
 }
 
 

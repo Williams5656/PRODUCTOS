@@ -198,7 +198,6 @@ public class VOpcionesProd extends javax.swing.JInternalFrame {
         jPanel1.add(LbTransferencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 320, 180, 210));
 
         LbFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/VISTA/ICONOS/FondoOpciones.jpg"))); // NOI18N
-        LbFondo.setText("jLabel1");
         LbFondo.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
         jPanel1.add(LbFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1110, 660));
 

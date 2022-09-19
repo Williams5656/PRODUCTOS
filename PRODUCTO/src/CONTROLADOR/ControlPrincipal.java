@@ -11,13 +11,10 @@ import VISTA.CRUD.VCrearProveedor;
 import VISTA.CRUD.VCrearTransportista;
 import VISTA.CRUD.VOpcionesCli;
 import VISTA.CRUD.VOpcionesProd;
-import VISTA.CRUD.VcliOpro;
 import VISTA.CRUD.VcrudCliente;
 import VISTA.CRUD.VcrudProducto;
-import VISTA.CRUD.VcrudProveedor2;
-
-import VISTA.CRUD.VcrudTransportista2;
-
+import VISTA.CRUD.VcrudProveedor;
+import VISTA.CRUD.VcrudTransportista;
 import VISTA.PrincipalC;
 import VISTA.VLogin;
 import java.awt.event.ActionEvent;
@@ -129,35 +126,35 @@ public class ControlPrincipal {
         contenedor.getDtPrincipal().add(vcp);
         contenedor.getDtPrincipal().updateUI();
         CentrarVentanaInterna(vcp);
-      ccc.iniciarControlC(vcp);
+        ccc.iniciarControlCrear(vcp);
     }        
     
     public void AbrirMostrarProveedor() {
-     controlCrudProveedor ccc = new controlCrudProveedor ();
-        VcrudProveedor2 vcp = new VcrudProveedor2();
+        controlCrudProveedor ccc = new controlCrudProveedor ();
+        VcrudProveedor vcp = new VcrudProveedor();
         contenedor.getDtPrincipal().add(vcp);
         contenedor.getDtPrincipal().updateUI();
         CentrarVentanaInterna(vcp);
-       ccc.iniciarControl(vcp);
+        ccc.iniciarControl(vcp);
     }    
     
     //Abrir CRUD Proveedores
     public void AbrirCrearTransportista() {
-       ControlCrudTransportista ccc = new ControlCrudTransportista ();
+        ControlCrudTransportista cct = new ControlCrudTransportista ();
         VCrearTransportista vct = new VCrearTransportista();
         contenedor.getDtPrincipal().add(vct);
         contenedor.getDtPrincipal().updateUI();
         CentrarVentanaInterna(vct);
-//        ccc.IniciarControl(vcp);
+        cct.iniciarControlCrear(vct);
     }        
     
     public void AbrirMostrarTransportista() {
-       ControlCrudTransportista ccc = new ControlCrudTransportista ();
-        VcrudTransportista2 vct = new VcrudTransportista2();
+        ControlCrudTransportista cct = new ControlCrudTransportista ();
+        VcrudTransportista vct = new VcrudTransportista();
         contenedor.getDtPrincipal().add(vct);
         contenedor.getDtPrincipal().updateUI();
         CentrarVentanaInterna(vct);
-//        ccc.IniciarControl(vcc);
+        cct.iniciarControl(vct);
     }        
     
 //    //Arir CRUD Usuario
@@ -187,14 +184,6 @@ public class ControlPrincipal {
         AsignaBtnControlCli(voc);
     }
     //
-public void AbrirCrudTransportista(){
-//        ControlCrudTransportista cct= new ControlCrudTransportista ();
-        VcrudTransportista2 vct= new VcrudTransportista2();
-        contenedor.getDtPrincipal().add(vct);
-        contenedor.getDtPrincipal().updateUI();
-        CentrarVentanaInterna(vct);
-//        cct.IniciarControl(vct);
-    }  
 
 //Centrar Ventanas Internas
     public void CentrarVentanaInterna(JInternalFrame internalFr) {
@@ -276,7 +265,7 @@ public void AbrirCrudTransportista(){
             @Override
             public void mouseReleased(MouseEvent e) {
                contenedor.getDtPrincipal().removeAll();
-                AbrirCrudTransportista();
+                AbrirMostrarTransportista();
             }
         });          
     }    

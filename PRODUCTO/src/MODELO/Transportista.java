@@ -27,7 +27,8 @@ public class Transportista {
     private String Provincia;
     private String Correo;
     private String Placa;
-
+    
+    //Constructores
     public Transportista(String TipoId, String Id, String RazonSocial, String Telefono, String Celular, String Direccion, String Ciudad, String Provincia, String Correo, String Placa) {
         this.TipoId = TipoId;
         this.Id = Id;
@@ -43,7 +44,8 @@ public class Transportista {
     public Transportista(){
         
     }
-
+    
+    //Getters y Setters
     public String getTipoId() {
         return TipoId;
     }
@@ -124,21 +126,14 @@ public class Transportista {
         this.Placa = Placa;
     }
     
-      public boolean InsertarTransportista(String tipid, 
-              String id, 
-              String razon,
-              String telf,
-              String celular, 
-              String dir,
-              String ciud, 
-              String prov,
-              String corr, 
-              String placa) {
+    //Metodos de la base
+    //Crear
+    public boolean InsertarTransportista(String tipid, String id, String razon, String dir, String telf, String cel, String corr, String prov, String ciud, String placa) {
         ConexionDB conec=new ConexionDB();  
         try {      String sql;
                 sql = "Insert into transportista ";
-                sql += " (tipo_id, id_proveedor, razon, telefono, celular, ciudad, provincia,  correo, placa, eliminado) ";
-                sql += "VALUES ('"+tipid+"','"+id+"','"+razon+"','"+telf+"','"+celular+"','"+ciud+"','"+prov+"','"+corr+"','"+placa+"', '1')";
+                sql += " (tipo_id, identificacion, razonsocial, direccion, telefono, celular, correo, provincia,  ciudad, placa, eliminado) ";
+                sql += "VALUES ('"+tipid+"','"+id+"','"+razon+"','"+dir+"','"+telf+"','"+cel+"','"+corr+"','"+prov+"','"+ciud+"','"+placa+"', '1')";
                 if (conec.noQuery(sql) == null) {
                     return true;
                 } else {
@@ -155,31 +150,32 @@ public class Transportista {
             }            
         }   
     }
-     public boolean ActualizarTransportista( String id, String razon, String telf,String celular, 
-              String dir, String ciud, String prov, String corr, String placa){
+    
+    //Actualizar
+    public boolean ActualizarTransportista( String tipid, String id, String razon, String dir, String telf, String cel, String corr, String prov, String ciud, String placa){
         ConexionDB conec=new ConexionDB();  
         String sql;
-        sql = "Update cliente ";
-        sql += "SET  nombres='"+razon+"', telefono='"+telf+"', celular='"+celular+"', direccion='"+dir+"', ciudad='"+ciud+"', provincia='"+prov+"',correo='"+corr+"',placa='"+placa+"' ";
-        sql += "WHERE id_cliente = '"+id+"'";
+        sql = "Update transportista ";
+        sql += "SET  razonsocial='"+razon+"', direccion='"+dir+"', telefono='"+telf+"', celular='"+cel+"', correo='"+corr+"', provincia='"+prov+"', ciudad='"+ciud+"',placa='"+placa+"' ";
+        sql += "WHERE id_tra = '"+id+"'";
         if (conec.noQuery(sql) == null) {
-                        try {
-                conec.CerrarConexion();
-            } catch (SQLException e) {
-                System.err.println(e);
-            } 
+                try {
+                    conec.CerrarConexion();
+                    } catch (SQLException e) {
+                    System.err.println(e);
+                    } 
             return true;
         } else {
-                        try {
-                conec.CerrarConexion();
-            } catch (SQLException e) {
-                System.err.println(e);
-            } 
+                try {
+                    conec.CerrarConexion();
+                    } catch (SQLException e) {
+                    System.err.println(e);
+                    } 
             return false;
         }        
     } 
     
-//Eliminar Clientes   
+    //Eliminar Clientes   
     public boolean EliminarpTransportista(String cedula){
         ConexionDB conec=new ConexionDB();
         try {
@@ -206,19 +202,19 @@ public class Transportista {
         }
     }     
     
-//mostrar los clientes de la base 
-    public List<Transportista> mostrarTransportista(String cedula){
+    //mostrar los clientes de la base 
+    public List<Transportista> mostrarTransportista(String busca, String campo){
         ConexionDB conec=new ConexionDB();  
         try {
-        String sql = "SELECT * FROM cliente where UPPER(id_cliente) like UPPER('"+cedula+"%') and eliminado = 1";
+        String sql = "SELECT * FROM transportista where UPPER("+campo+") like UPPER('"+busca+"%') and eliminado = '1'";
         ResultSet rs = conec.query(sql);
         List<Transportista> listaC = new ArrayList<Transportista>();
             while (rs.next()) {
                 Transportista t = new Transportista();
-                t.setId(rs.getString("Id_Transportista"));
-                t.setRazonSocial(rs.getString("RazónSocial"));
-                t.setTipoId(rs.getString("Tipo_id"));
-                 t.setDireccion(rs.getString("direccion"));
+                t.setId(rs.getString("Identificacion"));
+                t.setRazonSocial(rs.getString("razonsocial"));
+                t.setTipoId(rs.getString("tipo_id"));
+                t.setDireccion(rs.getString("direccion"));
                 t.setTelefono(rs.getString("telefono"));
                 t.setCelular(rs.getString("celular"));
                 t.setCorreo(rs.getString("correo"));
@@ -230,7 +226,7 @@ public class Transportista {
             rs.close();
             return listaC;
         } catch (SQLException ex) {
-            Logger.getLogger(Proveedores.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Proveedor.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }   finally{
             try {
@@ -240,6 +236,4 @@ public class Transportista {
             }            
         }        
     }    
-
-   
 }
