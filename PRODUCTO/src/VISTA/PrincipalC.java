@@ -60,6 +60,16 @@ public class PrincipalC extends javax.swing.JFrame {
     public void setLblTransp(JLabel lblTransp) {
         this.LbCompElec = lblTransp;
     }
+
+    public JLabel getLbCompElec() {
+        return LbCompElec;
+    }
+
+    public void setLbCompElec(JLabel LbCompElec) {
+        this.LbCompElec = LbCompElec;
+    }
+    
+    
     
     @SuppressWarnings("unchecked")
     

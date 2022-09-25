@@ -6,10 +6,12 @@
 package CONTROLADOR;
 
 import VISTA.CRUD.VCrearCliente;
+import VISTA.CRUD.VCrearFactura;
 import VISTA.CRUD.VCrearProducto;
 import VISTA.CRUD.VCrearProveedor;
 import VISTA.CRUD.VCrearTransportista;
 import VISTA.CRUD.VOpcionesCli;
+import VISTA.CRUD.VOpcionesComp;
 import VISTA.CRUD.VOpcionesProd;
 import VISTA.CRUD.VcrudCliente;
 import VISTA.CRUD.VcrudProducto;
@@ -75,6 +77,8 @@ public class ControlPrincipal {
         MLProducto();
         //Abre ventana opciones Clientes, proveedores y transportistas
         MLCliPro();
+        //Abre ventana opciones Facturas, etc
+        MLCompEle();
     }
     //Fin Inicia Programa
 
@@ -155,7 +159,14 @@ public class ControlPrincipal {
         contenedor.getDtPrincipal().updateUI();
         CentrarVentanaInterna(vct);
         cct.iniciarControl(vct);
-    }        
+    }     
+    
+    public void AbrirCrearFactura(){
+        VCrearFactura vcpd = new VCrearFactura();
+        contenedor.getDtPrincipal().add(vcpd);
+        contenedor.getDtPrincipal().updateUI();
+        CentrarVentanaInterna(vcpd);
+    }    
     
 //    //Arir CRUD Usuario
 //    public void AbrirCrudUsuario() {
@@ -183,6 +194,15 @@ public class ControlPrincipal {
         CentrarVentanaInterna(voc);   
         AsignaBtnControlCli(voc);
     }
+    
+    public void AbrirOpcionesComp(){
+        VOpcionesComp voc=new VOpcionesComp();
+        contenedor.getDtPrincipal().add(voc);
+        contenedor.getDtPrincipal().updateUI();
+        CentrarVentanaInterna(voc);   
+        AsignaBtnControlComp(voc);
+    }    
+    
     //
 
 //Centrar Ventanas Internas
@@ -268,7 +288,20 @@ public class ControlPrincipal {
                 AbrirMostrarTransportista();
             }
         });          
+    } 
+    
+    public void AsignaBtnControlComp(VOpcionesComp voc){        
+        //LbNuevo
+        voc.getLbNFact().addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
+            public void mouseReleased(MouseEvent e) {
+               contenedor.getDtPrincipal().removeAll();
+               AbrirCrearFactura();
+            }
+        });    
+      
     }    
+    
     //
     //MouseListener CRUD producto
     public void MLProducto(){
@@ -290,6 +323,17 @@ public class ControlPrincipal {
             }
         });          
     }
+    
+    //Comprobantes Electronicos
+    public void MLCompEle(){
+        contenedor.getLbCompElec().addMouseListener(new java.awt.event.MouseAdapter() {            
+            @Override
+            public void mouseReleased(MouseEvent e) {
+               contenedor.getDtPrincipal().removeAll();
+               AbrirOpcionesComp();
+            }
+        });          
+    }    
     
     //MouseListener Login
     public void mouseListenerBtn(JLabel jc) {

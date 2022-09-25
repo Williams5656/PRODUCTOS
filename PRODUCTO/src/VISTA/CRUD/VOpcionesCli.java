@@ -125,7 +125,7 @@ public class VOpcionesCli extends javax.swing.JInternalFrame {
         LbNProv.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
         LbNProv.setForeground(new java.awt.Color(255, 255, 255));
         LbNProv.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        LbNProv.setIcon(new javax.swing.ImageIcon(getClass().getResource("/VISTA/ICONOS/AddTrans.png"))); // NOI18N
+        LbNProv.setIcon(new javax.swing.ImageIcon(getClass().getResource("/VISTA/ICONOS/AddProve.png"))); // NOI18N
         LbNProv.setText(" Nuevo Proveedor");
         LbNProv.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         LbNProv.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
